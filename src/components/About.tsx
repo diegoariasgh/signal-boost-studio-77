@@ -42,8 +42,9 @@ const About = () => {
             <h2 className="display-lg text-foreground">
               Experience{" "}
               <span className="editorial-underline">across borders</span>
-              {" "}— GCC, Africa &amp; Europe.
+              {" "}— Africa, the GCC &amp; Europe.
             </h2>
+
           </div>
 
           {/* Asymmetric two-column: 5 / 7 */}
@@ -51,16 +52,14 @@ const About = () => {
             {/* Left: tight narrative + stats */}
             <div className="lg:col-span-5 flex flex-col h-full">
               <p className="lead">
-                Signalworks is a boutique advisory for the funds, founders, and
-                institutions building across the GCC, Africa, and Europe. We
-                sit at the intersection of early-stage investing, fund
+                We sit at the intersection of early-stage investing, fund
                 operations, and go-to-market — translating regional context
-                into decisions that move.
+                across Africa, the GCC, and Europe into decisions that move.
               </p>
 
-              <div className="mt-10">
+              <div className="mt-10 md:mt-12">
                 <p className="eyebrow mb-6">Led by —</p>
-                <div className="flex items-start gap-6">
+                <div className="flex items-start gap-4 md:gap-6">
                   <img
                     src={founderProfile}
                     alt="Diego Arias García"
@@ -70,23 +69,25 @@ const About = () => {
                     className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover flex-shrink-0"
                   />
                   <div>
-                    <h3 className="sub-title mb-2">
+                    <h3 className="sub-title mb-1">
                       Diego Arias García
                     </h3>
+                    <p className="eyebrow mb-3">Founder</p>
                     <p className="body-muted">
-                      Operator-investor with a background in global VC
-                      platforms and boutique funds. Built fund ops in new
-                      markets, ran LP engagement, and supported VC-backed
-                      founders on fundraising and GTM.
+                      Operator-investor focused on early-stage venture across
+                      Africa, the GCC, and Europe. Previously led investment
+                      and programs at global VC platforms (Plug and Play) and
+                      boutique funds; now advises funds, accelerators, and
+                      founders on strategy, operations, GTM, and market entry.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-auto pt-8 border-t border-border grid grid-cols-3 gap-6">
+              <div className="mt-auto pt-8 border-t border-border grid grid-cols-3 gap-3 sm:gap-6">
                 {stats.map((s) => (
                   <div key={s.label}>
-                    <p className="font-space-grotesk text-4xl md:text-5xl font-bold text-electric leading-none mb-3">
+                    <p className="font-space-grotesk text-3xl md:text-5xl font-bold text-electric leading-none mb-3">
                       {s.value}
                     </p>
                     <p className="eyebrow">
@@ -95,6 +96,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
+
             </div>
 
             {/* Right: highlights accordion */}
