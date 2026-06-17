@@ -55,29 +55,20 @@ const About = () => {
                 across Africa, the GCC, and Europe into decisions that move.
               </p>
 
-              <div className="mt-10 md:mt-12">
-                <p className="eyebrow mb-6">Led by —</p>
-                <div className="flex items-start gap-4 md:gap-6">
+              <div className="mt-8 md:mt-10">
+                <p className="eyebrow mb-4">Led by —</p>
+                <div className="flex items-center gap-4">
                   <img
                     src={founderProfile}
                     alt="Diego Arias García"
-                    width="112"
-                    height="112"
+                    width="64"
+                    height="64"
                     loading="lazy"
-                    className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover flex-shrink-0"
+                    className="w-14 h-14 rounded-full object-cover flex-shrink-0"
                   />
                   <div>
-                    <h3 className="sub-title mb-1">
-                      Diego Arias García
-                    </h3>
-                    <p className="eyebrow mb-3">Founder</p>
-                    <p className="body-muted">
-                      Operator-investor focused on early-stage venture across
-                      Africa, the GCC, and Europe. Previously led investment
-                      and programs at global VC platforms (Plug and Play) and
-                      boutique funds; now advises funds, accelerators, and
-                      founders on strategy, operations, GTM, and market entry.
-                    </p>
+                    <h3 className="sub-title leading-tight">Diego Arias García</h3>
+                    <p className="eyebrow">Founder</p>
                   </div>
                 </div>
               </div>
