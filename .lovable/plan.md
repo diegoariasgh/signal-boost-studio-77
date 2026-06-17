@@ -1,36 +1,28 @@
-## Goal
-Bring the three case study pages (`CaseStudiesFunds`, `CaseStudiesInstitutions`, `CaseStudiesStartups`) in line with the editorial dark aesthetic established on the landing page — oversized Space Grotesk display type, electric-blue accents, generous negative space, hairline dividers instead of card chrome, and the `editorial-underline` treatment.
+## Typography refresh: Sora (display) + Manrope (body)
 
-## Changes per page
+Replace Space Grotesk across the site with a true two-font system, and fix the synthetic-weight bug on display headlines.
 
-**Hero section**
-- Drop the slate-tinted hero block and rounded icon badge.
-- Replace with a full-bleed dark intro: small uppercase eyebrow ("Case Studies — Funds & Investors"), oversized display headline using the same `display-xl` / Space Grotesk Black treatment as the home hero, with one accent word wrapped in `editorial-underline`.
-- Lead paragraph in muted foreground, max-w-2xl.
-- Replace the `Button variant="ghost"` back link with a subtle inline arrow link ("← Back to Services") in the eyebrow row.
+### Changes
 
-**Case study list**
-- Remove `Card`/`CardHeader`/`CardContent` chrome and the rounded-pill category tag.
-- Each study becomes a full-width editorial entry separated by hairline `border-t border-foreground/15` dividers (matching Services/FeaturedProjects).
-- Two-column layout per study on desktop: left column = index number (01, 02…), category label (uppercase tracked), title (display type), client line in electric blue. Right column = the three Challenge / Solution / Results blocks stacked, each with an uppercase tracked label, thin top rule, and bullet items using a small electric-blue square or dash instead of the dot.
-- On hover, the row gets a faint background tint and the title shifts to electric blue (reuse `signal-transition`).
+1. **`index.html`** — Replace Google Fonts `<link>` with Sora (400, 500, 600, 700, 800) + Manrope (300, 400, 500, 600, 700). Drop Space Grotesk import.
 
-**Typography & tokens**
-- Use only semantic tokens (`text-foreground`, `text-muted-foreground`, `text-electric`, `border-foreground/15`). No `bg-slate-light`, no `bg-card/50 backdrop-blur`.
-- Headings: `font-space-grotesk font-black uppercase tracking-tight`.
-- Body: existing body font, `text-muted-foreground`.
+2. **`tailwind.config.ts`** — Update font families:
+   - `display: ['Sora', 'sans-serif']`
+   - `sans: ['Manrope', 'sans-serif']` (body default)
+   - Keep `mono` as-is for now.
 
-**Shared section structure**
-- Wrap content in `min-h-screen` sections consistent with the Core memory rule.
-- Keep `Header` and `Footer` unchanged.
+3. **`src/index.css`** — Audit display utilities (`.display-lg`, `.display-md`, eyebrow, etc.):
+   - Change `font-black` (900) usages to `font-extrabold` (800) so we use a real loaded weight (no synthetic faux-bold blur).
+   - Body inherits Manrope automatically; no per-component edits needed.
+   - Leave `.editorial-underline` thickness/offset untouched (already tuned).
 
-## Technical notes
-- All three files share the same structure, so factor the repeated markup into a small local component inside each page (or a shared `CaseStudyEntry` component in `src/components/`) to avoid duplication.
-- Preserve all existing case study content verbatim (titles, clients, challenges, solutions, results, categories) — only presentation changes.
-- No routing, data, or business-logic changes.
+4. **No component edits required** — all headings/body use the semantic font tokens, so the swap flows through Hero, About, Services, FeaturedProjects, Case Study pages, and the header automatically.
 
-## Files touched
-- `src/pages/CaseStudiesFunds.tsx`
-- `src/pages/CaseStudiesInstitutions.tsx`
-- `src/pages/CaseStudiesStartups.tsx`
-- (new) `src/components/CaseStudyEntry.tsx` — shared editorial row component
+### Out of scope
+
+- Monospace font upgrade (numeric labels stay on system mono — can be a follow-up).
+- Any copy or layout changes.
+
+### Verification
+
+Reload preview, spot-check Hero H1, About H2, Services cards, and a Case Study page for: (a) no blurry faux-bold, (b) consistent body rendering in Manrope, (c) editorial underline still sits correctly under the new display font.
