@@ -34,13 +34,40 @@ const ROLES = [
 ] as const;
 
 const schema = z.object({
-  name: z.string().trim().min(1, "Required").max(100),
-  email: z.string().trim().email("Enter a valid email").max(255),
-  company: z.string().trim().max(150).optional().default(""),
-  role: z.enum(ROLES, { required_error: "Pick one" }),
-  message: z.string().trim().min(1, "Required").max(2000),
-  timeline: z.string().trim().max(100).optional().default(""),
+  name: z
+    .string()
+    .trim()
+    .min(2, "Please enter your name (2+ characters)")
+    .max(100, "Name must be under 100 characters"),
+  email: z
+    .string()
+    .trim()
+    .min(1, "Email is required")
+    .email("Enter a valid email address")
+    .max(255, "Email must be under 255 characters"),
+  company: z
+    .string()
+    .trim()
+    .max(150, "Company must be under 150 characters")
+    .optional()
+    .default(""),
+  role: z.enum(ROLES, {
+    required_error: "Please select an option",
+    invalid_type_error: "Please select an option",
+  }),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Please share at least a sentence (10+ characters)")
+    .max(2000, "Message must be under 2000 characters"),
+  timeline: z
+    .string()
+    .trim()
+    .max(100, "Timeline must be under 100 characters")
+    .optional()
+    .default(""),
 });
+
 
 type FormValues = z.infer<typeof schema>;
 
