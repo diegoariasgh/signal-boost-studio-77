@@ -65,28 +65,28 @@ const FeaturedProjects = () => {
 
                 {/* Number + arrow */}
                 <div className="flex items-start justify-between mb-8">
-                  <span className="text-sm font-mono text-electric">{p.n}</span>
+                  <span className="index-num">{p.n}</span>
                   <ArrowUpRight className="w-6 h-6 text-foreground/60 group-hover:text-electric group-hover:translate-x-1 group-hover:-translate-y-1 signal-transition" />
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-x-3 gap-y-2 mb-6 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <div className="eyebrow flex flex-wrap gap-x-3 gap-y-2 mb-6">
                   {p.tags.map((t, i) => (
                     <span key={i} className="flex items-center gap-3">
-                      {i > 0 && <span className="text-electric/60">·</span>}
+                      {i > 0 && <span className="text-muted-foreground/50">·</span>}
                       {t}
                     </span>
                   ))}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-3xl md:text-4xl font-bold font-space-grotesk text-foreground leading-tight mb-4">
+                <h3 className="card-title mb-4">
                   {p.title}
                 </h3>
-                <p className="text-lg text-foreground/75 leading-relaxed mb-5">
+                <p className="lead mb-5">
                   {p.subtitle}
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-8 flex-grow">
+                <p className="body-muted mb-8 flex-grow">
                   {p.blurb}
                 </p>
 
@@ -97,7 +97,7 @@ const FeaturedProjects = () => {
                       <p className="text-lg md:text-xl font-bold font-space-grotesk text-foreground leading-tight">
                         {s.value}
                       </p>
-                      <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-1">
+                      <p className="eyebrow mt-1">
                         {s.label}
                       </p>
                     </div>
@@ -105,7 +105,7 @@ const FeaturedProjects = () => {
                 </div>
 
                 {/* CTA */}
-                <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground group-hover:text-electric signal-transition">
+                <span className="eyebrow inline-flex items-center gap-2 text-foreground group-hover:text-electric signal-transition">
                   {p.cta}
                   <ArrowUpRight className="w-4 h-4" />
                 </span>

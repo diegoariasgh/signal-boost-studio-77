@@ -52,7 +52,7 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-light/80 max-w-2xl leading-relaxed mb-12">
+            <p className="lead-light max-w-2xl mb-12">
               Boutique advisory for funds, founders, and the institutions
               backing them — across&nbsp;Africa, the GCC, and Europe.
             </p>
@@ -76,7 +76,7 @@ const Hero = () => {
       <div className="relative z-10 hidden md:flex items-center justify-end container mx-auto px-6 pb-8">
         <a
           href="#about"
-          className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-slate-light/60 hover:text-electric signal-transition"
+          className="eyebrow-light flex items-center gap-3 hover:text-electric signal-transition"
         >
           Scroll
           <ArrowDown className="w-4 h-4" />

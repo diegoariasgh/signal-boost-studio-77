@@ -41,18 +41,17 @@ const Testimonials = () => {
               >
                 <span
                   aria-hidden
-                  className="font-space-grotesk text-electric/30 leading-none select-none"
-                  style={{ fontSize: "clamp(5rem, 10vw, 9rem)" }}
+                  className="font-space-grotesk text-electric/40 leading-none select-none"
+                  style={{ fontSize: "clamp(4rem, 7vw, 6rem)" }}
                 >
                   &ldquo;
                 </span>
-                <blockquote className="-mt-8 md:-mt-12 text-lg md:text-xl text-foreground/85 leading-relaxed font-light">
+                <blockquote className="-mt-6 md:-mt-8 lead font-light">
                   {t.content}
                 </blockquote>
                 <figcaption className="mt-8 pt-6 border-t border-border">
                   <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-electric mt-1">{t.role}</p>
-                  <p className="text-sm text-muted-foreground">{t.company}</p>
+                  <p className="body-muted text-sm mt-1">{t.role} · {t.company}</p>
                 </figcaption>
               </figure>
             ))}
@@ -61,7 +60,7 @@ const Testimonials = () => {
           {/* Coming soon hairline row */}
           <div className="mt-16 pt-8 border-t border-border flex items-center justify-between">
             <p className="eyebrow">More quotes coming soon</p>
-            <span className="text-electric font-mono text-xs">+</span>
+            <span className="index-num">+</span>
           </div>
         </div>
       </div>

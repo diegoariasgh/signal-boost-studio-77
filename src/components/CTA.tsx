@@ -38,7 +38,7 @@ const CTA = () => {
             <span className="text-electric">execution</span>.
           </h2>
 
-          <p className="text-lg text-slate-light/80 leading-relaxed mb-10">
+          <p className="lead-light mb-10">
             Share a few lines on your goal, and we'll take it from there.
           </p>
 
