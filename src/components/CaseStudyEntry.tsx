@@ -45,7 +45,7 @@ const CaseStudyEntry = ({ index, study }: Props) => {
               {study.category}
             </span>
           </div>
-          <h3 className="font-space-grotesk font-black uppercase tracking-tight leading-[0.95] text-foreground text-3xl md:text-4xl lg:text-5xl group-hover:text-electric signal-transition">
+          <h3 className="font-space-grotesk font-extrabold uppercase tracking-tight leading-[0.95] text-foreground text-3xl md:text-4xl lg:text-5xl group-hover:text-electric signal-transition">
             {study.title}
           </h3>
           <p className="mt-6 text-electric text-sm md:text-base">{study.client}</p>
@@ -89,7 +89,7 @@ export const CaseStudyHero = ({
         <span className="text-foreground/30">/</span>
         <span>{eyebrow}</span>
       </div>
-      <h1 className="font-space-grotesk font-black uppercase leading-[0.95] tracking-tight text-foreground text-5xl md:text-7xl lg:text-8xl max-w-5xl">
+      <h1 className="font-space-grotesk font-extrabold uppercase leading-[0.95] tracking-tight text-foreground text-5xl md:text-7xl lg:text-8xl max-w-5xl">
         {title}
         {accent && (
           <>

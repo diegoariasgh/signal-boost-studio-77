@@ -14,7 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        'space-grotesk': ['Space Grotesk', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        display: ['Sora', 'system-ui', 'sans-serif'],
+        // Alias kept so existing `font-space-grotesk` classes now render Sora
+        'space-grotesk': ['Sora', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

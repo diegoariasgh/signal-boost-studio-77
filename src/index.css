@@ -120,7 +120,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-space-grotesk;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
@@ -211,11 +211,11 @@ All colors MUST be HSL.
     @apply text-xs md:text-sm uppercase tracking-[0.2em] text-slate-light/70 font-medium;
   }
   .display-xl {
-    @apply font-space-grotesk font-black uppercase leading-[0.95] tracking-tight;
+    @apply font-display font-extrabold uppercase leading-[0.95] tracking-tight;
     font-size: clamp(2.5rem, 8vw, 7rem);
   }
   .display-lg {
-    @apply font-space-grotesk font-black uppercase leading-[0.95] tracking-tight;
+    @apply font-display font-extrabold uppercase leading-[0.95] tracking-tight;
     font-size: clamp(2rem, 6vw, 5rem);
   }
   .editorial-underline {
