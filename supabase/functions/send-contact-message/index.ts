@@ -152,6 +152,51 @@ Deno.serve(async (req) => {
     );
   }
 
+  // ---------- Spam protection ----------
+  // 1) Honeypot: real users never fill the hidden field.
+  if (data._hp && data._hp.trim().length > 0) {
+    console.warn("contact form: honeypot tripped", { email: data.email });
+    // Return success to avoid signaling bots that they were detected.
+    return new Response(JSON.stringify({ ok: true }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // 2) Minimum fill time: bots submit near-instantly.
+  if (
+    typeof data._elapsedMs === "number" &&
+    data._elapsedMs < MIN_ELAPSED_MS
+  ) {
+    console.warn("contact form: submitted too fast", {
+      email: data.email,
+      elapsedMs: data._elapsedMs,
+    });
+    return new Response(JSON.stringify({ ok: true }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // 3) Link flood: typical spam payload.
+  const urlMatches = data.message.match(URL_RE) ?? [];
+  if (urlMatches.length > MAX_URLS) {
+    console.warn("contact form: too many links", {
+      email: data.email,
+      count: urlMatches.length,
+    });
+    return new Response(
+      JSON.stringify({
+        error: "Your message contains too many links. Please remove some and try again.",
+      }),
+      {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
+  }
+
+
   const flagged = isLikelyInjection(
     data.name,
     data.company,
