@@ -1,7 +1,11 @@
-## Make the nav "Get in touch" button pop in highlight blue
+## Balance the About two-column layout
 
-Swap the `Button` variant for the desktop nav CTA in `src/components/Header.tsx` (line 67–75) from `outline-light` to a filled electric-blue style. Use the existing `electric` token (`bg-electric text-white hover:bg-electric/90`) so it matches the brand highlight blue already used elsewhere (active nav link, accents).
+The right column (founder card + accordion) is much taller than the left (intro + stats), and the left is `sticky`, which makes the imbalance obvious.
 
-Leave the mobile menu version (line ~112) as-is unless you'd like it changed too — it lives inside a popover where the outline reads better. If you want the mobile one matched as well, say so and I'll do both.
+Change in `src/components/About.tsx`:
 
-No other changes.
+- Switch the grid from `items-start` to `items-stretch` so both columns fill the same row height.
+- Remove `lg:sticky lg:top-32` from the left column.
+- Make the left column a flex column (`flex flex-col h-full`) with the intro at top and stats pushed to the bottom (`mt-auto`), so its top and bottom edges align with the right column's founder card and last accordion item.
+
+Result: equal-height columns, intro aligned with the founder card at the top, stats aligned with the bottom of the accordion. No copy or styling changes beyond layout.

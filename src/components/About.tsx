@@ -47,9 +47,9 @@ const About = () => {
           </div>
 
           {/* Asymmetric two-column: 5 / 7 */}
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-stretch">
             {/* Left: tight narrative + stats */}
-            <div className="lg:col-span-5 space-y-10 lg:sticky lg:top-32">
+            <div className="lg:col-span-5 flex flex-col h-full">
               <p className="lead">
                 Signalworks is a boutique advisory for the funds, founders, and
                 institutions building across the GCC, Africa, and Europe. We
@@ -58,7 +58,7 @@ const About = () => {
                 into decisions that move.
               </p>
 
-              <div className="pt-8 border-t border-border grid grid-cols-3 gap-6">
+              <div className="mt-auto pt-8 border-t border-border grid grid-cols-3 gap-6">
                 {stats.map((s) => (
                   <div key={s.label}>
                     <p className="font-space-grotesk text-4xl md:text-5xl font-bold text-electric leading-none mb-3">
