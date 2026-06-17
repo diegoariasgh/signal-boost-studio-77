@@ -8,6 +8,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const navItems = [
   { id: "about", label: "About" },
@@ -21,6 +23,8 @@ const Header = () => {
   const activeSection = useActiveSection();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -28,6 +32,21 @@ const Header = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const goToSection = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpen(false);
+    if (location.pathname === "/") {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", `#${id}`);
+        return;
+      }
+    }
+    navigate(`/#${id}`);
+  };
+
 
   return (
     <header
@@ -55,6 +74,7 @@ const Header = () => {
               <a
                 key={item.id}
                 href={`/#${item.id}`}
+                onClick={goToSection(item.id)}
                 className={`text-sm tracking-wide signal-transition ${
                   activeSection === item.id
                     ? "text-electric"
@@ -69,10 +89,11 @@ const Header = () => {
               asChild
               className="bg-electric text-white hover:bg-electric/90"
             >
-              <a href="#contact">
+              <a href="/#contact" onClick={goToSection("contact")}>
                 Get in touch
               </a>
             </Button>
+
           </nav>
 
           {/* Mobile */}
@@ -95,8 +116,8 @@ const Header = () => {
                   {navItems.map((item) => (
                     <a
                       key={item.id}
-                      href={`#${item.id}`}
-                      onClick={() => setOpen(false)}
+                      href={`/#${item.id}`}
+                      onClick={goToSection(item.id)}
                       className={`text-base px-3 py-2 rounded-md signal-transition ${
                         activeSection === item.id
                           ? "text-electric"
@@ -108,11 +129,12 @@ const Header = () => {
                   ))}
                   <div className="pt-2 border-t border-white/10">
                     <Button variant="signal" className="w-full" asChild>
-                      <a href="#contact" onClick={() => setOpen(false)}>
+                      <a href="/#contact" onClick={goToSection("contact")}>
                         Get in touch
                       </a>
                     </Button>
                   </div>
+
                 </nav>
               </PopoverContent>
             </Popover>
