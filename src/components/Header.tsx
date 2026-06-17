@@ -116,8 +116,8 @@ const Header = () => {
                   {navItems.map((item) => (
                     <a
                       key={item.id}
-                      href={`#${item.id}`}
-                      onClick={() => setOpen(false)}
+                      href={`/#${item.id}`}
+                      onClick={goToSection(item.id)}
                       className={`text-base px-3 py-2 rounded-md signal-transition ${
                         activeSection === item.id
                           ? "text-electric"
@@ -129,11 +129,12 @@ const Header = () => {
                   ))}
                   <div className="pt-2 border-t border-white/10">
                     <Button variant="signal" className="w-full" asChild>
-                      <a href="#contact" onClick={() => setOpen(false)}>
+                      <a href="/#contact" onClick={goToSection("contact")}>
                         Get in touch
                       </a>
                     </Button>
                   </div>
+
                 </nav>
               </PopoverContent>
             </Popover>
