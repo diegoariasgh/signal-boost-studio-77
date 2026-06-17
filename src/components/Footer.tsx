@@ -16,8 +16,9 @@ const Footer = () => {
                 className="h-9 w-auto mb-4"
               />
               <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-                Boutique advisory for funds, founders, and the institutions backing them — across Africa, the GCC, and Europe.
+                Senior-led venture &amp; innovation advisory. Africa · GCC · Europe.
               </p>
+
             </div>
 
             <div>
