@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight, Mail, ChevronDown } from "lucide-react";
+import { Mail, ChevronDown } from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -42,25 +42,7 @@ const CTA = () => {
             Share a few lines on your goal, and we'll take it from there.
           </p>
 
-          <div className="flex flex-col gap-4">
-            <Button
-              variant="outline-light"
-              size="lg"
-              className="group justify-start"
-              asChild
-            >
-              <a
-                href="https://zcal.co/diegoarias/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Book an Intro Call
-                <ArrowRight className="ml-auto w-4 h-4 group-hover:translate-x-1 signal-transition" />
-              </a>
-            </Button>
-
-            <Collapsible open={open} onOpenChange={setOpen}>
+          <Collapsible open={open} onOpenChange={setOpen}>
               <CollapsibleTrigger asChild>
                 <Button
                   variant="outline-light"
