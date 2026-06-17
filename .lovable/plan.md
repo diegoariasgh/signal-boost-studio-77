@@ -1,28 +1,48 @@
-## Sharp Rectilinear button system
+## Copy refresh — Services + About highlights
 
-Replace pill buttons site-wide with zero-radius, uppercase Sora-labeled buttons that match the editorial aesthetic.
+Two surgical edits to remove repetition and tighten the editorial voice.
 
-### Changes
+### 1. Services ("What we do")
 
-1. **`src/components/ui/button.tsx`** — Update shadcn button variants:
-   - Remove `rounded-md` from base; set `rounded-none`.
-   - Default font: `font-display font-extrabold uppercase tracking-wider text-sm`.
-   - `default` (primary): `bg-electric text-white hover:bg-electric/90`, no radius.
-   - `outline` (secondary): `border-2 border-white/20 text-foreground hover:border-foreground hover:bg-white/5`.
-   - `ghost`, `secondary`, `link`: align radius + casing; keep behavior.
-   - Sizes: bump default padding to `px-8 py-5` for hero-weight CTAs; keep `sm` for header use (`px-6 py-2 text-xs`).
-   - Add `active:scale-95` micro-interaction.
+**Problem:** Each row has a description and three feature bullets that restate the same thing in different words (e.g. "Fund setup, deployment strategy, and portfolio operations" → bullets: "Fund setup, strategy, and operations" / "Deployment strategy and LP engagement" / "Portfolio structuring and secondaries").
 
-2. **`src/components/Header.tsx`** — "Book a call" button: switch to outline variant, small size, remove any rounded-full overrides.
+**Fix:** Drop the feature bullet list entirely. Replace with one richer description paragraph + a single line of concrete deliverables/outcomes underneath (no bullets, comma-separated). The grid becomes simpler: title + description on the left, deliverables list on the right, "Case studies →" link.
 
-3. **`src/components/Hero.tsx`** — Confirm "Get in Touch" uses primary (with arrow icon, already present) and "Learn More" uses outline. Remove any leftover `rounded-*` classes.
+Proposed copy:
 
-4. **Audit other CTAs** in `Services.tsx`, `FeaturedProjects.tsx`, `About.tsx`, `Contact.tsx`, case study pages — strip any `rounded-full` / `rounded-md` overrides so the new sharp shape flows through.
+- **01 Funds & Investors**
+  - *Description:* "Fund setup, deployment strategy, and portfolio operations for emerging managers building in new markets."
+  - *Deliverables:* Fund formation & ops · LP engagement · Portfolio value creation
+- **02 Institutions & Accelerators**
+  - *Description:* "Program design, scouting, and partnerships for the institutions building venture capability."
+  - *Deliverables:* Program & cohort design · Scouting & diligence · Innovation strategy
+- **03 Startups & Founders**
+  - *Description:* "Narrative, fundraising, and cross-border GTM for founders going regional or global."
+  - *Deliverables:* Pitch & investor materials · Fundraising strategy · Market entry & partnerships
+
+Structural change: remove `<ul>` bullet markup; render the deliverables as a single line with `·` separators in a smaller, muted style. Keeps the editorial rhythm without parroting the description.
+
+### 2. About highlights
+
+**Problem:** "Regional Depth" and "Cross-Border Execution" both describe geography/local networks; the differentiation is fuzzy. "Proven Track Record" is the only non-geography item.
+
+**Fix:** Collapse from 3 cards to **2 expandable accordion items**, with the third merged in. Default state: titles + one-line summaries visible; click to expand the full body. Uses existing shadcn `Accordion` (already in the project at `src/components/ui/accordion.tsx`).
+
+Proposed highlights:
+
+- **01 Cross-border execution** *(merges old Regional Depth + Cross-Border Execution)*
+  - *Summary:* "Soft-landings, market entry, and partnerships across GCC, North Africa, Europe, the US, and Japan."
+  - *Expanded:* "Active in UAE, KSA, Morocco, and Egypt with on-the-ground networks. Recent work includes US ↔ GCC market entry with soft-landings via top accelerators, grant and accelerator placements, and partnership development for multi-country expansion."
+- **02 Proven track record**
+  - *Summary:* "Engagements with global VC platforms, accelerators, and DFIs."
+  - *Expanded:* "Strategy and workshops with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank. Recent work spans venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech."
+
+### Files
+
+- `src/components/Services.tsx` — copy + bullet markup removal
+- `src/components/About.tsx` — rewrite `highlights`, swap the manual list for shadcn `<Accordion type="single" collapsible>`, keep the numbered "01 / 02" + electric accent styling on triggers
 
 ### Out of scope
 
-- Color palette, typography weights, or layout changes beyond the button itself.
-
-### Verification
-
-Screenshot hero + header at desktop to confirm sharp corners, electric-blue primary, and outline secondary render as in the chosen prototype. Spot-check Contact and a Case Study page.
+- Hero, CTA, Header copy
+- Layout or typography changes beyond what the accordion swap requires

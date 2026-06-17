@@ -4,34 +4,25 @@ const services = [
   {
     n: "01",
     title: "Funds & Investors",
-    description: "Fund setup, deployment strategy, and portfolio operations for emerging managers.",
-    features: [
-      "Fund setup, strategy, and operations",
-      "Deployment strategy and LP engagement",
-      "Portfolio structuring and secondaries",
-    ],
+    description:
+      "Fund setup, deployment strategy, and portfolio operations for emerging managers building in new markets.",
+    deliverables: ["Fund formation & ops", "LP engagement", "Portfolio value creation"],
     slug: "funds-and-investors",
   },
   {
     n: "02",
     title: "Institutions & Accelerators",
-    description: "Programs, scouting, and partnership design for the institutions building venture capability.",
-    features: [
-      "Program and partnership design",
-      "Startup scouting and evaluation",
-      "Market entry and innovation strategy",
-    ],
+    description:
+      "Program design, scouting, and partnerships for the institutions building venture capability.",
+    deliverables: ["Program & cohort design", "Scouting & diligence", "Innovation strategy"],
     slug: "institutions-and-accelerators",
   },
   {
     n: "03",
     title: "Startups & Founders",
-    description: "Narrative, fundraising, and cross-border GTM for founders going regional or global.",
-    features: [
-      "Fundraising preparation and investor materials",
-      "Go-to-market and partnership strategy",
-      "Regional and cross-border expansion",
-    ],
+    description:
+      "Narrative, fundraising, and cross-border GTM for founders going regional or global.",
+    deliverables: ["Pitch & investor materials", "Fundraising strategy", "Market entry & partnerships"],
     slug: "startups-and-founders",
   },
 ];
@@ -80,18 +71,13 @@ const Services = () => {
                     </p>
                   </div>
 
-                  {/* Features */}
-                  <ul className="md:col-span-5 space-y-3">
-                    {service.features.map((f, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start text-foreground/80"
-                      >
-                        <span className="w-1.5 h-1.5 bg-electric rounded-full mt-2.5 mr-3 flex-shrink-0" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Deliverables */}
+                  <div className="md:col-span-5 md:pt-3">
+                    <p className="eyebrow mb-3">Deliverables</p>
+                    <p className="text-foreground/80 leading-relaxed">
+                      {service.deliverables.join("  ·  ")}
+                    </p>
+                  </div>
 
                   {/* Link */}
                   <div className="md:col-span-2 flex md:justify-end">

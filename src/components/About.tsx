@@ -1,20 +1,27 @@
 import founderProfile from "@/assets/founder-profile.png";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const highlights = [
   {
     n: "01",
-    title: "Regional Depth",
-    body: "Active across UAE, KSA, Morocco, Egypt and beyond. Cross-border diligence, market entry, and transaction support with local networks and context.",
+    title: "Cross-border execution",
+    summary:
+      "Soft-landings, market entry, and partnerships across GCC, North Africa, Europe, the US, and Japan.",
+    body:
+      "Active in UAE, KSA, Morocco, and Egypt with on-the-ground networks. Recent work includes US ↔ GCC market entry with soft-landings via top accelerators, grant and accelerator placements, and partnership development for multi-country expansion.",
   },
   {
     n: "02",
-    title: "Proven Track Record",
-    body: "Strategy support and workshops for founders and teams; engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank.",
-  },
-  {
-    n: "03",
-    title: "Cross-Border Execution",
-    body: "Soft-landings, partnerships, and grant or accelerator placements across the GCC, North Africa, the US, and Japan — built on local networks and on-the-ground context.",
+    title: "Proven track record",
+    summary:
+      "Engagements with global VC platforms, accelerators, and DFIs.",
+    body:
+      "Strategy and workshops with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank. Recent work spans venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech.",
   },
 ];
 
@@ -83,28 +90,48 @@ const About = () => {
               </div>
             </div>
 
-            {/* Right: numbered editorial list */}
+            {/* Right: expandable editorial list */}
             <div className="lg:sticky lg:top-32">
-              <div className="border-t border-border">
+              <Accordion
+                type="single"
+                collapsible
+                defaultValue="item-01"
+                className="border-t border-border"
+              >
                 {highlights.map((h) => (
-                  <div
+                  <AccordionItem
                     key={h.n}
-                    className="group grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-8 border-b border-border signal-transition hover:bg-muted/40 -mx-4 px-4 rounded-sm"
+                    value={`item-${h.n}`}
+                    className="border-b border-border"
                   >
-                    <span className="text-sm font-mono text-electric pt-1">
-                      {h.n}
-                    </span>
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-semibold font-space-grotesk mb-3">
-                        {h.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {h.body}
-                      </p>
-                    </div>
-                  </div>
+                    <AccordionTrigger className="py-8 hover:no-underline group">
+                      <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 text-left flex-1">
+                        <span className="text-sm font-mono text-electric pt-1">
+                          {h.n}
+                        </span>
+                        <div>
+                          <h3 className="text-xl md:text-2xl font-semibold font-space-grotesk text-foreground group-hover:text-electric signal-transition mb-2">
+                            {h.title}
+                          </h3>
+                          <p className="text-muted-foreground leading-relaxed font-normal">
+                            {h.summary}
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-8">
+                      <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10">
+                        <span className="text-sm font-mono text-transparent select-none">
+                          {h.n}
+                        </span>
+                        <p className="text-foreground/80 leading-relaxed md:text-lg">
+                          {h.body}
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           </div>
         </div>
