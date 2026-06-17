@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight, Mail, ChevronDown } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import ContactForm from "@/components/ContactForm";
 
 const CTA = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section
       id="contact"
@@ -21,42 +29,57 @@ const CTA = () => {
       <div className="absolute -top-32 -right-32 w-[480px] h-[480px] signal-glow rounded-full opacity-30" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <p className="eyebrow-light mb-6">Get in touch —</p>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-6">
-              <h2 className="display-lg text-white mb-8">
-                We partner with mission-aligned teams to turn{" "}
-                <span className="editorial-underline">intent</span> into{" "}
-                <span className="text-electric">execution</span>.
-              </h2>
+          <h2 className="display-lg text-white mb-8">
+            We partner with mission-aligned teams to turn{" "}
+            <span className="editorial-underline">intent</span> into{" "}
+            <span className="text-electric">execution</span>.
+          </h2>
 
-              <p className="text-lg text-slate-light/80 leading-relaxed mb-8 max-w-md">
-                Share a few lines on your goal, and we'll take it from there.
-              </p>
+          <p className="text-lg text-slate-light/80 leading-relaxed mb-10">
+            Share a few lines on your goal, and we'll take it from there.
+          </p>
 
-              <Button
-                variant="outline-light"
-                size="lg"
-                className="group justify-start"
-                asChild
+          <div className="flex flex-col gap-4">
+            <Button
+              variant="outline-light"
+              size="lg"
+              className="group justify-start"
+              asChild
+            >
+              <a
+                href="https://zcal.co/diegoarias/30min"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a
-                  href="https://zcal.co/diegoarias/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book an Intro Call
-                  <ArrowRight className="ml-auto w-4 h-4 group-hover:translate-x-1 signal-transition" />
-                </a>
-              </Button>
-            </div>
+                <Calendar className="w-5 h-5 mr-2" />
+                Book an Intro Call
+                <ArrowRight className="ml-auto w-4 h-4 group-hover:translate-x-1 signal-transition" />
+              </a>
+            </Button>
 
-            <div className="lg:col-span-6">
-              <ContactForm />
-            </div>
+            <Collapsible open={open} onOpenChange={setOpen}>
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="outline-light"
+                  size="lg"
+                  className="group justify-start w-full"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Send a Message
+                  <ChevronDown
+                    className={`ml-auto w-4 h-4 signal-transition ${
+                      open ? "rotate-180" : ""
+                    }`}
+                  />
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pt-6">
+                <ContactForm />
+              </CollapsibleContent>
+            </Collapsible>
           </div>
         </div>
       </div>
