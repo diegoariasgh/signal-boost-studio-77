@@ -67,7 +67,6 @@ const Header = () => {
             <Button
               variant="outline-light"
               size="sm"
-              className="rounded-full px-5"
               asChild
             >
               <a
