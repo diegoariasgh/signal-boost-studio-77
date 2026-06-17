@@ -87,7 +87,7 @@ const Hero = () => {
       {/* Previous projects strip */}
       <div className="relative z-10 border-t border-white/10 bg-navy/40 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <p className="eyebrow-light mb-6">Previous projects —</p>
+          <p className="eyebrow-light mb-6">Trusted by —</p>
           <div className="overflow-hidden">
             <div className="flex items-center gap-16 md:gap-20 animate-[scroll_25s_linear_infinite] w-fit">
               {[...logos, ...logos].map((logo, i) => (
