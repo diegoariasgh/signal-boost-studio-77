@@ -56,7 +56,7 @@ const About = () => {
           {/* Asymmetric two-column: 5 / 7 */}
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-16 items-stretch">
             {/* Left: tight narrative + founder accordion + stats */}
-            <div className="lg:col-span-6 flex flex-col h-full">
+            <div className="lg:col-span-6 flex flex-col h-full border-t border-b border-border py-8">
               <p className="lead">
                 We sit at the intersection of early-stage investing, fund
                 operations, and go-to-market — translating regional context
@@ -66,7 +66,7 @@ const About = () => {
               <Accordion
                 type="single"
                 collapsible
-                className="mt-10 border-t border-border"
+                className="mt-8 border-t border-border"
               >
                 <AccordionItem value="founder" className="border-b border-border">
                   <AccordionTrigger className="py-8 hover:no-underline group">
