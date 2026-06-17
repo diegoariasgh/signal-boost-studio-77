@@ -43,9 +43,9 @@ const Header = () => {
             <img
               src={signalWorksLogo}
               alt="Signal Works"
-              width="160"
-              height="32"
-              className="h-7 w-auto brightness-0 invert"
+              width="40"
+              height="40"
+              className="h-10 w-10 rounded-md object-cover"
             />
           </a>
 
