@@ -58,23 +58,7 @@ const About = () => {
                 into decisions that move.
               </p>
 
-              <div className="mt-auto pt-8 border-t border-border grid grid-cols-3 gap-6">
-                {stats.map((s) => (
-                  <div key={s.label}>
-                    <p className="font-space-grotesk text-4xl md:text-5xl font-bold text-electric leading-none mb-3">
-                      {s.value}
-                    </p>
-                    <p className="eyebrow">
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: founder card + accordion */}
-            <div className="lg:col-span-7 space-y-10">
-              <div>
+              <div className="mt-10">
                 <p className="eyebrow mb-6">Led by —</p>
                 <div className="flex items-start gap-6">
                   <img
@@ -99,6 +83,22 @@ const About = () => {
                 </div>
               </div>
 
+              <div className="mt-auto pt-8 border-t border-border grid grid-cols-3 gap-6">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <p className="font-space-grotesk text-4xl md:text-5xl font-bold text-electric leading-none mb-3">
+                      {s.value}
+                    </p>
+                    <p className="eyebrow">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: highlights accordion */}
+            <div className="lg:col-span-7">
               <Accordion
                 type="single"
                 collapsible
@@ -139,6 +139,7 @@ const About = () => {
                 ))}
               </Accordion>
             </div>
+
           </div>
         </div>
       </div>
