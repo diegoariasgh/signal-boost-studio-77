@@ -202,4 +202,27 @@ All colors MUST be HSL.
       transform: translateX(-50%);
     }
   }
+
+  /* Editorial system */
+  .eyebrow {
+    @apply text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground font-medium;
+  }
+  .eyebrow-light {
+    @apply text-xs md:text-sm uppercase tracking-[0.2em] text-slate-light/70 font-medium;
+  }
+  .display-xl {
+    @apply font-space-grotesk font-black uppercase leading-[0.95] tracking-tight;
+    font-size: clamp(2.5rem, 8vw, 7rem);
+  }
+  .display-lg {
+    @apply font-space-grotesk font-black uppercase leading-[0.95] tracking-tight;
+    font-size: clamp(2rem, 6vw, 5rem);
+  }
+  .editorial-underline {
+    background-image: linear-gradient(hsl(var(--electric-blue)), hsl(var(--electric-blue)));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 0.12em;
+    padding-bottom: 0.05em;
+  }
 }
