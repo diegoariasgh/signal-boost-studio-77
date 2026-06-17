@@ -12,6 +12,7 @@ const CaseStudiesFunds = lazy(() => import("./pages/CaseStudiesFunds"));
 const CaseStudiesInstitutions = lazy(() => import("./pages/CaseStudiesInstitutions"));
 const CaseStudiesStartups = lazy(() => import("./pages/CaseStudiesStartups"));
 const AboutSignalworks = lazy(() => import("./pages/AboutSignalworks"));
+const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/case-studies/funds-and-investors" element={<CaseStudiesFunds />} />
             <Route path="/case-studies/institutions-and-accelerators" element={<CaseStudiesInstitutions />} />
             <Route path="/case-studies/startups-and-founders" element={<CaseStudiesStartups />} />
+            <Route path="/unsubscribe" element={<Unsubscribe />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
