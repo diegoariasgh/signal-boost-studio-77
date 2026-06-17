@@ -1,20 +1,27 @@
 import founderProfile from "@/assets/founder-profile.png";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const highlights = [
   {
     n: "01",
-    title: "Regional Depth",
-    body: "Active across UAE, KSA, Morocco, Egypt and beyond. Cross-border diligence, market entry, and transaction support with local networks and context.",
+    title: "Cross-border execution",
+    summary:
+      "Soft-landings, market entry, and partnerships across GCC, North Africa, Europe, the US, and Japan.",
+    body:
+      "Active in UAE, KSA, Morocco, and Egypt with on-the-ground networks. Recent work includes US ↔ GCC market entry with soft-landings via top accelerators, grant and accelerator placements, and partnership development for multi-country expansion.",
   },
   {
     n: "02",
-    title: "Proven Track Record",
-    body: "Strategy support and workshops for founders and teams; engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank.",
-  },
-  {
-    n: "03",
-    title: "Cross-Border Execution",
-    body: "Soft-landings, partnerships, and grant or accelerator placements across the GCC, North Africa, the US, and Japan — built on local networks and on-the-ground context.",
+    title: "Proven track record",
+    summary:
+      "Engagements with global VC platforms, accelerators, and DFIs.",
+    body:
+      "Strategy and workshops with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank. Recent work spans venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech.",
   },
 ];
 
