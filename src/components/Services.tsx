@@ -4,10 +4,10 @@ const services = [
   {
     n: "01",
     title: "Funds & Investors",
-    description: "Strategic support for institutional capital.",
+    description: "Fund setup, deployment strategy, and portfolio operations for emerging managers.",
     features: [
-      "Fund setup and strategy",
-      "Fundraising support and LP engagement",
+      "Fund setup, strategy, and operations",
+      "Deployment strategy and LP engagement",
       "Portfolio structuring and secondaries",
     ],
     slug: "funds-and-investors",
@@ -15,7 +15,7 @@ const services = [
   {
     n: "02",
     title: "Institutions & Accelerators",
-    description: "Innovation programs and partnerships.",
+    description: "Programs, scouting, and partnership design for the institutions building venture capability.",
     features: [
       "Program and partnership design",
       "Startup scouting and evaluation",
@@ -26,11 +26,11 @@ const services = [
   {
     n: "03",
     title: "Startups & Founders",
-    description: "Growth strategy and market expansion.",
+    description: "Narrative, fundraising, and cross-border GTM for founders going regional or global.",
     features: [
       "Fundraising preparation and investor materials",
       "Go-to-market and partnership strategy",
-      "Regional expansion and growth planning",
+      "Regional and cross-border expansion",
     ],
     slug: "startups-and-founders",
   },
