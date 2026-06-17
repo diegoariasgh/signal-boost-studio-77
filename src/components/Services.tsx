@@ -4,24 +4,18 @@ const services = [
   {
     n: "01",
     title: "Funds & Investors",
-    description:
-      "Fund setup, deployment strategy, and portfolio operations for emerging managers building in new markets.",
     deliverables: ["Fund formation & ops", "LP engagement", "Portfolio value creation"],
     slug: "funds-and-investors",
   },
   {
     n: "02",
     title: "Institutions & Accelerators",
-    description:
-      "Program design, scouting, and partnerships for the institutions building venture capability.",
     deliverables: ["Program & cohort design", "Scouting & diligence", "Innovation strategy"],
     slug: "institutions-and-accelerators",
   },
   {
     n: "03",
     title: "Startups & Founders",
-    description:
-      "Narrative, fundraising, and cross-border GTM for founders going regional or global.",
     deliverables: ["Pitch & investor materials", "Fundraising strategy", "Market entry & partnerships"],
     slug: "startups-and-founders",
   },
@@ -58,25 +52,29 @@ const Services = () => {
                 <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start md:pl-6">
                   {/* Number + title */}
                   <div className="md:col-span-5">
-                    <div className="flex items-baseline gap-5 mb-4">
-                      <span className="text-sm font-mono text-electric">
+                    <div className="flex items-baseline gap-6">
+                      <span className="text-3xl md:text-4xl font-mono text-electric leading-none">
                         {service.n}
                       </span>
                       <h3 className="text-2xl md:text-4xl font-bold font-space-grotesk text-foreground leading-tight">
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-muted-foreground md:text-lg leading-relaxed md:ml-12">
-                      {service.description}
-                    </p>
                   </div>
 
                   {/* Deliverables */}
-                  <div className="md:col-span-5 md:pt-3">
-                    <p className="eyebrow mb-3">Deliverables</p>
-                    <p className="text-foreground/80 leading-relaxed">
-                      {service.deliverables.join("  ·  ")}
-                    </p>
+                  <div className="md:col-span-5">
+                    <ul className="space-y-3">
+                      {service.deliverables.map((d) => (
+                        <li
+                          key={d}
+                          className="flex items-baseline gap-3 text-lg md:text-xl text-foreground/85 leading-snug"
+                        >
+                          <span className="text-electric font-mono">—</span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   {/* Link */}
