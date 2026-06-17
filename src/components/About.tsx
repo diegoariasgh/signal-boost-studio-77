@@ -27,9 +27,9 @@ const About = () => {
           <div className="mb-20 max-w-5xl">
             <p className="eyebrow mb-6">About —</p>
             <h2 className="display-lg text-foreground">
-              Experience across{" "}
-              <span className="editorial-underline">GCC</span>,{" "}
-              North Africa &amp; Europe
+              Experience{" "}
+              <span className="editorial-underline">across borders</span>
+              {" "}— GCC, Africa &amp; Europe.
             </h2>
           </div>
 
