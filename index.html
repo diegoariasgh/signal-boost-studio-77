@@ -39,11 +39,42 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/lojhOCiXPzUYIKSmTyp1rKg2mTi2/uploads/1764074226014-Screenshot 2025-11-24 at 18.50.02.png" />
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "signalworks",
+      "alternateName": "Signalworks",
+      "url": "https://signalworks.xyz",
+      "logo": "https://storage.googleapis.com/gpt-engineer-file-uploads/lojhOCiXPzUYIKSmTyp1rKg2mTi2/uploads/1764074226014-Screenshot 2025-11-24 at 18.50.02.png",
+      "description": "Boutique advisory for funds, founders, and the institutions backing them — across Africa, the GCC, and Europe. Fund formation, fundraising, market entry, and innovation strategy.",
+      "slogan": "Mission-aligned advisory for venture & innovation across EMEA",
+      "areaServed": [
+        { "@type": "Place", "name": "Africa" },
+        { "@type": "Place", "name": "Gulf Cooperation Council" },
+        { "@type": "Place", "name": "Europe" }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Diego Arias García",
+        "jobTitle": "Founder",
+        "sameAs": "https://www.linkedin.com/in/diegoariasgarcia/"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://signalworks.xyz/#contact",
+        "areaServed": ["Africa", "GCC", "Europe"],
+        "availableLanguage": ["English", "French", "Spanish"]
+      }],
+      "sameAs": [
+        "https://www.linkedin.com/company/signalworksxyz/",
+        "https://www.linkedin.com/in/diegoariasgarcia/"
+      ]
+    }
+    </script>
 
     <!-- JSON-LD: ProfessionalService -->
     <script type="application/ld+json">
@@ -100,18 +131,10 @@
       ]
     }
     </script>
+  </head>
 
-    <!-- JSON-LD: Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "signalworks",
-      "url": "https://signalworks.xyz",
-      "sameAs": [
-        "https://www.linkedin.com/company/signalworksxyz/"
-      ]
-    }
-    </script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
