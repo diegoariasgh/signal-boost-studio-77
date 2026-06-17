@@ -47,20 +47,53 @@ type FormValues = z.infer<typeof schema>;
 const fieldClass =
   "bg-white/5 border-white/15 text-white placeholder:text-slate-light/40 focus-visible:ring-electric focus-visible:border-electric";
 
+const DRAFT_KEY = "signalworks.contact-form.draft";
+
+const emptyDraft: FormValues = {
+  name: "",
+  email: "",
+  company: "",
+  role: undefined as unknown as FormValues["role"],
+  message: "",
+  timeline: "",
+};
+
 const ContactForm = () => {
   const [submitting, setSubmitting] = useState(false);
+  const hydrated = useRef(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      role: undefined as unknown as FormValues["role"],
-      message: "",
-      timeline: "",
-    },
+    defaultValues: emptyDraft,
   });
+
+  // Hydrate from localStorage
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(DRAFT_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        form.reset({ ...emptyDraft, ...parsed });
+      }
+    } catch {
+      // ignore
+    } finally {
+      hydrated.current = true;
+    }
+  }, [form]);
+
+  // Persist draft on change (debounced via rAF)
+  useEffect(() => {
+    const sub = form.watch((values) => {
+      if (!hydrated.current) return;
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(values));
+      } catch {
+        // ignore
+      }
+    });
+    return () => sub.unsubscribe();
+  }, [form]);
 
   const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
@@ -70,7 +103,12 @@ const ContactForm = () => {
       });
       if (error) throw error;
       toast.success("Message sent. We'll be in touch shortly.");
-      form.reset();
+      form.reset(emptyDraft);
+      try {
+        localStorage.removeItem(DRAFT_KEY);
+      } catch {
+        // ignore
+      }
     } catch (err) {
       console.error(err);
       toast.error("Couldn't send your message. Please try again or email us.");
@@ -78,6 +116,7 @@ const ContactForm = () => {
       setSubmitting(false);
     }
   };
+
 
   return (
     <Form {...form}>
