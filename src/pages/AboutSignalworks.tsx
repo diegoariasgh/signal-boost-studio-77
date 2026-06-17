@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Who founded signalworks?",
-    a: "signalworks was founded by Diego Arias García. He has worked with Plug and Play Tech Center, NYU Stern School of Business, the African Development Bank, VC4A, Africa Tech Startup Forum, Manta Ray Ventures, and IVB, and has supported early-stage founders across fintech, biotech, IoT, AI, and HR tech.",
+    a: "signalworks was founded by Diego Arias García. He has worked with Plug and Play Tech Center, NYU Stern School of Business, the African Development Bank, VC4A, Africa Tech Startup Forum, 34 Ventures, and IVB, and has supported early-stage founders across fintech, biotech, IoT, AI, and HR tech.",
   },
   {
     q: "How is signalworks different from a traditional consultancy?",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "How do you start working with signalworks?",
-    a: "Book a 30-minute intro call via zcal.co/diegoarias/30min or email diego@signalworks.xyz. The first conversation is a fit and scoping discussion at no cost.",
+    a: "Use the contact form on the signalworks homepage to share your goal and timeline. The first conversation is a fit and scoping discussion at no cost.",
   },
 ];
 
@@ -57,7 +57,7 @@ const trackRecord = [
   { name: "African Development Bank", note: "Multilateral development finance institution backing pan-African entrepreneurship." },
   { name: "VC4A", note: "Pan-African venture capital and entrepreneurship platform." },
   { name: "Africa Tech Startup Forum (ATSF)", note: "Continent-wide convening of founders, investors, and ecosystem builders." },
-  { name: "Manta Ray Ventures", note: "Early-stage venture firm focused on frontier technology." },
+  { name: "34 Ventures", note: "AI venture studio builder." },
   { name: "IVB", note: "Investor and ecosystem partner for cross-border ventures." },
 ];
 
@@ -200,21 +200,11 @@ const AboutSignalworks = () => {
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">Contact</h2>
             <ul className="space-y-2 text-slate-light/85">
               <li>
-                Email:{" "}
-                <a className="text-electric hover:underline" href="mailto:diego@signalworks.xyz">
-                  diego@signalworks.xyz
+                Start a conversation via the{" "}
+                <a className="text-electric hover:underline" href="/#contact">
+                  contact form on the homepage
                 </a>
-              </li>
-              <li>
-                Book a call:{" "}
-                <a
-                  className="text-electric hover:underline"
-                  href="https://zcal.co/diegoarias/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  zcal.co/diegoarias/30min
-                </a>
+                .
               </li>
               <li>
                 LinkedIn:{" "}

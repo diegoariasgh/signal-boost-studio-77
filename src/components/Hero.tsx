@@ -5,7 +5,7 @@ import vc4aLogo from "@/assets/vc4a-logo.png";
 import adbLogo from "@/assets/adb-logo.png";
 import atsfLogo from "@/assets/atsf-logo.png";
 import plugandplayLogo from "@/assets/plugandplay-logo.png";
-import mantaLogo from "@/assets/manta-logo.png";
+import mantaLogo from "@/assets/34-ventures-logo.png";
 import ivbLogo from "@/assets/ivb-logo.png";
 import heroBackground from "@/assets/hero-gradient-bg.png";
 
@@ -15,7 +15,7 @@ const logos = [
   { src: adbLogo, alt: "African Development Bank", h: "h-8 md:h-10" },
   { src: vc4aLogo, alt: "VC4A Venture Capital Platform", h: "h-8 md:h-10" },
   { src: atsfLogo, alt: "Africa Tech Startup Forum", h: "h-8 md:h-10" },
-  { src: mantaLogo, alt: "Manta Ray Ventures", h: "h-8 md:h-10" },
+  { src: mantaLogo, alt: "34 Ventures", h: "h-8 md:h-10" },
   { src: ivbLogo, alt: "IVB", h: "h-8 md:h-10" },
 ];
 
