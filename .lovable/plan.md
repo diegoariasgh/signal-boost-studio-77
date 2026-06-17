@@ -1,34 +1,7 @@
-# Add Organization schema + trigger SEO scan
+## Make the nav "Get in touch" button pop in highlight blue
 
-## What
+Swap the `Button` variant for the desktop nav CTA in `src/components/Header.tsx` (line 67–75) from `outline-light` to a filled electric-blue style. Use the existing `electric` token (`bg-electric text-white hover:bg-electric/90`) so it matches the brand highlight blue already used elsewhere (active nav link, accents).
 
-`index.html` already has two JSON-LD blocks: a rich `ProfessionalService` and a minimal `Organization`. The minimal Organization block is what most LLMs and SEO crawlers key off, so we'll enrich it and then kick off a fresh SEO scan.
+Leave the mobile menu version (line ~112) as-is unless you'd like it changed too — it lives inside a popover where the outline reads better. If you want the mobile one matched as well, say so and I'll do both.
 
-## Changes
-
-### 1. Expand the `Organization` JSON-LD in `index.html`
-
-Replace the current bare-bones block with a fuller record:
-
-- `name`, `alternateName` ("Signalworks")
-- `url` → `https://signalworks.xyz`
-- `logo` → favicon URL already in `<head>`
-- `description` → same one-liner used in the meta description
-- `slogan` — "Mission-aligned advisory for venture & innovation across EMEA"
-- `founder` — Diego Arias García with LinkedIn `sameAs`
-- `foundingDate` — leave out unless the user confirms a year
-- `areaServed` — Africa, GCC, Europe (mirrors ProfessionalService)
-- `contactPoint` — `ContactPoint` with `contactType: "customer support"` pointing at the on-site contact form URL (`https://signalworks.xyz/#contact`) so LLMs answer "how do I reach them?" correctly without exposing the email we just removed
-- `sameAs` — company LinkedIn + founder LinkedIn
-
-Move both JSON-LD blocks from `<body>` into `<head>` while we're there — that's the conventional location and what most crawlers expect.
-
-### 2. Trigger a fresh SEO scan
-
-Call `seo--trigger_scan` after the edit. The scan needs user approval and runs ~1 minute; results show up in the SEO & AI search tab.
-
-## Out of scope
-
-- No changes to the `ProfessionalService` block (already detailed).
-- No new routes, no per-route Helmet additions.
-- No copy or layout changes.
+No other changes.

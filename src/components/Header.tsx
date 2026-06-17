@@ -65,9 +65,9 @@ const Header = () => {
               </a>
             ))}
             <Button
-              variant="outline-light"
               size="sm"
               asChild
+              className="bg-electric text-white hover:bg-electric/90"
             >
               <a href="#contact">
                 Get in touch
