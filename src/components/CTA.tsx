@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, MessageCircle, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const CTA = () => {
   return (
@@ -23,52 +24,38 @@ const CTA = () => {
         <div className="max-w-7xl mx-auto">
           <p className="eyebrow-light mb-6">Get in touch —</p>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-8">
-              <h2 className="display-lg text-white">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-6">
+              <h2 className="display-lg text-white mb-8">
                 We partner with mission-aligned teams to turn{" "}
                 <span className="editorial-underline">intent</span> into{" "}
                 <span className="text-electric">execution</span>.
               </h2>
-            </div>
 
-            <div className="lg:col-span-4 space-y-8">
-              <p className="text-lg text-slate-light/80 leading-relaxed">
-                Share a few lines on your goal, and we&apos;ll take it from
-                there.
+              <p className="text-lg text-slate-light/80 leading-relaxed mb-8 max-w-md">
+                Share a few lines on your goal, and we'll take it from there.
               </p>
 
-              <div className="flex flex-col gap-3">
-                <Button
-                  variant="signal"
-                  size="lg"
-                  className="group bg-electric hover:bg-electric-light text-white justify-start"
-                  asChild
+              <Button
+                variant="outline-light"
+                size="lg"
+                className="group justify-start"
+                asChild
+              >
+                <a
+                  href="https://zcal.co/diegoarias/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a
-                    href="https://zcal.co/diegoarias/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Book an Intro Call
-                    <ArrowRight className="ml-auto w-4 h-4 group-hover:translate-x-1 signal-transition" />
-                  </a>
-                </Button>
-
-                <Button
-                  variant="outline-light"
-                  size="lg"
-                  className="group justify-start"
-                  onClick={() =>
-                    window.open("https://wa.me/+971547109660", "_blank")
-                  }
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Chat with us
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book an Intro Call
                   <ArrowRight className="ml-auto w-4 h-4 group-hover:translate-x-1 signal-transition" />
-                </Button>
-              </div>
+                </a>
+              </Button>
+            </div>
+
+            <div className="lg:col-span-6">
+              <ContactForm />
             </div>
           </div>
         </div>
