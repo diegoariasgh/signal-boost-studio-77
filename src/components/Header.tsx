@@ -8,6 +8,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const navItems = [
   { id: "about", label: "About" },
