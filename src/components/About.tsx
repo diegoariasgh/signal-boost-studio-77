@@ -13,8 +13,8 @@ const highlights = [
   },
   {
     n: "03",
-    title: "Speaking & Mentoring",
-    body: "Featured speaker and mentor at leading institutions and accelerators, delivering workshops on fundraising strategy, investor relations, and international expansion across GCC, North Africa, and Europe.",
+    title: "Cross-Border Execution",
+    body: "Soft-landings, partnerships, and grant or accelerator placements across the GCC, North Africa, the US, and Japan — built on local networks and on-the-ground context.",
   },
 ];
 
@@ -27,9 +27,9 @@ const About = () => {
           <div className="mb-20 max-w-5xl">
             <p className="eyebrow mb-6">About —</p>
             <h2 className="display-lg text-foreground">
-              Experience across{" "}
-              <span className="editorial-underline">GCC</span>,{" "}
-              North Africa &amp; Europe
+              Experience{" "}
+              <span className="editorial-underline">across borders</span>
+              {" "}— GCC, Africa &amp; Europe.
             </h2>
           </div>
 
@@ -39,17 +39,20 @@ const About = () => {
             <div className="space-y-12">
               <div className="space-y-6">
                 <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
-                  Signalworks is a boutique advisory for funds, corporates, and
-                  startups in venture and innovation. With 7+ years across the
-                  GCC, North Africa, and Europe, we combine early-stage
-                  investing, fund operations, and GTM/partnership strategy to
-                  deliver clear, actionable plans.
+                  Signalworks is a boutique advisory for funds, founders, and
+                  the institutions backing them. With 7+ years across the GCC,
+                  North Africa, and Europe, we combine early-stage investing,
+                  fund operations, and GTM strategy to deliver clear,
+                  actionable plans.
                 </p>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Our work spans fund setup and strategy, fundraising &amp; LP
-                  engagement, portfolio structuring/secondaries, accelerator and
-                  partnership programs, and regional expansion for high-growth
-                  startups.
+                  Recent work spans fund deployment strategy and operations
+                  for VCs, portfolio value-creation frameworks for venture
+                  studios, cross-border market entry (US ↔ GCC, with
+                  soft-landings via top accelerators), and fundraising &amp;
+                  GTM for early-stage founders in fintech, biotech, IoT/AI,
+                  and HR tech — plus selected innovation programs with
+                  corporates and institutions.
                 </p>
               </div>
 

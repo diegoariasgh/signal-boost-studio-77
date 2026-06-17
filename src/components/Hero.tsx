@@ -46,16 +46,16 @@ const Hero = () => {
                 <span className="editorial-underline">Mission-aligned</span>{" "}
                 advisory
               </span>
-              <span className="block">for venture &amp;</span>
+              <span className="block">for venture &amp; innovation</span>
               <span className="block">
-                innovation across{" "}
-                <span className="text-electric">MENA</span>
+                across{" "}
+                <span className="text-electric">three regions</span>
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-light/80 max-w-2xl leading-relaxed mb-12">
-              Boutique advisory supporting funds, startups, and corporates in
-              venture and innovation across the MENA region.
+              Boutique advisory for funds, founders, and the institutions
+              backing them — across the GCC, Africa, and Europe.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
@@ -87,7 +87,7 @@ const Hero = () => {
       {/* Previous projects strip */}
       <div className="relative z-10 border-t border-white/10 bg-navy/40 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <p className="eyebrow-light mb-6">Previous projects —</p>
+          <p className="eyebrow-light mb-6">Trusted by —</p>
           <div className="overflow-hidden">
             <div className="flex items-center gap-16 md:gap-20 animate-[scroll_25s_linear_infinite] w-fit">
               {[...logos, ...logos].map((logo, i) => (
