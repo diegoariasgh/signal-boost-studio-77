@@ -11,7 +11,7 @@ const highlights = [
     n: "01",
     title: "Footprint & on-the-ground network",
     summary:
-      "Active presence across UAE, KSA, Morocco, and Egypt, with working relationships in Europe, the US, and Japan.",
+      "Active presence across UAE, KSA, Morocco, Egypt, Kenya, Nigeria, Tunisia, and South Africa, with working relationships in Europe and select partners in the US.",
     body:
       "Soft-landings and partnership development run through local operators, regulators, and accelerators in each market — not from a distance.",
   },
@@ -21,13 +21,13 @@ const highlights = [
     summary:
       "Work alongside global VC platforms, accelerators, and development finance institutions.",
     body:
-      "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank — across venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech.",
+      "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by institutions like UM6P, OCP, the National Bank of Egypt, USAID, Digital Africa, the African Development Bank, and the EU — across venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and energy & resource management.",
   },
 ];
 
 const stats = [
   { value: "7+", label: "Years" },
-  { value: "6", label: "Core markets" },
+  { value: "8", label: "Core markets" },
   { value: "4", label: "Sectors of depth" },
 ];
 
@@ -102,7 +102,6 @@ const About = () => {
               <Accordion
                 type="single"
                 collapsible
-                defaultValue="item-01"
                 className="border-t border-border"
               >
                 {highlights.map((h) => (
