@@ -22,25 +22,25 @@ const CTA = () => {
         <div className="max-w-7xl mx-auto">
           <p className="eyebrow-light mb-10 pb-10 border-b border-white/10">Get in touch —</p>
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
             {/* Left: quote */}
-            <div className="flex flex-col justify-between h-full">
-              <h2 className="display-lg text-white mb-8">
+            <div>
+              <h2 className="display-lg text-white">
                 We partner with mission-aligned teams to turn{" "}
                 <span className="editorial-underline">intent</span> into{" "}
                 <span className="text-electric">execution</span>.
               </h2>
-
-              <p className="lead-light">
-                Share a few lines on your goal, and we'll take it from there.
-              </p>
             </div>
 
             {/* Right: contact form */}
             <div>
+              <p className="lead-light mb-8">
+                Share a few lines on your goal, and we'll take it from there.
+              </p>
               <ContactForm />
             </div>
           </div>
+
         </div>
 
       </div>
