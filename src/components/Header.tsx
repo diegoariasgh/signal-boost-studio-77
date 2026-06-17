@@ -74,6 +74,7 @@ const Header = () => {
               <a
                 key={item.id}
                 href={`/#${item.id}`}
+                onClick={goToSection(item.id)}
                 className={`text-sm tracking-wide signal-transition ${
                   activeSection === item.id
                     ? "text-electric"
@@ -88,10 +89,11 @@ const Header = () => {
               asChild
               className="bg-electric text-white hover:bg-electric/90"
             >
-              <a href="#contact">
+              <a href="/#contact" onClick={goToSection("contact")}>
                 Get in touch
               </a>
             </Button>
+
           </nav>
 
           {/* Mobile */}
