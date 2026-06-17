@@ -39,10 +39,8 @@ const About = () => {
           {/* Header */}
           <div className="mb-20 max-w-5xl">
             <p className="eyebrow mb-6">About —</p>
-            <h2 className="display-lg text-foreground">
-              Experience{" "}
-              <span className="editorial-underline">across borders</span>
-              {" "}— Africa, the GCC &amp; Europe.
+            <h2 className="display-lg text-foreground uppercase">
+              Experience across borders and strategies — VC, accelerators &amp; catalytic capital.
             </h2>
 
           </div>
