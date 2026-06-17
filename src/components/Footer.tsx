@@ -25,14 +25,6 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="https://signalworks.xyz"
-                    className="text-foreground/80 hover:text-electric signal-transition"
-                  >
-                    signalworks.xyz
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://www.linkedin.com/company/signalworksxyz/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -40,6 +32,9 @@ const Footer = () => {
                   >
                     LinkedIn
                   </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-foreground/80 hover:text-electric signal-transition">Contact</a>
                 </li>
               </ul>
             </div>
@@ -55,9 +50,6 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#testimonials" className="text-foreground/80 hover:text-electric signal-transition">Testimonials</a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-foreground/80 hover:text-electric signal-transition">Contact</a>
                 </li>
               </ul>
             </div>
