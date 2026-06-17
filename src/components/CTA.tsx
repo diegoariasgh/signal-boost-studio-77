@@ -61,8 +61,7 @@ const CTA = () => {
               <CollapsibleContent className="pt-6">
                 <ContactForm />
               </CollapsibleContent>
-            </Collapsible>
-          </div>
+          </Collapsible>
         </div>
       </div>
     </section>
