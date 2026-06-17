@@ -64,12 +64,6 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <a
-              href="/about-signalworks"
-              className="text-sm tracking-wide text-slate-light/80 hover:text-white signal-transition"
-            >
-              Overview
-            </a>
             <Button
               variant="outline-light"
               size="sm"
