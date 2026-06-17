@@ -92,7 +92,17 @@ const BodySchema = z.object({
   ]),
   message: z.string().trim().min(1).max(2000).transform(sanitize),
   timeline: z.string().trim().max(100).optional().default("").transform(sanitize),
+  // Spam controls — optional so older clients don't break, but enforced when present.
+  _hp: z.string().max(200).optional().default(""),
+  _elapsedMs: z.number().int().nonnegative().max(24 * 60 * 60 * 1000).optional(),
 });
+
+// Min time a human plausibly takes to fill the form (ms).
+const MIN_ELAPSED_MS = 2500;
+// Max URLs/links allowed in a legit message.
+const MAX_URLS = 3;
+const URL_RE = /\bhttps?:\/\/|\bwww\.|\b[a-z0-9-]+\.(com|net|org|io|co|ru|cn|xyz|info|biz|top|click|link)\b/gi;
+
 
 const NOTIFY_TO = "diego@signalworks.xyz";
 
