@@ -59,7 +59,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
               <Button variant="signal" size="lg" className="group" asChild>
-                <a href="mailto:diego@signalworks.xyz">
+                <a href="#contact">
                   Get in Touch
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 signal-transition" />
                 </a>

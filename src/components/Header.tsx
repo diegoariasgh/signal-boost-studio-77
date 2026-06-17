@@ -75,12 +75,8 @@ const Header = () => {
               size="sm"
               asChild
             >
-              <a
-                href="https://zcal.co/diegoarias/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book a call
+              <a href="#contact">
+                Get in touch
               </a>
             </Button>
           </nav>
@@ -118,12 +114,8 @@ const Header = () => {
                   ))}
                   <div className="pt-2 border-t border-white/10">
                     <Button variant="signal" className="w-full" asChild>
-                      <a
-                        href="https://zcal.co/diegoarias/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Book a Call
+                      <a href="#contact" onClick={() => setOpen(false)}>
+                        Get in touch
                       </a>
                     </Button>
                   </div>
