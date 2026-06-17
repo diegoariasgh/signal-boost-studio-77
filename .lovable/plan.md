@@ -1,21 +1,5 @@
-## Collapse the contact form
+## Remove "Book an Intro Call" CTA
 
-In `src/components/CTA.tsx`, replace the always-open `<ContactForm />` in the right column with a collapsible wrapper using shadcn `Collapsible`. Default state: closed. Trigger: an `outline-light` button labeled "Send a Message" with a `Mail` icon and a chevron that rotates on open. When opened, the form renders in place below the trigger.
+In `src/components/CTA.tsx`, delete the "Book an Intro Call" `<Button>` (the zcal.co link) and its surrounding wrapper. The "Send a Message" collapsible becomes the sole CTA in the section. Also drop the now-unused `Calendar` and `ArrowRight` imports.
 
-Both CTAs (Book a Call + Send a Message) sit stacked in the left column under the headline — the right column becomes empty on large screens, so collapse the grid back to a single centered column (`max-w-2xl`) for a cleaner balance once the form is hidden by default.
-
-### Layout after change
-
-```text
-Get in touch —
-"We partner with mission-aligned teams…"
-Share a few lines on your goal…
-
-[ 📅 Book an Intro Call → ]
-[ ✉ Send a Message      ⌄ ]   ← click expands ContactForm inline
-```
-
-### Files
-- `src/components/CTA.tsx` — wrap ContactForm in Collapsible, add trigger button, restructure grid to single column.
-
-Out of scope: ContactForm internals, edge function, styling tokens.
+No other changes.
