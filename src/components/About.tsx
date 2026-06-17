@@ -26,8 +26,8 @@ const highlights = [
 ];
 
 const stats = [
-  { value: "7+", label: "Years" },
-  { value: "8", label: "Core markets" },
+  { value: "20+", label: "Deals led" },
+  { value: "9", label: "African markets" },
   { value: "4", label: "Sectors of depth" },
 ];
 
@@ -47,7 +47,7 @@ const About = () => {
 
           {/* Asymmetric two-column: 5 / 7 */}
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-stretch">
-            {/* Left: tight narrative + stats */}
+            {/* Left: tight narrative + founder accordion + stats */}
             <div className="lg:col-span-5 flex flex-col h-full">
               <p className="lead">
                 We sit at the intersection of early-stage investing, fund
@@ -55,23 +55,46 @@ const About = () => {
                 across Africa, the GCC, and Europe into decisions that move.
               </p>
 
-              <div className="mt-8 md:mt-10">
-                <p className="eyebrow mb-4">Led by —</p>
-                <div className="flex items-center gap-4">
-                  <img
-                    src={founderProfile}
-                    alt="Diego Arias García"
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                    className="w-14 h-14 rounded-full object-cover flex-shrink-0"
-                  />
-                  <div>
-                    <h3 className="sub-title leading-tight">Diego Arias García</h3>
-                    <p className="eyebrow">Founder</p>
-                  </div>
-                </div>
-              </div>
+              <Accordion
+                type="single"
+                collapsible
+                className="mt-10 border-t border-border"
+              >
+                <AccordionItem value="founder" className="border-b border-border">
+                  <AccordionTrigger className="py-8 hover:no-underline group">
+                    <div className="flex items-center gap-4 text-left flex-1">
+                      <img
+                        src={founderProfile}
+                        alt="Diego Arias García"
+                        width="56"
+                        height="56"
+                        loading="lazy"
+                        className="w-14 h-14 rounded-full object-cover flex-shrink-0"
+                      />
+                      <div>
+                        <p className="eyebrow mb-1">Led by —</p>
+                        <h3 className="sub-title leading-tight group-hover:text-electric signal-transition">
+                          Diego Arias García
+                        </h3>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-8">
+                    <p className="text-foreground/80 leading-relaxed">
+                      Operator-investor focused on early-stage venture across
+                      Africa, the GCC, and Europe. Led 20+ investments at Plug
+                      and Play and Outlierz Ventures across fintech, healthtech,
+                      energy, and B2B platforms in Morocco, Egypt, Nigeria,
+                      Kenya, Côte d'Ivoire, Cameroon, Senegal, Tunisia, and
+                      South Africa — with direct introductions to investors
+                      including Visa, BPI France, Digital Africa, Africinvest,
+                      Launch Africa, and Algebra Ventures. Now advises funds,
+                      accelerators, and founders on strategy, operations, GTM,
+                      and market entry.
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
 
               <div className="mt-auto pt-8 border-t border-border grid grid-cols-3 gap-3 sm:gap-6">
                 {stats.map((s) => (
@@ -87,6 +110,7 @@ const About = () => {
               </div>
 
             </div>
+
 
             {/* Right: highlights accordion */}
             <div className="lg:col-span-7">
