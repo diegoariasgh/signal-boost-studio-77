@@ -150,7 +150,14 @@ const ContactForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form
+        onSubmit={form.handleSubmit(onSubmit, () => {
+          toast.error("Please fix the highlighted fields before sending.");
+        })}
+        noValidate
+        className="space-y-4"
+      >
+
         <div className="grid sm:grid-cols-2 gap-4">
           <FormField
             control={form.control}
