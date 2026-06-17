@@ -88,6 +88,8 @@ const emptyDraft: FormValues = {
 const ContactForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const hydrated = useRef(false);
+  const startedAt = useRef<number>(Date.now());
+  const honeypot = useRef<HTMLInputElement>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -95,6 +97,7 @@ const ContactForm = () => {
     mode: "onTouched",
     reValidateMode: "onChange",
   });
+
 
 
   // Hydrate from localStorage
