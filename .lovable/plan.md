@@ -1,15 +1,34 @@
-## Update About highlights + collapse default
+# Add Organization schema + trigger SEO scan
 
-`src/components/About.tsx`:
+## What
 
-1. Remove `defaultValue="item-01"` on the Accordion so both items render collapsed.
-2. Rewrite `highlights[0]` (Footprint):
-   - **Summary:** "Active presence across UAE, KSA, Morocco, Egypt, Kenya, Nigeria, Tunisia, and South Africa, with working relationships in Europe and select partners in the US."
-   - **Body:** unchanged ("Soft-landings and partnership development run through local operators, regulators, and accelerators in each market — not from a distance.")
-3. Rewrite `highlights[1]` (Institutional credibility):
-   - **Summary:** unchanged.
-   - **Body:** "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by institutions like UM6P, OCP, the National Bank of Egypt, USAID, Digital Africa, the African Development Bank, and the EU — across venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and energy & resource management."
+`index.html` already has two JSON-LD blocks: a rich `ProfessionalService` and a minimal `Organization`. The minimal Organization block is what most LLMs and SEO crawlers key off, so we'll enrich it and then kick off a fresh SEO scan.
 
-Also bump the stat label "6 Core markets" → "8 Core markets" to stay consistent with the expanded market list.
+## Changes
 
-Out of scope: other sections, layout, copy elsewhere.
+### 1. Expand the `Organization` JSON-LD in `index.html`
+
+Replace the current bare-bones block with a fuller record:
+
+- `name`, `alternateName` ("Signalworks")
+- `url` → `https://signalworks.xyz`
+- `logo` → favicon URL already in `<head>`
+- `description` → same one-liner used in the meta description
+- `slogan` — "Mission-aligned advisory for venture & innovation across EMEA"
+- `founder` — Diego Arias García with LinkedIn `sameAs`
+- `foundingDate` — leave out unless the user confirms a year
+- `areaServed` — Africa, GCC, Europe (mirrors ProfessionalService)
+- `contactPoint` — `ContactPoint` with `contactType: "customer support"` pointing at the on-site contact form URL (`https://signalworks.xyz/#contact`) so LLMs answer "how do I reach them?" correctly without exposing the email we just removed
+- `sameAs` — company LinkedIn + founder LinkedIn
+
+Move both JSON-LD blocks from `<body>` into `<head>` while we're there — that's the conventional location and what most crawlers expect.
+
+### 2. Trigger a fresh SEO scan
+
+Call `seo--trigger_scan` after the edit. The scan needs user approval and runs ~1 minute; results show up in the SEO & AI search tab.
+
+## Out of scope
+
+- No changes to the `ProfessionalService` block (already detailed).
+- No new routes, no per-route Helmet additions.
+- No copy or layout changes.
