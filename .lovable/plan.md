@@ -1,28 +1,53 @@
 ## Goal
 
-Tighten the "What we do" rows so number → title → deliverables read as one clean hierarchy with fewer competing type sizes.
+Three changes:
+1. Footer: 2026 copyright, remove email, keep LinkedIn.
+2. Replace "Chat with us" WhatsApp button in the CTA section with a real contact form that emails submissions to you.
+3. Form fields: Name, Email, Company, "I'm a..." (Fund / Investor / Institution / Accelerator / Founder / Other), Message, Timeline.
 
-## Changes to `src/components/Services.tsx`
+## 1. Footer edits (`src/components/Footer.tsx`)
 
-1. **Remove the left-column description paragraph** entirely (the `<p>` under each title). Drop the `description` field from each service entry — it's no longer used.
+- Remove the `diego@signalworks.xyz` list item entirely.
+- Keep `signalworks.xyz` and `LinkedIn` links.
+- Update `© Signalworks, 2025` → `© Signalworks, 2026`.
+- Also fix the lingering MENA copy in the footer blurb to match the rest of the site: "Boutique advisory supporting funds, founders, and institutions across Africa, the GCC, and Europe."
 
-2. **Make the number pop**: bump `01 / 02 / 03` from `text-sm` to `text-3xl md:text-4xl` (still mono, still electric), keep it baseline-aligned with the title. The number now reads as a counterweight to the title rather than a label.
+## 2. Contact form (replaces "Chat with us")
 
-3. **Restore deliverables as a bullet list** at a larger size:
-   - Replace the joined `·`-separated paragraph with a `<ul>` of three items.
-   - Each item: `text-lg md:text-xl`, foreground color, with a small electric `—` (or `·`) marker on the left.
-   - Drop the "Deliverables" eyebrow above the list — the list speaks for itself and removes one more type size.
-   - Stack items with `space-y-3`.
+### Backend
+- Enable Lovable Cloud (required for email sending).
+- Use Lovable Emails (built-in) for delivery — no external Resend account, no API key needed.
+- Set up email infrastructure + scaffold the app-email send function.
+- Create one Edge Function `send-contact-message`:
+  - Validates input with Zod (name 1-100, email valid, company 0-150, role enum, message 1-2000, timeline 0-100).
+  - Calls `send-transactional-email` to deliver the submission to `diego@signalworks.xyz`.
+  - Returns 200 on success, 400 on validation, 500 on send failure.
+- Two email templates in `supabase/functions/_shared/transactional-email-templates/`:
+  - `contact-notification.tsx` — sent to Diego with all form fields.
+  - `contact-confirmation.tsx` — sent to the submitter acknowledging receipt.
 
-4. **Tighten the grid**: with the description gone, give the title column slightly less width and the deliverables more breathing room. Adjust to `md:col-span-5` title / `md:col-span-5` deliverables / `md:col-span-2` link (unchanged ratio), but remove `md:ml-12` indents that were tied to the now-deleted paragraph.
+### Frontend
+- New component `src/components/ContactForm.tsx` using shadcn `Form`, `Input`, `Textarea`, `Select`, `Button`, and the existing `useToast` hook.
+- Same Zod schema mirrored client-side for instant feedback.
+- Replace the "Chat with us" button in `src/components/CTA.tsx` with `<ContactForm />` rendered in the right column. Keep the "Book an Intro Call" button above it (`zcal` link unchanged).
+- The form:
+  - Stacked, dark-theme-friendly inputs matching the existing electric/navy palette (no hardcoded colors — use semantic tokens already present).
+  - Submit button uses the existing `signal` variant.
+  - Loading state on submit; success toast clears the form; failure toast with retry hint.
 
-5. **Keep**: hover accent bar, "Case studies" arrow link, row borders, section wrapper, ids, slugs.
+### Out of scope
+- No database table for submissions (email delivery only, per the user's pick). Easy to add later.
+- No phone field, no file uploads.
+- WhatsApp number `+971547109660` is removed from the codebase along with the button.
+- Email domain setup is required for delivery; if no domain is yet configured, the email-setup dialog will be surfaced during implementation. The form code ships regardless.
 
-Result: each row has three clear sizes only — big number, big title, medium bullets — instead of five.
+## Files touched
 
-## Out of scope
-
-- No changes to section header ("What we do" / display heading).
-- No color, font, or token changes.
-- No motion changes.
-- Other sections untouched.
+- `src/components/Footer.tsx` — edits
+- `src/components/CTA.tsx` — swap button for form
+- `src/components/ContactForm.tsx` — new
+- `supabase/functions/send-contact-message/index.ts` — new
+- `supabase/functions/_shared/transactional-email-templates/contact-notification.tsx` — new
+- `supabase/functions/_shared/transactional-email-templates/contact-confirmation.tsx` — new
+- `supabase/functions/_shared/transactional-email-templates/registry.ts` — register both templates
+- Cloud + email infra enabled via tools
