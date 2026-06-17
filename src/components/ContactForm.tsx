@@ -88,6 +88,8 @@ const emptyDraft: FormValues = {
 const ContactForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const hydrated = useRef(false);
+  const startedAt = useRef<number>(Date.now());
+  const honeypot = useRef<HTMLInputElement>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -95,6 +97,7 @@ const ContactForm = () => {
     mode: "onTouched",
     reValidateMode: "onChange",
   });
+
 
 
   // Hydrate from localStorage
@@ -129,11 +132,17 @@ const ContactForm = () => {
     setSubmitting(true);
     try {
       const { error } = await supabase.functions.invoke("send-contact-message", {
-        body: values,
+        body: {
+          ...values,
+          // Spam controls
+          _hp: honeypot.current?.value ?? "",
+          _elapsedMs: Date.now() - startedAt.current,
+        },
       });
       if (error) throw error;
       toast.success("Message sent. We'll be in touch shortly.");
       form.reset(emptyDraft);
+      startedAt.current = Date.now();
       try {
         localStorage.removeItem(DRAFT_KEY);
       } catch {
@@ -148,6 +157,7 @@ const ContactForm = () => {
   };
 
 
+
   return (
     <Form {...form}>
       <form
@@ -157,6 +167,20 @@ const ContactForm = () => {
         noValidate
         className="space-y-4"
       >
+        {/* Honeypot — hidden from real users; bots fill it and get rejected. */}
+        <div aria-hidden="true" className="absolute left-[-10000px] top-auto w-px h-px overflow-hidden">
+          <label htmlFor="company_website">Website</label>
+          <input
+            ref={honeypot}
+            id="company_website"
+            type="text"
+            name="company_website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
+
 
         <div className="grid sm:grid-cols-2 gap-4">
           <FormField
