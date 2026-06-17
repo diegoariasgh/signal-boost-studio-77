@@ -132,11 +132,17 @@ const ContactForm = () => {
     setSubmitting(true);
     try {
       const { error } = await supabase.functions.invoke("send-contact-message", {
-        body: values,
+        body: {
+          ...values,
+          // Spam controls
+          _hp: honeypot.current?.value ?? "",
+          _elapsedMs: Date.now() - startedAt.current,
+        },
       });
       if (error) throw error;
       toast.success("Message sent. We'll be in touch shortly.");
       form.reset(emptyDraft);
+      startedAt.current = Date.now();
       try {
         localStorage.removeItem(DRAFT_KEY);
       } catch {
@@ -149,6 +155,7 @@ const ContactForm = () => {
       setSubmitting(false);
     }
   };
+
 
 
   return (
