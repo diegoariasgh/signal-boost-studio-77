@@ -10,11 +10,11 @@ const faqs = [
   },
   {
     q: "What does signalworks do?",
-    a: "signalworks advises on fund formation and operations, LP engagement, portfolio value creation, accelerator and program design, scouting and diligence, innovation strategy, startup fundraising strategy, and cross-border market entry. Engagements are typically scoped as embedded advisory rather than long deck-driven projects.",
+    a: "signalworks advises on fund formation and operations, founder engagement, portfolio value creation, accelerator and program design, scouting and diligence, innovation strategy, startup fundraising strategy, and cross-border market entry. Engagements are typically scoped as embedded advisory rather than long deck-driven projects.",
   },
   {
     q: "Which regions does signalworks cover?",
-    a: "signalworks operates across EMEA, with deep on-the-ground experience in the UAE, Saudi Arabia, Morocco, and Egypt, and broader coverage across Africa, the GCC, and Europe. The firm also supports US↔GCC soft-landings for founders and investors expanding into the region.",
+    a: "signalworks operates across EMEA, with deep on-the-ground experience in Spain, the UAE, Saudi Arabia, Morocco, Tunisia, and Egypt, and broader coverage across Africa (including Kenya and Nigeria), Qatar, and Europe. The firm also supports US/EU↔GCC soft-landings for founders and investors expanding into the region.",
   },
   {
     q: "Who should hire signalworks?",
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "What kind of funds does signalworks advise?",
-    a: "signalworks works with first-time managers and established funds — typically pre-seed, seed, and early-stage — on fund formation, LP engagement, portfolio support, and operating model design. Mandates have spanned single-GP shops and larger platforms.",
+    a: "signalworks works with first-time managers and established funds — typically pre-seed, seed, and early-stage — on fund formation, LP engagement, portfolio support, and operating model design. Mandates have spanned single-GP shops and catalytic funding vehicles.",
   },
   {
     q: "Does signalworks help with US↔GCC soft-landings?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "How is signalworks different from a traditional consultancy?",
-    a: "signalworks is senior-led, embedded, and mission-aligned. There are no junior teams producing decks; engagements are scoped around concrete outcomes — a fund closed, a program launched, a market entered — rather than billable hours.",
+    a: "signalworks is senior-led, embedded, and mission-aligned. There are no junior teams producing decks; engagements are scoped around concrete outcomes — a program launched, a market entered — rather than billable hours.",
   },
   {
     q: "How do you start working with signalworks?",
@@ -47,7 +47,7 @@ const markets = [
   { name: "Saudi Arabia", note: "Vision 2030–aligned innovation programs, sovereign-backed accelerators, and corporate venture mandates." },
   { name: "Morocco", note: "Gateway to Francophone Africa with active early-stage and impact-investor activity." },
   { name: "Egypt", note: "Largest North African startup market with deep fintech and B2B SaaS pipelines." },
-  { name: "Broader Africa", note: "Pan-African scouting, LP introductions, and ecosystem partnerships via VC4A, ATSF, and the African Development Bank." },
+  { name: "Broader Africa", note: "Pan-African startup scouting, VC introductions, and ecosystem partnerships via." },
   { name: "Europe", note: "Cross-border bridges for EMEA-aligned funds, accelerators, and founders raising or expanding." },
 ];
 
@@ -58,7 +58,7 @@ const trackRecord = [
   { name: "VC4A", note: "Pan-African venture capital and entrepreneurship platform." },
   { name: "Africa Tech Startup Forum (ATSF)", note: "Continent-wide convening of founders, investors, and ecosystem builders." },
   { name: "34 Ventures", note: "AI venture studio builder." },
-  { name: "IVB", note: "Investor and ecosystem partner for cross-border ventures." },
+  { name: "IVB", note: "Deeptech startup building a gene therapy for inborn errors of metabolism." },
 ];
 
 const AboutSignalworks = () => {
