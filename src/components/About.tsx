@@ -23,6 +23,14 @@ const highlights = [
     body:
       "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by institutions like UM6P, OCP, the National Bank of Egypt, USAID, Digital Africa, the African Development Bank, and the EU — across venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and energy & resource management.",
   },
+  {
+    n: "03",
+    title: "Transaction experience",
+    summary:
+      "20+ early-stage deals led across African markets, from sourcing and diligence to IC materials and investor syndication.",
+    body:
+      "Hands-on investment work across Morocco, Egypt, Nigeria, Kenya, Côte d'Ivoire, Cameroon, Senegal, Tunisia, and South Africa — connecting founder strategy, commercial milestones, and capital conversations across local and international investor networks.",
+  },
 ];
 
 const stats = [
@@ -46,9 +54,9 @@ const About = () => {
           </div>
 
           {/* Asymmetric two-column: 5 / 7 */}
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-stretch">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-16 items-stretch">
             {/* Left: tight narrative + founder accordion + stats */}
-            <div className="lg:col-span-5 flex flex-col h-full">
+            <div className="lg:col-span-6 flex flex-col h-full border-t border-b border-border py-8">
               <p className="lead">
                 We sit at the intersection of early-stage investing, fund
                 operations, and go-to-market — translating regional context
@@ -58,7 +66,7 @@ const About = () => {
               <Accordion
                 type="single"
                 collapsible
-                className="mt-10 border-t border-border"
+                className="mt-8 border-t border-border"
               >
                 <AccordionItem value="founder" className="border-b border-border">
                   <AccordionTrigger className="py-8 hover:no-underline group">
@@ -113,7 +121,7 @@ const About = () => {
 
 
             {/* Right: highlights accordion */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <Accordion
                 type="single"
                 collapsible
