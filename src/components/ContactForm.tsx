@@ -167,6 +167,20 @@ const ContactForm = () => {
         noValidate
         className="space-y-4"
       >
+        {/* Honeypot — hidden from real users; bots fill it and get rejected. */}
+        <div aria-hidden="true" className="absolute left-[-10000px] top-auto w-px h-px overflow-hidden">
+          <label htmlFor="company_website">Website</label>
+          <input
+            ref={honeypot}
+            id="company_website"
+            type="text"
+            name="company_website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
+
 
         <div className="grid sm:grid-cols-2 gap-4">
           <FormField
