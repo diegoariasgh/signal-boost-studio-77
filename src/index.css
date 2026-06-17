@@ -221,8 +221,7 @@ All colors MUST be HSL.
   .editorial-underline {
     background-image: linear-gradient(hsl(var(--electric-blue)), hsl(var(--electric-blue)));
     background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 100% 0.12em;
-    padding-bottom: 0.05em;
+    background-position: 0 82%;
+    background-size: 100% 0.08em;
   }
 }
