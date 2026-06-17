@@ -53,10 +53,10 @@ const Services = () => {
                   {/* Number + title */}
                   <div className="md:col-span-5">
                     <div className="flex items-baseline gap-6">
-                      <span className="text-3xl md:text-4xl font-mono text-electric leading-none">
+                      <span className="index-num leading-none">
                         {service.n}
                       </span>
-                      <h3 className="text-2xl md:text-4xl font-bold font-space-grotesk text-foreground leading-tight">
+                      <h3 className="card-title">
                         {service.title}
                       </h3>
                     </div>
@@ -68,7 +68,7 @@ const Services = () => {
                       {service.deliverables.map((d) => (
                         <li
                           key={d}
-                          className="flex items-baseline gap-3 text-lg md:text-xl text-foreground/85 leading-snug"
+                          className="flex items-baseline gap-3 lead leading-snug"
                         >
                           <span className="text-electric font-mono">—</span>
                           <span>{d}</span>
@@ -79,7 +79,7 @@ const Services = () => {
 
                   {/* Link */}
                   <div className="md:col-span-2 flex md:justify-end">
-                    <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-foreground group-hover:text-electric signal-transition">
+                    <span className="eyebrow inline-flex items-center gap-2 text-foreground group-hover:text-electric signal-transition">
                       Case studies
                       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 signal-transition" />
                     </span>

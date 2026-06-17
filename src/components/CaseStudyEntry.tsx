@@ -14,7 +14,7 @@ const Block = ({ label, items }: { label: string; items: string[] }) => (
   <div>
     <div className="flex items-center gap-3 mb-4">
       <span className="h-px w-6 bg-electric" />
-      <h4 className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{label}</h4>
+      <h4 className="eyebrow">{label}</h4>
     </div>
     <ul className="space-y-3">
       {items.map((item, i) => (
@@ -41,19 +41,19 @@ const CaseStudyEntry = ({ index, study }: Props) => {
             <span className="font-space-grotesk text-sm text-muted-foreground tabular-nums">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="eyebrow">
               {study.category}
             </span>
           </div>
-          <h3 className="font-space-grotesk font-extrabold uppercase tracking-tight leading-[0.95] text-foreground text-3xl md:text-4xl lg:text-5xl group-hover:text-electric signal-transition">
+          <h3 className="card-title group-hover:text-electric signal-transition">
             {study.title}
           </h3>
-          <p className="mt-6 text-electric text-sm md:text-base">{study.client}</p>
+          <p className="mt-6 body-muted">{study.client}</p>
         </div>
 
         <div className="md:col-span-7 lg:col-span-8">
           {study.isPlaceholder ? (
-            <p className="text-muted-foreground/70 text-base italic">Case study coming soon.</p>
+            <p className="body-muted italic">Case study coming soon.</p>
           ) : (
             <div className="grid gap-10 md:gap-12">
               <Block label="Challenge" items={study.challenges} />
@@ -82,7 +82,7 @@ export const CaseStudyHero = ({
 }) => (
   <section className="pt-32 pb-16 md:pt-40 md:pb-24">
     <div className="container mx-auto px-6">
-      <div className="flex items-center gap-3 mb-10 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+      <div className="eyebrow flex items-center gap-3 mb-10">
         <a href="/#services" className="hover:text-foreground signal-transition">
           ← Back to Services
         </a>
@@ -98,7 +98,7 @@ export const CaseStudyHero = ({
           </>
         )}
       </h1>
-      <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground">{lead}</p>
+      <p className="mt-8 max-w-2xl lead">{lead}</p>
     </div>
   </section>
 );

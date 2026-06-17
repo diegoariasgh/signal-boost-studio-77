@@ -50,7 +50,7 @@ const About = () => {
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-start">
             {/* Left: tight narrative + stats */}
             <div className="lg:col-span-5 space-y-10 lg:sticky lg:top-32">
-              <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
+              <p className="lead">
                 Signalworks is a boutique advisory for the funds, founders, and
                 institutions building across the GCC, Africa, and Europe. We
                 sit at the intersection of early-stage investing, fund
@@ -64,7 +64,7 @@ const About = () => {
                     <p className="font-space-grotesk text-4xl md:text-5xl font-bold text-electric leading-none mb-3">
                       {s.value}
                     </p>
-                    <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    <p className="eyebrow">
                       {s.label}
                     </p>
                   </div>
@@ -86,10 +86,10 @@ const About = () => {
                     className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover flex-shrink-0"
                   />
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold font-space-grotesk text-foreground mb-2">
+                    <h3 className="sub-title mb-2">
                       Diego Arias García
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="body-muted">
                       Operator-investor with a background in global VC
                       platforms and boutique funds. Built fund ops in new
                       markets, ran LP engagement, and supported VC-backed
@@ -113,14 +113,14 @@ const About = () => {
                   >
                     <AccordionTrigger className="py-8 hover:no-underline group">
                       <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 text-left flex-1">
-                        <span className="text-sm font-mono text-electric pt-1">
+                        <span className="index-num pt-1">
                           {h.n}
                         </span>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-semibold font-space-grotesk text-foreground group-hover:text-electric signal-transition mb-2">
+                          <h3 className="sub-title group-hover:text-electric signal-transition mb-2">
                             {h.title}
                           </h3>
-                          <p className="text-muted-foreground leading-relaxed font-normal">
+                          <p className="body-muted font-normal">
                             {h.summary}
                           </p>
                         </div>
@@ -131,7 +131,7 @@ const About = () => {
                         <span className="text-sm font-mono text-transparent select-none">
                           {h.n}
                         </span>
-                        <p className="text-foreground/80 leading-relaxed md:text-lg">
+                        <p className="text-foreground/80 leading-relaxed">
                           {h.body}
                         </p>
                       </div>

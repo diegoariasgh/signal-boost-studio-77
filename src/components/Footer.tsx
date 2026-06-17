@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <div className="eyebrow pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© Signalworks, 2026</p>
             <p>Mission-aligned. Outcome-driven.</p>
           </div>

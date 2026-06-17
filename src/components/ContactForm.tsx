@@ -88,7 +88,7 @@ const ContactForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-light/70 text-xs uppercase tracking-[0.18em]">Name</FormLabel>
+                <FormLabel className="eyebrow-light">Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Your name" className={fieldClass} {...field} />
                 </FormControl>
@@ -101,7 +101,7 @@ const ContactForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-light/70 text-xs uppercase tracking-[0.18em]">Email</FormLabel>
+                <FormLabel className="eyebrow-light">Email</FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="you@company.com" className={fieldClass} {...field} />
                 </FormControl>
@@ -117,7 +117,7 @@ const ContactForm = () => {
             name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-light/70 text-xs uppercase tracking-[0.18em]">Company</FormLabel>
+                <FormLabel className="eyebrow-light">Company</FormLabel>
                 <FormControl>
                   <Input placeholder="Optional" className={fieldClass} {...field} />
                 </FormControl>
@@ -130,7 +130,7 @@ const ContactForm = () => {
             name="role"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-light/70 text-xs uppercase tracking-[0.18em]">I'm a…</FormLabel>
+                <FormLabel className="eyebrow-light">I'm a…</FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger className={fieldClass}>
@@ -154,7 +154,7 @@ const ContactForm = () => {
           name="timeline"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-slate-light/70 text-xs uppercase tracking-[0.18em]">Timeline</FormLabel>
+              <FormLabel className="eyebrow-light">Timeline</FormLabel>
               <FormControl>
                 <Input placeholder="e.g. ASAP, next quarter, exploring" className={fieldClass} {...field} />
               </FormControl>
@@ -168,7 +168,7 @@ const ContactForm = () => {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-slate-light/70 text-xs uppercase tracking-[0.18em]">Message</FormLabel>
+              <FormLabel className="eyebrow-light">Message</FormLabel>
               <FormControl>
                 <Textarea
                   rows={5}
