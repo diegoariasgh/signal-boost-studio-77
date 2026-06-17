@@ -9,20 +9,26 @@ import {
 const highlights = [
   {
     n: "01",
-    title: "Cross-border execution",
+    title: "Footprint & on-the-ground network",
     summary:
-      "Soft-landings, market entry, and partnerships across GCC, North Africa, Europe, the US, and Japan.",
+      "Active presence across UAE, KSA, Morocco, and Egypt, with working relationships in Europe, the US, and Japan.",
     body:
-      "Active in UAE, KSA, Morocco, and Egypt with on-the-ground networks. Recent work includes US ↔ GCC market entry with soft-landings via top accelerators, grant and accelerator placements, and partnership development for multi-country expansion.",
+      "Soft-landings and partnership development run through local operators, regulators, and accelerators in each market — not from a distance.",
   },
   {
     n: "02",
-    title: "Proven track record",
+    title: "Institutional credibility",
     summary:
-      "Engagements with global VC platforms, accelerators, and DFIs.",
+      "Work alongside global VC platforms, accelerators, and development finance institutions.",
     body:
-      "Strategy and workshops with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank. Recent work spans venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech.",
+      "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank — across venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech.",
   },
+];
+
+const stats = [
+  { value: "7+", label: "Years" },
+  { value: "6", label: "Core markets" },
+  { value: "4", label: "Sectors of depth" },
 ];
 
 const About = () => {
@@ -40,30 +46,35 @@ const About = () => {
             </h2>
           </div>
 
-          {/* Editorial two-column */}
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            {/* Left: narrative + founder */}
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
-                  Signalworks is a boutique advisory for funds, founders, and
-                  the institutions backing them. With 7+ years across the GCC,
-                  North Africa, and Europe, we combine early-stage investing,
-                  fund operations, and GTM strategy to deliver clear,
-                  actionable plans.
-                </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Recent work spans fund deployment strategy and operations
-                  for VCs, portfolio value-creation frameworks for venture
-                  studios, cross-border market entry (US ↔ GCC, with
-                  soft-landings via top accelerators), and fundraising &amp;
-                  GTM for early-stage founders in fintech, biotech, IoT/AI,
-                  and HR tech — plus selected innovation programs with
-                  corporates and institutions.
-                </p>
-              </div>
+          {/* Asymmetric two-column: 5 / 7 */}
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+            {/* Left: tight narrative + stats */}
+            <div className="lg:col-span-5 space-y-10 lg:sticky lg:top-32">
+              <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
+                Signalworks is a boutique advisory for the funds, founders, and
+                institutions building across the GCC, Africa, and Europe. We
+                sit at the intersection of early-stage investing, fund
+                operations, and go-to-market — translating regional context
+                into decisions that move.
+              </p>
 
-              <div className="pt-8 border-t border-border">
+              <div className="pt-8 border-t border-border grid grid-cols-3 gap-6">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <p className="font-space-grotesk text-4xl md:text-5xl font-bold text-electric leading-none mb-3">
+                      {s.value}
+                    </p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: founder card + accordion */}
+            <div className="lg:col-span-7 space-y-10">
+              <div>
                 <p className="eyebrow mb-6">Led by —</p>
                 <div className="flex items-start gap-6">
                   <img
@@ -72,26 +83,22 @@ const About = () => {
                     width="112"
                     height="112"
                     loading="lazy"
-                    className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover flex-shrink-0"
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover flex-shrink-0"
                   />
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold font-space-grotesk text-foreground mb-3">
+                    <h3 className="text-xl md:text-2xl font-bold font-space-grotesk text-foreground mb-2">
                       Diego Arias García
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Background with global VC platforms and accelerators and
-                      boutique funds, operating across the GCC &amp; North
-                      Africa. Built fund ops from the ground up in new markets,
-                      managed LP engagement, and supported VC-backed startups on
-                      fundraising and GTM.
+                      Operator-investor with a background in global VC
+                      platforms and boutique funds. Built fund ops in new
+                      markets, ran LP engagement, and supported VC-backed
+                      founders on fundraising and GTM.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Right: expandable editorial list */}
-            <div className="lg:sticky lg:top-32">
               <Accordion
                 type="single"
                 collapsible
