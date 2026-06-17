@@ -48,14 +48,13 @@ const Hero = () => {
               </span>
               <span className="block">for venture &amp; innovation</span>
               <span className="block">
-                across{" "}
-                <span className="text-electric">three regions</span>
+                across <span className="text-electric">EMEA</span>
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-light/80 max-w-2xl leading-relaxed mb-12">
               Boutique advisory for funds, founders, and the institutions
-              backing them — across the GCC, Africa, and Europe.
+              backing them — across&nbsp;Africa, the GCC, and Europe.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
