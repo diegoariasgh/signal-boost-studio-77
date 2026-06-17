@@ -90,28 +90,48 @@ const About = () => {
               </div>
             </div>
 
-            {/* Right: numbered editorial list */}
+            {/* Right: expandable editorial list */}
             <div className="lg:sticky lg:top-32">
-              <div className="border-t border-border">
+              <Accordion
+                type="single"
+                collapsible
+                defaultValue="item-01"
+                className="border-t border-border"
+              >
                 {highlights.map((h) => (
-                  <div
+                  <AccordionItem
                     key={h.n}
-                    className="group grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-8 border-b border-border signal-transition hover:bg-muted/40 -mx-4 px-4 rounded-sm"
+                    value={`item-${h.n}`}
+                    className="border-b border-border"
                   >
-                    <span className="text-sm font-mono text-electric pt-1">
-                      {h.n}
-                    </span>
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-semibold font-space-grotesk mb-3">
-                        {h.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {h.body}
-                      </p>
-                    </div>
-                  </div>
+                    <AccordionTrigger className="py-8 hover:no-underline group">
+                      <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 text-left flex-1">
+                        <span className="text-sm font-mono text-electric pt-1">
+                          {h.n}
+                        </span>
+                        <div>
+                          <h3 className="text-xl md:text-2xl font-semibold font-space-grotesk text-foreground group-hover:text-electric signal-transition mb-2">
+                            {h.title}
+                          </h3>
+                          <p className="text-muted-foreground leading-relaxed font-normal">
+                            {h.summary}
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-8">
+                      <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10">
+                        <span className="text-sm font-mono text-transparent select-none">
+                          {h.n}
+                        </span>
+                        <p className="text-foreground/80 leading-relaxed md:text-lg">
+                          {h.body}
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           </div>
         </div>
