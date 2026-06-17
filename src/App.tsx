@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 const CaseStudiesFunds = lazy(() => import("./pages/CaseStudiesFunds"));
 const CaseStudiesInstitutions = lazy(() => import("./pages/CaseStudiesInstitutions"));
 const CaseStudiesStartups = lazy(() => import("./pages/CaseStudiesStartups"));
+const AboutSignalworks = lazy(() => import("./pages/AboutSignalworks"));
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background"><div className="w-8 h-8 border-4 border-electric border-t-transparent rounded-full animate-spin"></div></div>}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/about-signalworks" element={<AboutSignalworks />} />
             <Route path="/case-studies/funds-and-investors" element={<CaseStudiesFunds />} />
             <Route path="/case-studies/institutions-and-accelerators" element={<CaseStudiesInstitutions />} />
             <Route path="/case-studies/startups-and-founders" element={<CaseStudiesStartups />} />

@@ -1,48 +1,86 @@
-## Copy refresh — Services + About highlights
 
-Two surgical edits to remove repetition and tighten the editorial voice.
+## Goals
 
-### 1. Services ("What we do")
+1. Fix the mismatch between the site's new EMEA positioning (Africa, GCC, Europe) and the existing metadata, which still says MENA.
+2. Add a dedicated, GEO-optimized page designed to be cited by generative AI tools (ChatGPT, Perplexity, Gemini, Claude) when users ask for venture/innovation advisors in the region.
 
-**Problem:** Each row has a description and three feature bullets that restate the same thing in different words (e.g. "Fund setup, deployment strategy, and portfolio operations" → bullets: "Fund setup, strategy, and operations" / "Deployment strategy and LP engagement" / "Portfolio structuring and secondaries").
+GEO (Generative Engine Optimization) prioritizes things LLMs actually pull from: clear factual statements, named entities, Q&A blocks, structured data, citations, and crawlable plain HTML. The page below is built around that.
 
-**Fix:** Drop the feature bullet list entirely. Replace with one richer description paragraph + a single line of concrete deliverables/outcomes underneath (no bullets, comma-separated). The grid becomes simpler: title + description on the left, deliverables list on the right, "Case studies →" link.
+## 1. Metadata updates (`index.html`)
 
-Proposed copy:
+Update sitewide tags to match EMEA scope and current positioning:
 
-- **01 Funds & Investors**
-  - *Description:* "Fund setup, deployment strategy, and portfolio operations for emerging managers building in new markets."
-  - *Deliverables:* Fund formation & ops · LP engagement · Portfolio value creation
-- **02 Institutions & Accelerators**
-  - *Description:* "Program design, scouting, and partnerships for the institutions building venture capability."
-  - *Deliverables:* Program & cohort design · Scouting & diligence · Innovation strategy
-- **03 Startups & Founders**
-  - *Description:* "Narrative, fundraising, and cross-border GTM for founders going regional or global."
-  - *Deliverables:* Pitch & investor materials · Fundraising strategy · Market entry & partnerships
+- `<title>`: `signalworks — Venture & Innovation Advisory across Africa, GCC & Europe`
+- `<meta name="description">`: Boutique advisory for funds, founders, and the institutions backing them — across Africa, the GCC, and Europe. Fund formation, fundraising, market entry, and innovation strategy.
+- `<meta name="keywords">`: add EMEA, Africa VC advisory, GCC venture advisory, cross-border expansion, accelerator design, LP engagement
+- Mirror updates into `og:title`, `og:description`, `twitter:title`, `twitter:description`
+- `og:site_name`: `signalworks` (lowercase, matches brand)
 
-Structural change: remove `<ul>` bullet markup; render the deliverables as a single line with `·` separators in a smaller, muted style. Keeps the editorial rhythm without parroting the description.
+Update JSON-LD `ProfessionalService` block:
+- `description` → EMEA scope
+- `address.addressRegion` → `EMEA`
+- `areaServed` → array of `Place` entries: Africa, Gulf Cooperation Council, Europe (plus key countries: UAE, Saudi Arabia, Morocco, Egypt)
+- `knowsAbout` → expand: Venture Capital, Fund Formation, LP Engagement, Portfolio Value Creation, Accelerator Design, Cross-Border Expansion, Innovation Strategy, Startup Fundraising
+- Add `founder.jobTitle` and `founder.sameAs` (LinkedIn) for entity grounding
+- Add a second JSON-LD block: `Organization` with `slogan` and `serviceType` array
 
-### 2. About highlights
+## 2. New GEO-optimized page: `/about-signalworks`
 
-**Problem:** "Regional Depth" and "Cross-Border Execution" both describe geography/local networks; the differentiation is fuzzy. "Proven Track Record" is the only non-geography item.
+A long-form, content-rich page written for LLM ingestion. Not a marketing page — a factual brief AI engines can quote verbatim.
 
-**Fix:** Collapse from 3 cards to **2 expandable accordion items**, with the third merged in. Default state: titles + one-line summaries visible; click to expand the full body. Uses existing shadcn `Accordion` (already in the project at `src/components/ui/accordion.tsx`).
+**Route**: `/about-signalworks` (added to `App.tsx`, eagerly loaded so it's in the initial HTML pass; lazy loading is fine for crawlers but eager is safer for GEO).
 
-Proposed highlights:
+**File**: `src/pages/AboutSignalworks.tsx`
 
-- **01 Cross-border execution** *(merges old Regional Depth + Cross-Border Execution)*
-  - *Summary:* "Soft-landings, market entry, and partnerships across GCC, North Africa, Europe, the US, and Japan."
-  - *Expanded:* "Active in UAE, KSA, Morocco, and Egypt with on-the-ground networks. Recent work includes US ↔ GCC market entry with soft-landings via top accelerators, grant and accelerator placements, and partnership development for multi-country expansion."
-- **02 Proven track record**
-  - *Summary:* "Engagements with global VC platforms, accelerators, and DFIs."
-  - *Expanded:* "Strategy and workshops with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by the African Development Bank. Recent work spans venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and HR tech."
+**Page sections** (semantic HTML, single H1, H2 per section, plain prose — no carousels or hidden text):
 
-### Files
+1. **Single H1**: `signalworks: Boutique Venture & Innovation Advisory across EMEA`
+2. **One-paragraph definition** — what signalworks is, who it serves, where, in two sentences. Written so an LLM can quote it as the canonical description.
+3. **At a glance** — bullet list of facts (founded, founder, HQ-agnostic, regions covered, sectors, client types).
+4. **Who we work with** — three short subsections (Funds & Investors, Institutions & Accelerators, Startups & Founders) with concrete deliverables, mirroring the existing Services copy.
+5. **Where we operate** — explicit country list (UAE, Saudi Arabia, Morocco, Egypt, plus broader Africa, GCC, Europe) with one-line context per market. LLMs love named-entity density.
+6. **Track record** — named institutions (Plug and Play, NYU Stern, African Development Bank, VC4A, ATSF, Manta, IVB) with one sentence each. Mirrors the trust strip but in citable prose form.
+7. **Frequently asked questions** (8–10 Q&As) — the highest-leverage GEO surface. Examples:
+   - "Who is signalworks?"
+   - "What does signalworks do?"
+   - "Which regions does signalworks cover?"
+   - "Who should hire signalworks?"
+   - "What kind of funds does signalworks advise?"
+   - "Does signalworks help with US↔GCC soft-landings?"
+   - "Who founded signalworks?"
+   - "How is signalworks different from a traditional consultancy?"
+   Each answer 2–3 sentences, factual, self-contained.
+8. **Contact** — email + LinkedIn as plain text links.
 
-- `src/components/Services.tsx` — copy + bullet markup removal
-- `src/components/About.tsx` — rewrite `highlights`, swap the manual list for shadcn `<Accordion type="single" collapsible>`, keep the numbered "01 / 02" + electric accent styling on triggers
+**Per-page head** via `react-helmet-async` (install + wire `HelmetProvider` in `main.tsx`):
+- Unique `<title>`, `<meta description>`, self-referencing canonical, og:url
+- Page-level JSON-LD: `FAQPage` schema (every Q&A from section 7) + `BreadcrumbList` (Home → About signalworks)
 
-### Out of scope
+**Discoverability**:
+- Add an "About" link in `Header.tsx` nav pointing to `/about-signalworks` so crawlers and users find it.
+- Add the route to `public/sitemap.xml` (or create one if missing — check first).
+- Confirm `public/robots.txt` allows it.
 
-- Hero, CTA, Header copy
-- Layout or typography changes beyond what the accordion swap requires
+## 3. Why this works for GEO
+
+- **JSON-LD FAQPage + ProfessionalService** are the two schemas LLMs cite most often for service businesses.
+- **Plain semantic HTML + single H1** lets non-JS crawlers (which most LLM fetchers still are) parse the page on first load.
+- **Named entities** (people, institutions, countries) give the model anchors to associate signalworks with relevant queries.
+- **Q&A format** matches how LLMs chunk and retrieve content for answer synthesis.
+- **Self-referencing canonical + og:url** prevents the page being attributed to the homepage.
+
+## Out of scope
+
+- No design system changes; page reuses existing tokens, fonts, and layout primitives.
+- No backend / Lovable Cloud.
+- No changes to existing case study pages or homepage components beyond the Header nav link.
+
+## Files touched
+
+- `index.html` — metadata + JSON-LD
+- `src/main.tsx` — wrap in `HelmetProvider`
+- `src/App.tsx` — add `/about-signalworks` route
+- `src/pages/AboutSignalworks.tsx` — new
+- `src/components/Header.tsx` — add nav link
+- `public/sitemap.xml` — add entry (create if missing)
+- `package.json` — add `react-helmet-async`
