@@ -92,7 +92,10 @@ const ContactForm = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: emptyDraft,
+    mode: "onTouched",
+    reValidateMode: "onChange",
   });
+
 
   // Hydrate from localStorage
   useEffect(() => {
