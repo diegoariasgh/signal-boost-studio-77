@@ -13,8 +13,8 @@ const highlights = [
   },
   {
     n: "03",
-    title: "Speaking & Mentoring",
-    body: "Featured speaker and mentor at leading institutions and accelerators, delivering workshops on fundraising strategy, investor relations, and international expansion across GCC, North Africa, and Europe.",
+    title: "Cross-Border Execution",
+    body: "Soft-landings, partnerships, and grant or accelerator placements across the GCC, North Africa, the US, and Japan — built on local networks and on-the-ground context.",
   },
 ];
 
