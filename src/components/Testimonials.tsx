@@ -44,11 +44,21 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    skipSnaps: false,
-  });
+  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
+  const [interval, setInterval] = useState(DEFAULT_INTERVAL);
+
+  const autoplayRef = useRef(
+    Autoplay({
+      delay: DEFAULT_INTERVAL,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
+  );
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start", skipSnaps: false },
+    [autoplayRef.current]
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
