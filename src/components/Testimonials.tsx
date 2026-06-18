@@ -143,7 +143,6 @@ const Testimonials = () => {
                               onClick={() => {
                                 setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
                                 emblaApi?.plugins()?.autoplay?.stop();
-                                setAutoplayEnabled(false);
                               }}
                               className="ml-1 inline text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors underline-offset-4 hover:underline"
                               aria-expanded={!!expanded[i]}
