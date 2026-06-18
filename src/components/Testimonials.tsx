@@ -32,7 +32,9 @@ const testimonials = [
     role: "BRAIN Program Manager",
     company: "Open Startup (OST)",
     content:
-      "Diego is one of the standout experts in our network and someone we consistently trust to support our African founders at Open Startup. With a strong background spanning venture investing, startup growth, and business strategy, he brings a unique perspective that combines investor expectations with the practical realities of building and scaling a company. What founders appreciate most is not only the quality of his feedback, but also his genuine willingness to help. Diego is incredibly supportive, approachable, and generous with his time, often going the extra mile to provide guidance, strategic introductions, and ongoing support well beyond formal mentoring engagements. His ability to challenge founders while remaining constructive and encouraging makes him an exceptional mentor, advisor, and trusted partner for any startup navigating growth and fundraising.",
+      "Diego is one of the standout experts in our network and someone we consistently trust to support our African founders at Open Startup. With a strong background spanning venture investing, startup growth, and business strategy, he brings a unique perspective that combines investor expectations with the practical realities of building and scaling a company.",
+    more:
+      " What founders appreciate most is not only the quality of his feedback, but also his genuine willingness to help. Diego is incredibly supportive, approachable, and generous with his time, often going the extra mile to provide guidance, strategic introductions, and ongoing support well beyond formal mentoring engagements. His ability to challenge founders while remaining constructive and encouraging makes him an exceptional mentor, advisor, and trusted partner for any startup navigating growth and fundraising.",
   },
   {
     name: "Adam Stoll",
@@ -46,6 +48,7 @@ const testimonials = [
 const Testimonials = () => {
   const [autoplayEnabled, setAutoplayEnabled] = useState(true);
   const [interval, setInterval] = useState(DEFAULT_INTERVAL);
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   const autoplayRef = useRef(
     Autoplay({
@@ -102,6 +105,11 @@ const Testimonials = () => {
     }
   }, [autoplayEnabled, interval, emblaApi]);
 
+  // Recompute slide heights when a quote is expanded/collapsed
+  useEffect(() => {
+    if (emblaApi) emblaApi.reInit();
+  }, [expanded, emblaApi]);
+
   return (
     <section
       id="testimonials"
@@ -137,6 +145,25 @@ const Testimonials = () => {
                       </span>
                       <blockquote className="-mt-6 md:-mt-8 lead font-light flex-1">
                         {t.content}
+                        {"more" in t && t.more ? (
+                          <>
+                            {expanded[i] ? (
+                              <span>{t.more}</span>
+                            ) : null}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
+                                autoplayRef.current?.stop();
+                                setAutoplayEnabled(false);
+                              }}
+                              className="ml-1 inline text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors underline-offset-4 hover:underline"
+                              aria-expanded={!!expanded[i]}
+                            >
+                              {expanded[i] ? "Show less" : "Read more"}
+                            </button>
+                          </>
+                        ) : null}
                       </blockquote>
                       <figcaption className="mt-8 pt-6 border-t border-border">
                         <p className="font-semibold text-foreground leading-snug">
