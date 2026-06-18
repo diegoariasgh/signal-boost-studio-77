@@ -83,19 +83,15 @@ const Testimonials = () => {
     };
   }, [emblaApi]);
 
-  // Apply autoplay toggle + interval changes
+  // Ensure autoplay is running with the configured delay
   useEffect(() => {
     if (!emblaApi) return;
     const autoplay = emblaApi.plugins()?.autoplay;
     if (!autoplay) return;
-    (autoplay as unknown as { options: { delay: number } }).options.delay = interval;
-    if (autoplayEnabled) {
-      autoplay.reset();
-      autoplay.play();
-    } else {
-      autoplay.stop();
-    }
-  }, [autoplayEnabled, interval, emblaApi]);
+    (autoplay as unknown as { options: { delay: number } }).options.delay = AUTOPLAY_INTERVAL;
+    autoplay.reset();
+    autoplay.play();
+  }, [emblaApi]);
 
   // Recompute slide heights when a quote is expanded/collapsed
   useEffect(() => {
