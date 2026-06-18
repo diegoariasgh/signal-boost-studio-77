@@ -140,6 +140,25 @@ const Testimonials = () => {
                       </span>
                       <blockquote className="-mt-6 md:-mt-8 lead font-light flex-1">
                         {t.content}
+                        {"more" in t && t.more ? (
+                          <>
+                            {expanded[i] ? (
+                              <span>{t.more}</span>
+                            ) : null}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
+                                autoplayRef.current?.stop();
+                                setAutoplayEnabled(false);
+                              }}
+                              className="ml-1 inline text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors underline-offset-4 hover:underline"
+                              aria-expanded={!!expanded[i]}
+                            >
+                              {expanded[i] ? "Show less" : "Read more"}
+                            </button>
+                          </>
+                        ) : null}
                       </blockquote>
                       <figcaption className="mt-8 pt-6 border-t border-border">
                         <p className="font-semibold text-foreground leading-snug">
