@@ -71,7 +71,7 @@ const Testimonials = () => {
             ))}
           </div>
 
-          {/* Coming soon hairline row */}
+          
         </div>
       </div>
     </section>
