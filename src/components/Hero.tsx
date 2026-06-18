@@ -7,6 +7,7 @@ import atsfLogo from "@/assets/atsf-logo.png";
 import plugandplayLogo from "@/assets/plugandplay-logo.png";
 import mantaLogo from "@/assets/34-ventures-logo.png";
 import ivbLogo from "@/assets/ivb-logo.png";
+import osiLogo from "@/assets/open-startup-international-logo.png.asset.json";
 import heroBackground from "@/assets/hero-gradient-bg.png";
 
 const logos = [
@@ -17,6 +18,7 @@ const logos = [
   { src: atsfLogo, alt: "Africa Tech Startup Forum", h: "h-8 md:h-10" },
   { src: mantaLogo, alt: "34 Ventures", h: "h-8 md:h-10" },
   { src: ivbLogo, alt: "IVB", h: "h-8 md:h-10" },
+  { src: osiLogo.url, alt: "Open Startup International", h: "h-8 md:h-10" },
 ];
 
 const Hero = () => {
