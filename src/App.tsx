@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { useAnalytics } from "./hooks/use-analytics";
 
 // Lazy load case study pages for better performance
 const CaseStudiesFunds = lazy(() => import("./pages/CaseStudiesFunds"));
@@ -16,13 +17,20 @@ const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 
 const queryClient = new QueryClient();
 
+const AnalyticsTracker = () => {
+  useAnalytics();
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AnalyticsTracker />
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background"><div className="w-8 h-8 border-4 border-electric border-t-transparent rounded-full animate-spin"></div></div>}>
+
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about-signalworks" element={<AboutSignalworks />} />
