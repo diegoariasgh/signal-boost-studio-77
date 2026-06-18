@@ -17,7 +17,7 @@ const logos = [
   { src: adbLogo, alt: "African Development Bank", h: "h-8 md:h-10" },
   { src: vc4aLogo, alt: "VC4A Venture Capital Platform", h: "h-8 md:h-10" },
   { src: atsfLogo, alt: "Africa Tech Startup Forum", h: "h-8 md:h-10" },
-  { src: mantaLogo, alt: "34 Ventures", h: "h-8 md:h-10" },
+  { src: mantaLogo.url, alt: "34 Ventures", h: "h-8 md:h-10" },
   { src: ivbLogo, alt: "IVB", h: "h-8 md:h-10" },
   { src: osiLogo.url, alt: "Open Startup International", h: "h-8 md:h-10" },
   { src: digitalAfricaLogo.url, alt: "Digital Africa", h: "h-10 md:h-12" },
