@@ -105,6 +105,11 @@ const Testimonials = () => {
     }
   }, [autoplayEnabled, interval, emblaApi]);
 
+  // Recompute slide heights when a quote is expanded/collapsed
+  useEffect(() => {
+    if (emblaApi) emblaApi.reInit();
+  }, [expanded, emblaApi]);
+
   return (
     <section
       id="testimonials"
