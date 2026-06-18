@@ -72,10 +72,6 @@ const Testimonials = () => {
           </div>
 
           {/* Coming soon hairline row */}
-          <div className="mt-16 pt-8 border-t border-border flex items-center justify-between">
-            <p className="eyebrow">More quotes coming soon</p>
-            <span className="index-num">+</span>
-          </div>
         </div>
       </div>
     </section>
