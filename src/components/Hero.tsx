@@ -7,6 +7,7 @@ import atsfLogo from "@/assets/atsf-logo.png";
 import plugandplayLogo from "@/assets/plugandplay-logo.png";
 import mantaLogo from "@/assets/34-ventures-logo.png";
 import ivbLogo from "@/assets/ivb-logo.png";
+import osiLogo from "@/assets/open-startup-international-logo.png.asset.json";
 import heroBackground from "@/assets/hero-gradient-bg.png";
 
 const logos = [
@@ -17,6 +18,7 @@ const logos = [
   { src: atsfLogo, alt: "Africa Tech Startup Forum", h: "h-8 md:h-10" },
   { src: mantaLogo, alt: "34 Ventures", h: "h-8 md:h-10" },
   { src: ivbLogo, alt: "IVB", h: "h-8 md:h-10" },
+  { src: osiLogo.url, alt: "Open Startup International", h: "h-8 md:h-10" },
 ];
 
 const Hero = () => {
@@ -84,9 +86,9 @@ const Hero = () => {
       </div>
 
       {/* Previous projects strip */}
-      <div className="relative z-10 border-t border-white/10 bg-navy/40 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-white/10 bg-white/95 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <p className="eyebrow-light mb-6">Trusted by —</p>
+          <p className="eyebrow mb-6 text-navy/70">Trusted by —</p>
           <div className="overflow-hidden">
             <div className="flex items-center gap-16 md:gap-20 animate-[scroll_25s_linear_infinite] w-fit">
               {[...logos, ...logos].map((logo, i) => (
@@ -95,7 +97,7 @@ const Hero = () => {
                   src={logo.src}
                   alt={logo.alt}
                   loading="lazy"
-                  className={`${logo.h} w-auto object-contain filter brightness-0 invert opacity-60 hover:opacity-100 signal-transition flex-shrink-0`}
+                  className={`${logo.h} w-auto object-contain opacity-80 hover:opacity-100 signal-transition flex-shrink-0`}
                 />
               ))}
             </div>
