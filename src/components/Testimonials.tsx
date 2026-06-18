@@ -157,7 +157,7 @@ const Testimonials = () => {
             </div>
 
             {/* Controls */}
-            <div className="mt-12 flex items-center justify-between gap-6 pt-6 border-t border-border">
+            <div className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-6 border-t border-border">
               <div className="flex items-center gap-2">
                 {scrollSnaps.map((_, i) => (
                   <button
@@ -174,12 +174,57 @@ const Testimonials = () => {
                   />
                 ))}
               </div>
-              <div className="flex items-center gap-3">
+
+              <div className="flex flex-wrap items-center gap-4 md:gap-5">
+                {/* Autoplay toggle */}
+                <button
+                  type="button"
+                  onClick={() => setAutoplayEnabled((v) => !v)}
+                  aria-pressed={autoplayEnabled}
+                  aria-label={autoplayEnabled ? "Pause autoplay" : "Play autoplay"}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-medium text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  <span className="h-7 w-7 rounded-full border border-border flex items-center justify-center">
+                    {autoplayEnabled ? (
+                      <Pause className="h-3 w-3" />
+                    ) : (
+                      <Play className="h-3 w-3 translate-x-[1px]" />
+                    )}
+                  </span>
+                  {autoplayEnabled ? "Auto" : "Paused"}
+                </button>
+
+                {/* Interval selector */}
+                <div className="flex items-center gap-1.5">
+                  <span className="eyebrow text-foreground/50">Every</span>
+                  <div className="flex items-center gap-1">
+                    {INTERVAL_OPTIONS.map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setInterval(opt.value)}
+                        aria-pressed={interval === opt.value}
+                        disabled={!autoplayEnabled}
+                        className={cn(
+                          "px-2 py-1 text-xs font-medium rounded-md border transition-colors tabular-nums",
+                          interval === opt.value
+                            ? "border-foreground bg-foreground text-background"
+                            : "border-border text-foreground/70 hover:text-foreground hover:border-foreground/40",
+                          !autoplayEnabled && "opacity-40 cursor-not-allowed hover:text-foreground/70 hover:border-border"
+                        )}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 <span className="eyebrow tabular-nums">
                   {String(selectedIndex + 1).padStart(2, "0")} /{" "}
                   {String(testimonials.length).padStart(2, "0")}
                 </span>
-                <div className="flex items-center gap-2 ml-2">
+
+                <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={scrollPrev}
