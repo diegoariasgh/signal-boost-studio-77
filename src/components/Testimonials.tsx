@@ -1,16 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const INTERVAL_OPTIONS = [
-  { label: "3s", value: 3000 },
-  { label: "5s", value: 5000 },
-  { label: "8s", value: 8000 },
-  { label: "12s", value: 12000 },
-];
-const DEFAULT_INTERVAL = 5000;
+const AUTOPLAY_INTERVAL = 8000;
 
 const testimonials = [
   {
