@@ -93,9 +93,9 @@ const Testimonials = () => {
 
   // Apply autoplay toggle + interval changes
   useEffect(() => {
-    const autoplay = autoplayRef.current;
+    if (!emblaApi) return;
+    const autoplay = emblaApi.plugins()?.autoplay;
     if (!autoplay) return;
-    // Update delay via options
     (autoplay as unknown as { options: { delay: number } }).options.delay = interval;
     if (autoplayEnabled) {
       autoplay.reset();
@@ -154,7 +154,7 @@ const Testimonials = () => {
                               type="button"
                               onClick={() => {
                                 setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
-                                autoplayRef.current?.stop();
+                                emblaApi?.plugins()?.autoplay?.stop();
                                 setAutoplayEnabled(false);
                               }}
                               className="ml-1 inline text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors underline-offset-4 hover:underline"
