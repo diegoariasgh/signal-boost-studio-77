@@ -93,9 +93,9 @@ const Testimonials = () => {
 
   // Apply autoplay toggle + interval changes
   useEffect(() => {
-    const autoplay = autoplayRef.current;
+    if (!emblaApi) return;
+    const autoplay = emblaApi.plugins()?.autoplay;
     if (!autoplay) return;
-    // Update delay via options
     (autoplay as unknown as { options: { delay: number } }).options.delay = interval;
     if (autoplayEnabled) {
       autoplay.reset();
