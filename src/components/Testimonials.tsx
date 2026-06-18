@@ -32,7 +32,9 @@ const testimonials = [
     role: "BRAIN Program Manager",
     company: "Open Startup (OST)",
     content:
-      "Diego is one of the standout experts in our network and someone we consistently trust to support our African founders at Open Startup. With a strong background spanning venture investing, startup growth, and business strategy, he brings a unique perspective that combines investor expectations with the practical realities of building and scaling a company. What founders appreciate most is not only the quality of his feedback, but also his genuine willingness to help. Diego is incredibly supportive, approachable, and generous with his time, often going the extra mile to provide guidance, strategic introductions, and ongoing support well beyond formal mentoring engagements. His ability to challenge founders while remaining constructive and encouraging makes him an exceptional mentor, advisor, and trusted partner for any startup navigating growth and fundraising.",
+      "Diego is one of the standout experts in our network and someone we consistently trust to support our African founders at Open Startup. With a strong background spanning venture investing, startup growth, and business strategy, he brings a unique perspective that combines investor expectations with the practical realities of building and scaling a company.",
+    more:
+      " What founders appreciate most is not only the quality of his feedback, but also his genuine willingness to help. Diego is incredibly supportive, approachable, and generous with his time, often going the extra mile to provide guidance, strategic introductions, and ongoing support well beyond formal mentoring engagements. His ability to challenge founders while remaining constructive and encouraging makes him an exceptional mentor, advisor, and trusted partner for any startup navigating growth and fundraising.",
   },
   {
     name: "Adam Stoll",
