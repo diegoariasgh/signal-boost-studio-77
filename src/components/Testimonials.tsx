@@ -1,16 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const INTERVAL_OPTIONS = [
-  { label: "3s", value: 3000 },
-  { label: "5s", value: 5000 },
-  { label: "8s", value: 8000 },
-  { label: "12s", value: 12000 },
-];
-const DEFAULT_INTERVAL = 5000;
+const AUTOPLAY_INTERVAL = 8000;
 
 const testimonials = [
   {
@@ -46,13 +40,11 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
-  const [interval, setInterval] = useState(DEFAULT_INTERVAL);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   const autoplayRef = useRef(
     Autoplay({
-      delay: DEFAULT_INTERVAL,
+      delay: AUTOPLAY_INTERVAL,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
@@ -91,19 +83,15 @@ const Testimonials = () => {
     };
   }, [emblaApi]);
 
-  // Apply autoplay toggle + interval changes
+  // Ensure autoplay is running with the configured delay
   useEffect(() => {
     if (!emblaApi) return;
     const autoplay = emblaApi.plugins()?.autoplay;
     if (!autoplay) return;
-    (autoplay as unknown as { options: { delay: number } }).options.delay = interval;
-    if (autoplayEnabled) {
-      autoplay.reset();
-      autoplay.play();
-    } else {
-      autoplay.stop();
-    }
-  }, [autoplayEnabled, interval, emblaApi]);
+    (autoplay as unknown as { options: { delay: number } }).options.delay = AUTOPLAY_INTERVAL;
+    autoplay.reset();
+    autoplay.play();
+  }, [emblaApi]);
 
   // Recompute slide heights when a quote is expanded/collapsed
   useEffect(() => {
@@ -155,7 +143,6 @@ const Testimonials = () => {
                               onClick={() => {
                                 setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
                                 emblaApi?.plugins()?.autoplay?.stop();
-                                setAutoplayEnabled(false);
                               }}
                               className="ml-1 inline text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors underline-offset-4 hover:underline"
                               aria-expanded={!!expanded[i]}
@@ -203,48 +190,7 @@ const Testimonials = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-4 md:gap-5">
-                {/* Autoplay toggle */}
-                <button
-                  type="button"
-                  onClick={() => setAutoplayEnabled((v) => !v)}
-                  aria-pressed={autoplayEnabled}
-                  aria-label={autoplayEnabled ? "Pause autoplay" : "Play autoplay"}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-medium text-foreground/80 hover:text-foreground transition-colors"
-                >
-                  <span className="h-7 w-7 rounded-full border border-border flex items-center justify-center">
-                    {autoplayEnabled ? (
-                      <Pause className="h-3 w-3" />
-                    ) : (
-                      <Play className="h-3 w-3 translate-x-[1px]" />
-                    )}
-                  </span>
-                  {autoplayEnabled ? "Auto" : "Paused"}
-                </button>
 
-                {/* Interval selector */}
-                <div className="flex items-center gap-1.5">
-                  <span className="eyebrow text-foreground/50">Every</span>
-                  <div className="flex items-center gap-1">
-                    {INTERVAL_OPTIONS.map((opt) => (
-                      <button
-                        key={opt.value}
-                        type="button"
-                        onClick={() => setInterval(opt.value)}
-                        aria-pressed={interval === opt.value}
-                        disabled={!autoplayEnabled}
-                        className={cn(
-                          "px-2 py-1 text-xs font-medium rounded-md border transition-colors tabular-nums",
-                          interval === opt.value
-                            ? "border-foreground bg-foreground text-background"
-                            : "border-border text-foreground/70 hover:text-foreground hover:border-foreground/40",
-                          !autoplayEnabled && "opacity-40 cursor-not-allowed hover:text-foreground/70 hover:border-border"
-                        )}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
 
                 <span className="eyebrow tabular-nums">
                   {String(selectedIndex + 1).padStart(2, "0")} /{" "}
