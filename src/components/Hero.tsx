@@ -86,9 +86,9 @@ const Hero = () => {
       </div>
 
       {/* Previous projects strip */}
-      <div className="relative z-10 border-t border-white/10 bg-navy/40 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-white/10 bg-white/95 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <p className="eyebrow-light mb-6">Trusted by —</p>
+          <p className="eyebrow mb-6 text-navy/70">Trusted by —</p>
           <div className="overflow-hidden">
             <div className="flex items-center gap-16 md:gap-20 animate-[scroll_25s_linear_infinite] w-fit">
               {[...logos, ...logos].map((logo, i) => (
@@ -97,7 +97,7 @@ const Hero = () => {
                   src={logo.src}
                   alt={logo.alt}
                   loading="lazy"
-                  className={`${logo.h} w-auto object-contain filter brightness-0 invert opacity-60 hover:opacity-100 signal-transition flex-shrink-0`}
+                  className={`${logo.h} w-auto object-contain opacity-80 hover:opacity-100 signal-transition flex-shrink-0`}
                 />
               ))}
             </div>
