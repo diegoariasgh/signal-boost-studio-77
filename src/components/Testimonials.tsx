@@ -1,3 +1,8 @@
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
 const testimonials = [
   {
     name: "Yaya Mbaoua",
@@ -30,6 +35,40 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    skipSnaps: false,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi]
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi]
+  );
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    onSelect();
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi]);
+
   return (
     <section
       id="testimonials"
@@ -38,7 +77,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="mb-20 max-w-5xl">
+          <div className="mb-16 md:mb-20 max-w-5xl">
             <p className="eyebrow mb-6">Testimonials —</p>
             <h2 className="display-lg text-foreground">
               Trusted by founders &amp;{" "}
@@ -46,32 +85,88 @@ const Testimonials = () => {
             </h2>
           </div>
 
-          {/* Editorial quote grid */}
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-            {testimonials.map((t, i) => (
-              <figure
-                key={i}
-                className="relative flex flex-col"
-              >
-                <span
-                  aria-hidden
-                  className="font-space-grotesk text-electric/40 leading-none select-none"
-                  style={{ fontSize: "clamp(4rem, 7vw, 6rem)" }}
-                >
-                  &ldquo;
-                </span>
-                <blockquote className="-mt-6 md:-mt-8 lead font-light">
-                  {t.content}
-                </blockquote>
-                <figcaption className="mt-8 pt-6 border-t border-border">
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="body-muted text-sm mt-1">{t.role} · {t.company}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          {/* Carousel */}
+          <div className="relative">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex -ml-6 md:-ml-10">
+                {testimonials.map((t, i) => (
+                  <div
+                    key={i}
+                    className="pl-6 md:pl-10 shrink-0 grow-0 basis-full md:basis-1/2"
+                  >
+                    <figure className="relative flex flex-col h-full">
+                      <span
+                        aria-hidden
+                        className="font-space-grotesk text-electric/40 leading-none select-none"
+                        style={{ fontSize: "clamp(4rem, 7vw, 6rem)" }}
+                      >
+                        &ldquo;
+                      </span>
+                      <blockquote className="-mt-6 md:-mt-8 lead font-light flex-1">
+                        {t.content}
+                      </blockquote>
+                      <figcaption className="mt-8 pt-6 border-t border-border">
+                        <p className="font-semibold text-foreground leading-snug">
+                          {t.name}
+                        </p>
+                        <p className="body-muted text-sm mt-1 leading-snug">
+                          <span className="block md:inline">{t.role}</span>
+                          <span className="hidden md:inline"> · </span>
+                          <span className="block md:inline text-foreground/70">
+                            {t.company}
+                          </span>
+                        </p>
+                      </figcaption>
+                    </figure>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          
+            {/* Controls */}
+            <div className="mt-12 flex items-center justify-between gap-6 pt-6 border-t border-border">
+              <div className="flex items-center gap-2">
+                {scrollSnaps.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => scrollTo(i)}
+                    aria-label={`Go to testimonial ${i + 1}`}
+                    className={cn(
+                      "h-1.5 rounded-full transition-all duration-300",
+                      i === selectedIndex
+                        ? "w-8 bg-foreground"
+                        : "w-4 bg-foreground/20 hover:bg-foreground/40"
+                    )}
+                  />
+                ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="eyebrow tabular-nums">
+                  {String(selectedIndex + 1).padStart(2, "0")} /{" "}
+                  {String(testimonials.length).padStart(2, "0")}
+                </span>
+                <div className="flex items-center gap-2 ml-2">
+                  <button
+                    type="button"
+                    onClick={scrollPrev}
+                    aria-label="Previous testimonial"
+                    className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={scrollNext}
+                    aria-label="Next testimonial"
+                    className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors"
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
