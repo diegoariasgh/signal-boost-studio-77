@@ -40,13 +40,11 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
-  const [interval, setInterval] = useState(DEFAULT_INTERVAL);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   const autoplayRef = useRef(
     Autoplay({
-      delay: DEFAULT_INTERVAL,
+      delay: AUTOPLAY_INTERVAL,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
