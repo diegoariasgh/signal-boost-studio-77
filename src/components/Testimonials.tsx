@@ -37,6 +37,13 @@ const testimonials = [
     content:
       "Diego's ability as a strategic thinker while also focusing down on the details is unparalleled. His personal skills shine when making fundraising connections and when working with portfolio companies in a way that allows teams to take his feedback with conviction. I would recommend Diego wholeheartedly to anyone looking for a top 1% contributor within a fund or delivering value to growth companies around the world.",
   },
+  {
+    name: "",
+    role: "CEO",
+    company: "InVivo Biosystems & Pinecone Therapeutics",
+    content:
+      "Diego is everything you want in a consultant. Not only is he responsive and quick, he brings his own curiosity and initiative. He works to understand your business, and brings his experience and perspective to solve problems you didn't know you had. I would hire him again in a heartbeat.",
+  },
 ];
 
 const Testimonials = () => {
