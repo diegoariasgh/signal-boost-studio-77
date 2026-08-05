@@ -38,7 +38,7 @@ const testimonials = [
       "Diego's ability as a strategic thinker while also focusing down on the details is unparalleled. His personal skills shine when making fundraising connections and when working with portfolio companies in a way that allows teams to take his feedback with conviction. I would recommend Diego wholeheartedly to anyone looking for a top 1% contributor within a fund or delivering value to growth companies around the world.",
   },
   {
-    name: "",
+    name: "Kat McCormick, PhD",
     role: "CEO",
     company: "InVivo Biosystems & Pinecone Therapeutics",
     content:
