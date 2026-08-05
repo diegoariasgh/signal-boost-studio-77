@@ -7,8 +7,7 @@ import atsfLogo from "@/assets/atsf-logo.png";
 import plugandplayLogo from "@/assets/plugandplay-logo.png";
 import mantaLogo from "@/assets/34-ventures-logo-new.png";
 import ivbLogo from "@/assets/ivb-logo.png";
-import osiLogoAsset from "@/assets/open-startup.png.asset.json";
-const osiLogo = osiLogoAsset.url;
+import osiLogo from "@/assets/open-startup.png";
 import digitalAfricaLogo from "@/assets/digital-africa-logo.png";
 import heroBackground from "@/assets/hero-gradient-bg.png";
 
@@ -20,7 +19,7 @@ const logos = [
   { src: atsfLogo, alt: "Africa Tech Startup Forum", h: "h-8 md:h-10" },
   { src: mantaLogo, alt: "34 Ventures", h: "h-8 md:h-10" },
   { src: ivbLogo, alt: "IVB", h: "h-8 md:h-10" },
-  { src: osiLogo, alt: "Open Startup International", h: "h-8 md:h-10" },
+  { src: osiLogo, alt: "Open Startup International", h: "h-10 md:h-12" },
   { src: digitalAfricaLogo, alt: "Digital Africa", h: "h-10 md:h-12" },
 ];
 
