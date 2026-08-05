@@ -7,7 +7,8 @@ import atsfLogo from "@/assets/atsf-logo.png";
 import plugandplayLogo from "@/assets/plugandplay-logo.png";
 import mantaLogo from "@/assets/34-ventures-logo-new.png";
 import ivbLogo from "@/assets/ivb-logo.png";
-import osiLogo from "@/assets/open-startup-international-logo.png";
+import osiLogoAsset from "@/assets/open-startup.png.asset.json";
+const osiLogo = osiLogoAsset.url;
 import digitalAfricaLogo from "@/assets/digital-africa-logo.png";
 import heroBackground from "@/assets/hero-gradient-bg.png";
 
