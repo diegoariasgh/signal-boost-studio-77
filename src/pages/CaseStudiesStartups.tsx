@@ -6,11 +6,22 @@ const caseStudies: CaseStudy[] = [
   {
     title: "Market Entry Exploration",
     client: "US-based biotech",
-    challenges: [],
-    solutions: [],
-    results: [],
+    challenges: [
+      "Lack of local knowledge for Middle East expansion",
+      "Needed materials to communicate value to regional stakeholders",
+    ],
+    solutions: [
+      "Built a strong, locally relevant narrative",
+      "Developed a tailored pitch for regional audiences",
+      "Reworked market sizing for the Middle East",
+      "Built a new go-to-market motion for clinical trials",
+    ],
+    results: [
+      "Company accelerated into the inaugural Deerfield ($15bn AUM) × QIA CURE Middle East accelerator cohort",
+      "Clinical trial sites identified with discussions underway",
+      "Secured angel investor commitment to bolster regional expansion ahead of Series A",
+    ],
     category: "Market Expansion Strategy",
-    isPlaceholder: true,
   },
   {
     title: "Fundraising Preparation",
