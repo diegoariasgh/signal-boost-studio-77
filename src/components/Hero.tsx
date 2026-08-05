@@ -19,7 +19,7 @@ const logos = [
   { src: atsfLogo, alt: "Africa Tech Startup Forum", h: "h-8 md:h-10" },
   { src: mantaLogo, alt: "34 Ventures", h: "h-8 md:h-10" },
   { src: ivbLogo, alt: "IVB", h: "h-8 md:h-10" },
-  { src: osiLogo, alt: "Open Startup International", h: "h-8 md:h-10" },
+  { src: osiLogo, alt: "Open Startup International", h: "h-10 md:h-12" },
   { src: digitalAfricaLogo, alt: "Digital Africa", h: "h-10 md:h-12" },
 ];
 
