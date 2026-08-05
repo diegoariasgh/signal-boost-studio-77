@@ -5,10 +5,10 @@ import vc4aLogo from "@/assets/vc4a-logo.png";
 import adbLogo from "@/assets/adb-logo.png";
 import atsfLogo from "@/assets/atsf-logo.png";
 import plugandplayLogo from "@/assets/plugandplay-logo.png";
-import mantaLogo from "@/assets/34-ventures-logo-new.png.asset.json";
+import mantaLogo from "@/assets/34-ventures-logo-new.png";
 import ivbLogo from "@/assets/ivb-logo.png";
-import osiLogo from "@/assets/open-startup-international-logo.png.asset.json";
-import digitalAfricaLogo from "@/assets/digital-africa-logo.png.asset.json";
+import osiLogo from "@/assets/open-startup-international-logo.png";
+import digitalAfricaLogo from "@/assets/digital-africa-logo.png";
 import heroBackground from "@/assets/hero-gradient-bg.png";
 
 const logos = [
