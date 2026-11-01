@@ -19,7 +19,7 @@ const Block = ({ label, items }: { label: string; items: string[] }) => (
     <ul className="space-y-3">
       {items.map((item, i) => (
         <li key={i} className="flex gap-3 text-sm leading-relaxed text-foreground/80">
-          <span className="mt-2 h-1 w-2 flex-shrink-0 bg-electric" />
+          <span className="text-electric select-none">&mdash;</span>
           <span>{item}</span>
         </li>
       ))}
