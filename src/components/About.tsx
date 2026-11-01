@@ -13,7 +13,7 @@ const highlights = [
     summary:
       "Active presence across UAE, KSA, Morocco, Egypt, Kenya, Nigeria, Tunisia, and South Africa, with working relationships in Europe and select partners in the US.",
     body:
-      "Soft-landings and partnership development run through local operators, regulators, and accelerators in each market — not from a distance.",
+      "Soft-landings and partnership development run through local operators, regulators, and accelerators in each market, not from a distance.",
   },
   {
     n: "02",
@@ -21,7 +21,7 @@ const highlights = [
     summary:
       "Work alongside global VC platforms, accelerators, and development finance institutions.",
     body:
-      "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by institutions like UM6P, OCP, the National Bank of Egypt, USAID, Digital Africa, the African Development Bank, and the EU — across venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and energy & resource management.",
+      "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by institutions like UM6P, OCP, the National Bank of Egypt, USAID, Digital Africa, the African Development Bank, and the EU, spanning venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and energy & resource management.",
   },
   {
     n: "03",
@@ -29,7 +29,7 @@ const highlights = [
     summary:
       "20+ early-stage deals led across African markets, from sourcing and diligence to IC materials and investor syndication.",
     body:
-      "Hands-on investment work across Morocco, Egypt, Nigeria, Kenya, Côte d'Ivoire, Cameroon, Senegal, Tunisia, and South Africa — connecting founder strategy, commercial milestones, and capital conversations across local and international investor networks.",
+      "Hands-on investment work across Morocco, Egypt, Nigeria, Kenya, Côte d'Ivoire, Cameroon, Senegal, Tunisia, and South Africa, connecting founder strategy, commercial milestones, and capital conversations across local and international investor networks.",
   },
 ];
 
@@ -46,9 +46,9 @@ const About = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-20 max-w-5xl">
-            <p className="eyebrow mb-6">About —</p>
+            <p className="eyebrow mb-6">About</p>
             <h2 className="display-lg text-foreground uppercase">
-              Experience <span className="editorial-underline">across borders and strategies</span> — VC, accelerators &amp; catalytic capital.
+              Experience <span className="editorial-underline">across borders and strategies</span>: VC, accelerators &amp; catalytic capital.
             </h2>
 
           </div>
@@ -59,7 +59,7 @@ const About = () => {
             <div className="lg:col-span-6 flex flex-col h-full border-t border-b border-border py-8">
               <p className="lead">
                 We sit at the intersection of early-stage investing, fund
-                operations, and go-to-market — translating regional context
+                operations, and go-to-market, translating regional context
                 across Africa, the GCC, and Europe into decisions that move.
               </p>
 
@@ -80,7 +80,7 @@ const About = () => {
                         className="w-14 h-14 rounded-full object-cover flex-shrink-0"
                       />
                       <div>
-                        <p className="eyebrow mb-1">Led by —</p>
+                        <p className="eyebrow mb-1">Led by</p>
                         <h3 className="sub-title leading-tight group-hover:text-electric signal-transition">
                           Diego Arias García
                         </h3>
@@ -94,7 +94,7 @@ const About = () => {
                       and Play and Outlierz Ventures across fintech, healthtech,
                       energy, and B2B platforms in Morocco, Egypt, Nigeria,
                       Kenya, Côte d'Ivoire, Cameroon, Senegal, Tunisia, and
-                      South Africa — with direct introductions to investors
+                      South Africa, with direct introductions to investors
                       including Visa, BPI France, Digital Africa, Africinvest,
                       Launch Africa, and Algebra Ventures. Now advises funds,
                       accelerators, and founders on strategy, operations, GTM,

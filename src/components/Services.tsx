@@ -31,7 +31,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-20 max-w-5xl">
-            <p className="eyebrow mb-6">What we do —</p>
+            <p className="eyebrow mb-6">What we do</p>
             <h2 className="display-lg text-foreground">
               Tailored advisory across the{" "}
               <span className="editorial-underline">venture ecosystem</span>
@@ -70,7 +70,7 @@ const Services = () => {
                           key={d}
                           className="flex items-baseline gap-3 lead leading-snug"
                         >
-                          <span className="text-electric font-mono">—</span>
+                          <span className="text-electric font-mono">+</span>
                           <span>{d}</span>
                         </li>
                       ))}

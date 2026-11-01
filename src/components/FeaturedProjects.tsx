@@ -29,7 +29,7 @@ const projects = [
     title: "Rethinking Africa VC",
     subtitle: "Collaborative research on adapting the venture capital model for Africa.",
     blurb:
-      "A whitepaper synthesizing insights from 15 investment professionals, a survey of 50+ investors deploying across Africa, and in-depth interviews with operators running alternative fund models — evergreen funds, venture studios, ESO-linked funds, and CVCs.",
+      "A whitepaper synthesizing insights from 15 investment professionals, a survey of 50+ investors deploying across Africa, and in-depth interviews with operators running alternative fund models: evergreen funds, venture studios, ESO-linked funds, and CVCs.",
     stats: [
       { value: "15", label: "Professionals" },
       { value: "50+", label: "Investors surveyed" },
@@ -47,7 +47,7 @@ const projects = [
       "Benchmark planned rounds against real African funding data, compare valuations and round sizes by stage, explore funding trends by country and sector, and understand what it takes to return a VC fund.",
     stats: [
       { value: "4,300+", label: "Funding rounds" },
-      { value: "2019–25", label: "Date range" },
+      { value: "2019-25", label: "Date range" },
       { value: "Country · Sector · Stage", label: "Filters" },
     ],
     cta: "Open the calculator",
@@ -65,7 +65,7 @@ const FeaturedProjects = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-20 max-w-5xl">
-            <p className="eyebrow mb-6">Featured projects —</p>
+            <p className="eyebrow mb-6">Featured projects</p>
             <h2 className="display-lg text-foreground">
               Research &amp; tools for venture{" "}
               <span className="editorial-underline">in Africa and beyond</span>
@@ -110,7 +110,7 @@ const FeaturedProjects = () => {
 
                     {/* Right: outputs + stats + CTA */}
                     <div className="flex flex-col md:border-l md:border-border md:pl-10">
-                      <p className="eyebrow mb-4">Outputs —</p>
+                      <p className="eyebrow mb-4">Outputs</p>
                       <ul className="space-y-3 mb-8">
                         {p.outputs.map((o, i) => (
                           <li key={i} className="flex items-start gap-3 body-muted">
