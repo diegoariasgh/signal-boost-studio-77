@@ -104,7 +104,7 @@ const AboutSignalworks = () => {
 
       <main className="pt-32 pb-24">
         <article className="container mx-auto px-6 max-w-3xl">
-          <p className="eyebrow-light mb-6">About signalworks</p>
+          <p className="eyebrow-light eyebrow-light-dash mb-6">About signalworks</p>
           <h1 className="display-xl mb-8">
             signalworks: Boutique Venture &amp; Innovation Advisory across EMEA
           </h1>

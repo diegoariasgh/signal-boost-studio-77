@@ -65,7 +65,7 @@ const FeaturedProjects = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-20 max-w-5xl">
-            <p className="eyebrow mb-6">Featured projects</p>
+            <p className="eyebrow eyebrow-dash mb-6">Featured projects</p>
             <h2 className="display-lg text-foreground">
               Research &amp; tools for venture{" "}
               <span className="editorial-underline">in Africa and beyond</span>
@@ -114,7 +114,7 @@ const FeaturedProjects = () => {
                       <ul className="space-y-3 mb-8">
                         {p.outputs.map((o, i) => (
                           <li key={i} className="flex items-start gap-3 body-muted">
-                            <span className="mt-[0.45em] h-1.5 w-1.5 flex-shrink-0 bg-electric" />
+                            <span className="mt-[0.1em] text-electric select-none">&mdash;</span>
                             <span>{o}</span>
                           </li>
                         ))}
