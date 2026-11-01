@@ -3,36 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 const projects = [
   {
     n: "01",
-    tags: ["Whitepaper · 2025", "Featured in Oxford Africa Venture Finance Program"],
-    title: "Rethinking Africa VC",
-    subtitle: "Collaborative research on adapting the venture capital model for Africa.",
-    blurb:
-      "A whitepaper synthesizing insights from 15 investment professionals, a survey of 50+ investors deploying across Africa, and in-depth interviews with operators running alternative fund models — evergreen funds, venture studios, ESO-linked funds, and CVCs.",
-    stats: [
-      { value: "15", label: "Professionals" },
-      { value: "50+", label: "Investors surveyed" },
-      { value: "1.5K+", label: "Visits / 90 days" },
-    ],
-    cta: "Read the whitepaper",
-    href: "https://rethinkingafricavc.lovable.app/",
-  },
-  {
-    n: "02",
-    tags: ["Interactive tool · 2025", "Powered by Africa: The Big Deal database"],
-    title: "Africa Venture Insights",
-    subtitle: "Interactive benchmarking tool for African founders and investors.",
-    blurb:
-      "Benchmark planned rounds against real African funding data, compare valuations and round sizes by stage, explore funding trends by country and sector, and understand what it takes to return a VC fund.",
-    stats: [
-      { value: "4,300+", label: "Funding rounds" },
-      { value: "2019–25", label: "Date range" },
-      { value: "Country · Sector · Stage", label: "Filters" },
-    ],
-    cta: "Open the calculator",
-    href: "https://insights.signalworks.xyz/",
-  },
-  {
-    n: "03",
+    featured: true,
     tags: ["Comparative research · 2025", "Commissioned by Digital Africa"],
     title: "Incorporation Research & Explorer",
     subtitle: "Where African ventures incorporate — and what those choices cost.",
@@ -52,6 +23,36 @@ const projects = [
     ],
     cta: "Open the explorer",
     href: "https://study-incorporation.digital-africa.co/",
+  },
+  {
+    n: "02",
+    tags: ["Whitepaper · 2025", "Featured in Oxford Africa Venture Finance Program"],
+    title: "Rethinking Africa VC",
+    subtitle: "Collaborative research on adapting the venture capital model for Africa.",
+    blurb:
+      "A whitepaper synthesizing insights from 15 investment professionals, a survey of 50+ investors deploying across Africa, and in-depth interviews with operators running alternative fund models — evergreen funds, venture studios, ESO-linked funds, and CVCs.",
+    stats: [
+      { value: "15", label: "Professionals" },
+      { value: "50+", label: "Investors surveyed" },
+      { value: "1.5K+", label: "Visits / 90 days" },
+    ],
+    cta: "Read the whitepaper",
+    href: "https://rethinkingafricavc.lovable.app/",
+  },
+  {
+    n: "03",
+    tags: ["Interactive tool · 2025", "Powered by Africa: The Big Deal database"],
+    title: "Africa Venture Insights",
+    subtitle: "Interactive benchmarking tool for African founders and investors.",
+    blurb:
+      "Benchmark planned rounds against real African funding data, compare valuations and round sizes by stage, explore funding trends by country and sector, and understand what it takes to return a VC fund.",
+    stats: [
+      { value: "4,300+", label: "Funding rounds" },
+      { value: "2019–25", label: "Date range" },
+      { value: "Country · Sector · Stage", label: "Filters" },
+    ],
+    cta: "Open the calculator",
+    href: "https://insights.signalworks.xyz/",
   },
 ];
 
@@ -75,7 +76,7 @@ const FeaturedProjects = () => {
           {/* Cards */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((p) =>
-              p.n === "03" ? (
+              p.featured ? (
                 <a
                   key={p.n}
                   href={p.href}
