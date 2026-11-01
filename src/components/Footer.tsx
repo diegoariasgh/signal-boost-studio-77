@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="eyebrow mb-4">Connect —</p>
+              <p className="eyebrow mb-4">Connect</p>
               <ul className="space-y-2">
                 <li>
                   <a
@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="eyebrow mb-4">Navigate —</p>
+              <p className="eyebrow mb-4">Navigate</p>
               <ul className="space-y-2">
                 <li>
                   <a href="#about" className="text-foreground/80 hover:text-electric signal-transition">About</a>

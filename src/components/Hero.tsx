@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="relative z-10 flex-1 flex items-center pt-32 pb-16">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl">
-            <p className="eyebrow-light mb-8">signalworks is —</p>
+            <p className="eyebrow-light mb-8">signalworks is</p>
 
             <h1 className="display-xl text-white mb-10">
               <span className="block">
@@ -58,7 +58,7 @@ const Hero = () => {
 
             <p className="lead-light max-w-2xl mb-12">
               Boutique advisory for funds, founders, and the institutions
-              backing them — across&nbsp;Africa, the GCC, and Europe.
+              backing them across&nbsp;Africa, the GCC, and Europe.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
@@ -90,7 +90,7 @@ const Hero = () => {
       {/* Previous projects strip */}
       <div className="relative z-10 border-t border-white/10 bg-white/95 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <p className="eyebrow mb-6 text-navy/70">Trusted by —</p>
+          <p className="eyebrow mb-6 text-navy/70">Trusted by</p>
           <div className="overflow-hidden">
             <div className="flex items-center gap-16 md:gap-20 animate-[scroll_25s_linear_infinite] w-fit">
               {[...logos, ...logos].map((logo, i) => (

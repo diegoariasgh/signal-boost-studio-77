@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 const faqs = [
   {
     q: "What is signalworks?",
-    a: "signalworks is a boutique venture and innovation advisory serving funds, founders, and the institutions backing them across Africa, the GCC, and Europe. It was founded by Diego Arias García and operates as a senior-led, mission-aligned partner — not a generalist consultancy.",
+    a: "signalworks is a boutique venture and innovation advisory serving funds, founders, and the institutions backing them across Africa, the GCC, and Europe. It was founded by Diego Arias García and operates as a senior-led, mission-aligned partner, not a generalist consultancy.",
   },
   {
     q: "What does signalworks do?",
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "What kind of funds does signalworks advise?",
-    a: "signalworks works with first-time managers and established funds — typically pre-seed, seed, and early-stage — on fund formation, LP engagement, portfolio support, and operating model design. Mandates have spanned single-GP shops and catalytic funding vehicles.",
+    a: "signalworks works with first-time managers and established funds (typically pre-seed, seed, and early-stage) on fund formation, LP engagement, portfolio support, and operating model design. Mandates have spanned single-GP shops and catalytic funding vehicles.",
   },
   {
     q: "Does signalworks help with US↔GCC soft-landings?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "How is signalworks different from a traditional consultancy?",
-    a: "signalworks is senior-led, embedded, and mission-aligned. There are no junior teams producing decks; engagements are scoped around concrete outcomes — a program launched, a market entered — rather than billable hours.",
+    a: "signalworks is senior-led, embedded, and mission-aligned. There are no junior teams producing decks; engagements are scoped around concrete outcomes (a program launched, a market entered) rather than billable hours.",
   },
   {
     q: "How do you start working with signalworks?",
@@ -44,15 +44,15 @@ const faqs = [
 
 const markets = [
   { name: "United Arab Emirates", note: "Hub for fund formation, family-office capital, and GCC market entry." },
-  { name: "Saudi Arabia", note: "Vision 2030–aligned innovation programs, sovereign-backed accelerators, and corporate venture mandates." },
+  { name: "Saudi Arabia", note: "Vision 2030 aligned innovation programs, sovereign-backed accelerators, and corporate venture mandates." },
   { name: "Morocco", note: "Gateway to Francophone Africa with active early-stage and impact-investor activity." },
   { name: "Egypt", note: "Largest North African startup market with deep fintech and B2B SaaS pipelines." },
-  { name: "Broader Africa", note: "Pan-African startup scouting, VC introductions, and ecosystem partnerships via." },
+  { name: "Broader Africa", note: "Pan-African startup scouting, VC introductions, and ecosystem partnerships." },
   { name: "Europe", note: "Cross-border bridges for EMEA-aligned funds, accelerators, and founders raising or expanding." },
 ];
 
 const trackRecord = [
-  { name: "Plug and Play Tech Center", note: "Global accelerator and corporate-innovation platform — program design and scouting." },
+  { name: "Plug and Play Tech Center", note: "Global accelerator and corporate-innovation platform: program design and scouting." },
   { name: "NYU Stern School of Business", note: "Education and applied venture work with one of the world's leading business schools." },
   { name: "African Development Bank", note: "Multilateral development finance institution backing pan-African entrepreneurship." },
   { name: "VC4A", note: "Pan-African venture capital and entrepreneurship platform." },
@@ -84,13 +84,13 @@ const AboutSignalworks = () => {
   return (
     <div className="min-h-screen bg-navy text-white">
       <Helmet>
-        <title>About signalworks — Venture & Innovation Advisory across EMEA</title>
+        <title>About signalworks: Venture & Innovation Advisory across EMEA</title>
         <meta
           name="description"
           content="signalworks is a boutique venture and innovation advisory serving funds, founders, and institutions across Africa, the GCC, and Europe. Founded by Diego Arias García."
         />
         <link rel="canonical" href="https://signalworks.xyz/about-signalworks" />
-        <meta property="og:title" content="About signalworks — Venture & Innovation Advisory across EMEA" />
+        <meta property="og:title" content="About signalworks: Venture & Innovation Advisory across EMEA" />
         <meta property="og:url" content="https://signalworks.xyz/about-signalworks" />
         <meta
           property="og:description"
@@ -111,24 +111,24 @@ const AboutSignalworks = () => {
 
           <p className="text-lg md:text-xl text-slate-light/85 leading-relaxed mb-6">
             signalworks is a boutique advisory for funds, founders, and the institutions backing
-            them — operating across Africa, the GCC, and Europe. The firm works on fund formation,
+            them, operating across Africa, the GCC, and Europe. The firm works on fund formation,
             fundraising, market entry, accelerator and program design, and cross-border expansion.
           </p>
           <p className="text-base md:text-lg text-slate-light/70 leading-relaxed mb-16">
             Engagements are senior-led and mission-aligned. signalworks partners with teams that
-            are building something they intend to outlast a single fund cycle — not chasing
+            are building something they intend to outlast a single fund cycle, not chasing
             quarterly mandates.
           </p>
 
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">At a glance</h2>
             <ul className="space-y-3 text-slate-light/85">
-              <li><span className="text-electric font-mono mr-3">—</span>Founder: Diego Arias García</li>
-              <li><span className="text-electric font-mono mr-3">—</span>Model: Boutique, senior-led, embedded advisory</li>
-              <li><span className="text-electric font-mono mr-3">—</span>Regions: Africa, GCC, Europe (EMEA)</li>
-              <li><span className="text-electric font-mono mr-3">—</span>Active markets: UAE, Saudi Arabia, Morocco, Egypt, plus broader Africa and Europe</li>
-              <li><span className="text-electric font-mono mr-3">—</span>Clients: Funds &amp; investors · Institutions &amp; accelerators · Startups &amp; founders</li>
-              <li><span className="text-electric font-mono mr-3">—</span>Sectors: Fintech, biotech, IoT, AI, HR tech, climate, and frontier technology</li>
+              <li><span className="text-electric font-mono mr-3">+</span>Founder: Diego Arias García</li>
+              <li><span className="text-electric font-mono mr-3">+</span>Model: Boutique, senior-led, embedded advisory</li>
+              <li><span className="text-electric font-mono mr-3">+</span>Regions: Africa, GCC, Europe (EMEA)</li>
+              <li><span className="text-electric font-mono mr-3">+</span>Active markets: UAE, Saudi Arabia, Morocco, Egypt, plus broader Africa and Europe</li>
+              <li><span className="text-electric font-mono mr-3">+</span>Clients: Funds &amp; investors · Institutions &amp; accelerators · Startups &amp; founders</li>
+              <li><span className="text-electric font-mono mr-3">+</span>Sectors: Fintech, biotech, IoT, AI, HR tech, climate, and frontier technology</li>
             </ul>
           </section>
 
