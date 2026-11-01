@@ -6,7 +6,7 @@ const projects = [
     featured: true,
     tags: ["Comparative research · 2025", "Commissioned by Digital Africa"],
     title: "Incorporation Research & Explorer",
-    subtitle: "Where African ventures incorporate — and what those choices cost.",
+    subtitle: "Exploring operating and holding jurisdictions in Africa, Europe and the US",
     blurb:
       "Six months of comparative research across 15 jurisdictions — 8 African operating markets and 7 holding-company jurisdictions across Europe and the US — informed by more than 70 founders, investors, legal and tax experts, operators, and service providers. A companion edition examined the proposed EU Inc.",
     outputs: [
