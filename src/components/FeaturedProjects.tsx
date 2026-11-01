@@ -8,7 +8,7 @@ const projects = [
     title: "Incorporation Research & Explorer",
     subtitle: "Exploring operating and holding jurisdictions in Africa, Europe and the US",
     blurb:
-      "Six months of comparative research across 15 jurisdictions — 8 African operating markets and 7 holding-company jurisdictions across Europe and the US — informed by more than 70 founders, investors, legal and tax experts, operators, and service providers. A companion edition examined the proposed EU Inc.",
+      "Six months of comparative research across 16 jurisdictions (8 African operating markets and 7 holding-company jurisdictions across Europe and the US, plus the proposed EU Inc) with insights from more than 70 founders, investors, legal and tax experts, operators, and service providers. Beyond the market reports, interactive tools, playbooks and case studies were delivered to make the research project engaging and accessible.",
     outputs: [
       "Comparative master study",
       "Individual market editions (screen & print)",
