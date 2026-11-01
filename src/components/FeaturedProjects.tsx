@@ -19,7 +19,6 @@ const projects = [
       { value: "15", label: "Jurisdictions compared" },
       { value: "3", label: "Modules per market" },
       { value: "70+", label: "Expert contributors" },
-      { value: "5", label: "Case-study families" },
     ],
     cta: "Open the explorer",
     href: "https://study-incorporation.digital-africa.co/",
@@ -68,8 +67,8 @@ const FeaturedProjects = () => {
           <div className="mb-20 max-w-5xl">
             <p className="eyebrow mb-6">Featured projects —</p>
             <h2 className="display-lg text-foreground">
-              Research &amp; tools shaping{" "}
-              <span className="editorial-underline">African venture</span>
+              Research &amp; tools for venture{" "}
+              <span className="editorial-underline">in Africa and beyond</span>
             </h2>
           </div>
 
