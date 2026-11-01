@@ -210,6 +210,14 @@ All colors MUST be HSL.
   .eyebrow-light {
     @apply text-xs md:text-sm uppercase tracking-[0.2em] text-slate-light/70 font-medium;
   }
+  .eyebrow-dash::before {
+    content: "\2014";
+    @apply text-electric mr-3;
+  }
+  .eyebrow-light-dash::before {
+    content: "\2014";
+    @apply text-electric mr-3;
+  }
   .display-xl {
     @apply font-display font-extrabold uppercase leading-[0.95] tracking-tight;
     font-size: clamp(2.5rem, 8vw, 7rem);
