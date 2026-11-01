@@ -114,7 +114,7 @@ const Testimonials = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-16 md:mb-20 max-w-5xl">
-            <p className="eyebrow mb-6">Testimonials</p>
+            <p className="eyebrow eyebrow-dash mb-6">Testimonials</p>
             <h2 className="display-lg text-foreground">
               Trusted by founders &amp;{" "}
               <span className="editorial-underline">operators</span>

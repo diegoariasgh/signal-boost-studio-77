@@ -20,7 +20,7 @@ const CTA = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <p className="eyebrow-light mb-10 pb-10 border-b border-white/10">Get in touch</p>
+          <p className="eyebrow-light eyebrow-light-dash mb-10 pb-10 border-b border-white/10">Get in touch</p>
 
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
             {/* Left: quote */}

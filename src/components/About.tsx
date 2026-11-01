@@ -46,7 +46,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-20 max-w-5xl">
-            <p className="eyebrow mb-6">About</p>
+            <p className="eyebrow eyebrow-dash mb-6">About</p>
             <h2 className="display-lg text-foreground uppercase">
               Experience <span className="editorial-underline">across borders and strategies</span>: VC, accelerators &amp; catalytic capital.
             </h2>
