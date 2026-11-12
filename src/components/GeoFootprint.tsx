@@ -16,10 +16,10 @@ const GeoFootprint = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const clipped = { type: "FeatureCollection", features: all.features.filter((f: any) => f.properties?.name !== "Antarctica") };
     const projection = geoConicEquidistant()
-      .parallels([10, 70])
+      .parallels([0, 45])
       .rotate([-5, 0])
-      .center([0, 30])
-      .scale(150)
+      .center([0, 22])
+      .scale(185)
       .translate([W / 2, H * 0.45]);
     const path = geoPath(projection);
     return {
@@ -62,7 +62,7 @@ const GeoFootprint = () => {
               </radialGradient>
             </defs>
 
-            <path d={landPath} fill="url(#landFill)" stroke="hsl(var(--navy-deep) / 0.6)" strokeWidth={0.4} filter="url(#landShadow)" />
+            <path d={landPath} fill="url(#landFill)" stroke="hsl(var(--electric-blue) / 0.35)" strokeWidth={0.3} filter="url(#landShadow)" />
 
             {flows.map((f) => {
               const a = byId[f.from], b = byId[f.to];
