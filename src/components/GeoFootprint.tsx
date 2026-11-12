@@ -47,7 +47,7 @@ const GeoFootprint = () => {
         </h2>
 
         <div className="relative">
-          <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Map of markets where signalworks has worked">
+          <svg viewBox={`0 0 ${W} ${H}`} style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 22%, black 85%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 22%, black 85%, transparent 100%)" }} className="w-full h-auto block" role="img" aria-label="Map of markets where signalworks has worked">
             <defs>
               <linearGradient id="landFill" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="hsl(var(--navy-lighter))" />
