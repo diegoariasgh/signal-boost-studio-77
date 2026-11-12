@@ -16,7 +16,7 @@ const GeoFootprint = () => {
   const { landPath, project, gratPath } = useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const land = feature(land110 as any, (land110 as any).objects.land);
-    const projection = geoNaturalEarth1().center([15, 22]).scale(330).translate([W / 2, H / 2]);
+    const projection = geoNaturalEarth1().center([-15, 22]).scale(210).translate([W / 2, H / 2]);
     const path = geoPath(projection);
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -79,7 +79,7 @@ const GeoFootprint = () => {
             <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Map of signalworks experience">
               <defs>
                 <pattern id="dots" width="5" height="5" patternUnits="userSpaceOnUse">
-                  <circle cx="2.5" cy="2.5" r="1" fill="hsl(var(--electric-blue-light) / 0.35)" />
+                  <circle cx="2.5" cy="2.5" r="1" fill="hsl(var(--electric-blue-light) / 0.55)" />
                 </pattern>
                 <radialGradient id="glow">
                   <stop offset="0%" stopColor="hsl(var(--electric-blue-light))" stopOpacity="0.9" />
