@@ -1,4 +1,4 @@
-import founderProfile from "@/assets/founder-profile.png";
+import founderProfile from "@/assets/founder-profile-closeup.jpg.asset.json";
 import {
   Accordion,
   AccordionContent,
@@ -72,7 +72,7 @@ const About = () => {
                   <AccordionTrigger className="py-8 hover:no-underline group">
                     <div className="flex items-center gap-4 text-left flex-1">
                       <img
-                        src={founderProfile}
+                        src={founderProfile.url}
                         alt="Diego Arias García"
                         width="56"
                         height="56"
