@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { geoConicEquidistant, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
-import land110 from "world-atlas/land-110m.json";
+import countries110 from "world-atlas/countries-110m.json";
 import { places, flows, type Place } from "@/data/geoFootprint";
 
 const W = 1000;
@@ -12,9 +12,9 @@ const GeoFootprint = () => {
 
   const { landPath, project } = useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const land = feature(land110 as any, (land110 as any).objects.land) as any;
-    // Keep out Antarctica for a cleaner horizon
-    land.features = land.features ?? [];
+    const all = feature(countries110 as any, (countries110 as any).objects.countries) as any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const clipped = { type: "FeatureCollection", features: all.features.filter((f: any) => f.properties?.name !== "Antarctica") };
     const projection = geoConicEquidistant()
       .parallels([10, 70])
       .rotate([-5, 0])
@@ -22,11 +22,6 @@ const GeoFootprint = () => {
       .scale(150)
       .translate([W / 2, H * 0.45]);
     const path = geoPath(projection);
-    const clipped = {
-      type: "FeatureCollection",
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      features: (land.features.length ? land.features : [land]).map((f: any) => f),
-    };
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       landPath: path(clipped as any) ?? "",
@@ -67,7 +62,7 @@ const GeoFootprint = () => {
               </radialGradient>
             </defs>
 
-            <path d={landPath} fill="url(#landFill)" stroke="hsl(var(--electric-blue-light) / 0.25)" strokeWidth={0.6} filter="url(#landShadow)" />
+            <path d={landPath} fill="url(#landFill)" stroke="hsl(var(--navy-deep) / 0.6)" strokeWidth={0.4} filter="url(#landShadow)" />
 
             {flows.map((f) => {
               const a = byId[f.from], b = byId[f.to];
