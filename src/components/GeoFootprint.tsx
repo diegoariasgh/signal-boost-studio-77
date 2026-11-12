@@ -102,6 +102,7 @@ const GeoFootprint = () => {
                   <animateMotion dur={`${4 + (i + f.label.length) % 4}s`} repeatCount="indefinite" path={d} />
                 </circle>
               </g>
+            ));
           })}
 
           {hubs.filter((p) => visible(p.coords)).map((p) => {
