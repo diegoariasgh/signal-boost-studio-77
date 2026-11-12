@@ -8,7 +8,7 @@ const W = 1400;
 const H = 600;
 const R = 820; // globe radius
 const CX = W / 2;
-const CY = H + 380; // centre below the fold, so only the cap shows
+const CY = H + 300; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
   const lon = -22;
@@ -24,10 +24,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, -18];
+  const rotate: [number, number] = [-lon, 32];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, 18];
+  const centre: [number, number] = [lon, -32];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
