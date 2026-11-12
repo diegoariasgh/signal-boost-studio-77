@@ -6,12 +6,12 @@ import { places, flows, type Place } from "@/data/geoFootprint";
 
 const W = 1000;
 const H = 560;
-const R = 620; // globe radius
+const R = 640; // globe radius
 const CX = W / 2;
-const CY = H + R * 0.45; // centre below the fold, so only the cap shows
+const CY = H + R * 0.25; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
-  const [lon, setLon] = useState(-10);
+  const [lon, setLon] = useState(5);
   const [active, setActive] = useState<Place | null>(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const GeoFootprint = () => {
     const start = performance.now();
     const tick = (now: number) => {
       // gentle sway between the Americas and the GCC
-      setLon(-10 + Math.sin((now - start) / 9000) * 28);
+      setLon(5 + Math.sin((now - start) / 9000) * 30);
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -37,10 +37,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, -28];
+  const rotate: [number, number] = [-lon, 35];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, 28];
+  const centre: [number, number] = [lon, -35];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
