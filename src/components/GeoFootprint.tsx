@@ -6,12 +6,12 @@ import { places, flows, type Place } from "@/data/geoFootprint";
 
 const W = 1400;
 const H = 600;
-const R = 820; // globe radius
+const R = 420; // globe radius
 const CX = W / 2;
-const CY = H + 300; // centre below the fold, so only the cap shows
+const CY = 150 + R; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
-  const lon = -22;
+  const lon = -8;
   const [active, setActive] = useState<Place | null>(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,10 +24,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, 32];
+  const rotate: [number, number] = [-lon, -18];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, -32];
+  const centre: [number, number] = [lon, 18];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
@@ -83,21 +83,22 @@ const GeoFootprint = () => {
             </radialGradient>
           </defs>
 
+          <g transform={`translate(${CX},0) scale(1.6,1) translate(${-CX},0)`}>
           <circle cx={CX} cy={CY} r={R * 1.09} fill="url(#atmo)" />
           <circle cx={CX} cy={CY} r={R} fill="url(#ocean)" />
           <path d={path(geoGraticule10()) ?? ""} fill="none" stroke="hsl(var(--electric-blue-light) / 0.08)" strokeWidth={0.6} />
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <path d={path(land as any) ?? ""} fill="hsl(var(--electric-blue) / 0.18)" stroke="hsl(var(--electric-blue-light) / 0.7)" strokeWidth={0.7} />
+          <path d={path(land as any) ?? ""} fill="hsl(var(--electric-blue) / 0.18)" stroke="hsl(var(--electric-blue-light) / 0.7)" strokeWidth={0.7} vectorEffect="non-scaling-stroke" />
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <path d={path(borders as any) ?? ""} fill="none" stroke="hsl(var(--electric-blue-light) / 0.25)" strokeWidth={0.4} />
+          <path d={path(borders as any) ?? ""} fill="none" stroke="hsl(var(--electric-blue-light) / 0.25)" strokeWidth={0.4} vectorEffect="non-scaling-stroke" />
 
           {flows.map((f) => {
             const a = byId[f.from], b = byId[f.to];
             if (!a || !b) return null;
             return liftedArc(a.coords, b.coords).map((d, i) => (
               <g key={f.label + i}>
-                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={4} strokeOpacity={0.15} strokeLinecap="round" />
-                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={1.2} strokeLinecap="round" />
+                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={4} strokeOpacity={0.15} strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={1.2} strokeLinecap="round" vectorEffect="non-scaling-stroke" />
                 <circle r={2.4} fill="hsl(var(--slate-light))" className="motion-reduce:hidden">
                   <animateMotion dur={`${4 + (i + f.label.length) % 4}s`} repeatCount="indefinite" path={d} />
                 </circle>
@@ -109,7 +110,7 @@ const GeoFootprint = () => {
             const [x, y] = projection(p.coords) as [number, number];
             const big = (p.deals?.length ?? 0) >= 2 || !!p.office;
             return (
-              <g key={p.id} transform={`translate(${x},${y})`} className="cursor-pointer"
+              <g key={p.id} transform={`translate(${x},${y}) scale(0.625,1)`} className="cursor-pointer"
                 onMouseEnter={() => setActive(p)} onMouseLeave={() => setActive(null)} onClick={() => setActive(p)}>
                 <circle r={big ? 16 : 10} fill="url(#glow)" className="footprint-pulse" />
                 <circle r={big ? 2.6 : 1.8} fill="hsl(var(--slate-light))" />
@@ -117,6 +118,7 @@ const GeoFootprint = () => {
               </g>
             );
           })}
+          </g>
         </svg>
 
         {active && (
