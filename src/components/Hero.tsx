@@ -57,7 +57,7 @@ const Hero = () => {
             </h1>
 
             <p className="lead-light max-w-2xl mb-12">
-              Boutique advisory for funds, founders, and the development institutions across Europe, the GCC and Africa.
+              Boutique advisory for funds, founders, and development institutions across Europe, the GCC and Africa.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
