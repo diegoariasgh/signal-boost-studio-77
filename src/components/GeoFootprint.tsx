@@ -5,7 +5,7 @@ import countries110 from "world-atlas/countries-110m.json";
 import { places, flows, type Place } from "@/data/geoFootprint";
 
 const W = 1000;
-const H = 520;
+const H = 560;
 
 const GeoFootprint = () => {
   const [active, setActive] = useState<Place | null>(null);
@@ -18,8 +18,8 @@ const GeoFootprint = () => {
     const projection = geoConicEquidistant()
       .parallels([0, 45])
       .rotate([-5, 0])
-      .center([0, 22])
-      .scale(185)
+      .center([0, 12])
+      .scale(175)
       .translate([W / 2, H * 0.45]);
     const path = geoPath(projection);
     return {
