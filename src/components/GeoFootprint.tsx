@@ -8,7 +8,7 @@ const W = 1400;
 const H = 600;
 const R = 420; // globe radius
 const CX = W / 2;
-const CY = 150 + R; // centre below the fold, so only the cap shows
+const CY = 90 + R; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
   const lon = -8;
@@ -24,10 +24,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, -18];
+  const rotate: [number, number] = [-lon, -2];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, 18];
+  const centre: [number, number] = [lon, 2];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
@@ -42,7 +42,7 @@ const GeoFootprint = () => {
       const ll = interp(t) as [number, number];
       if (!visible(ll)) { pts.push(""); continue; }
       const [x, y] = projection(ll) as [number, number];
-      const h = 1 + Math.sin(Math.PI * t) * dist * 0.22;
+      const h = 1 + Math.sin(Math.PI * t) * dist * 0.13;
       pts.push(`${CX + (x - CX) * h},${CY + (y - CY) * h}`);
     }
     // split into visible runs
@@ -50,7 +50,7 @@ const GeoFootprint = () => {
   };
 
   return (
-    <section id="footprint" className="min-h-screen bg-navy text-slate-light pt-24 flex flex-col overflow-hidden relative">
+    <section id="footprint" className="min-h-screen bg-navy text-slate-light pt-24 flex flex-col justify-center overflow-hidden relative">
       <div className="container mx-auto px-6 relative z-10">
         <p className="eyebrow-light eyebrow-light-dash mb-6">Footprint</p>
         <h2 className="display-lg">
@@ -58,7 +58,7 @@ const GeoFootprint = () => {
         </h2>
       </div>
 
-      <div className="relative flex-1 flex items-end">
+      <div className="relative mt-6">
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Globe showing markets where signalworks has worked">
           <defs>
             <linearGradient id="arcGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
