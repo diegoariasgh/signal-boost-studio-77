@@ -7,7 +7,8 @@ A new full-height section, "Where we've worked", placed after About on the homep
 - **Office launches**: Morocco and Egypt, marked with a ring.
 - **Animated arrows showing provenance** (origin to destination):
   - InVivo / Pinecone: US to Qatar and Saudi Arabia (market entry, clinical trials, funding)
-  - Plug and Play: US / Europe to Africa (ecosystem expansion)
+  - Plug and Play: Silicon Valley to the UAE and KSA offices (where you worked), and to the Egypt and Morocco offices you launched
+  - Plug and Play deals: Morocco, Egypt, Kenya, Nigeria, Cameroon, South Africa
   - Incorporation research: African operating markets to holding jurisdictions (UK, Delaware, EU)
   - Further flows from your slides and CV (e.g. Spain, Qatar) once you confirm them
 - **Filter chips**: All · Investments · Market entry · Research · Offices.
@@ -23,4 +24,4 @@ A new full-height section, "Where we've worked", placed after About on the homep
 - No em dashes in copy; geography order "Africa, the GCC, and Europe".
 
 ## To confirm
-- Exact Plug and Play flow (from where to which African markets) and any other flows from your slides.
+- Plug and Play: offices in Egypt and Morocco (launched), plus work in the UAE, KSA and Silicon Valley offices. Deals in Morocco, Egypt, Kenya, Nigeria, Cameroon, South Africa. Any other flows from your slides.
