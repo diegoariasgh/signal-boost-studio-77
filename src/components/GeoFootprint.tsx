@@ -20,7 +20,7 @@ const GeoFootprint = () => {
       .rotate([-5, 0])
       .center([0, 12])
       .scale(175)
-      .translate([W / 2, H * 0.45]);
+      .translate([W / 2, H * 0.58]);
     const path = geoPath(projection);
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
