@@ -6,9 +6,9 @@ import { places, flows, type Place } from "@/data/geoFootprint";
 
 const W = 1000;
 const H = 560;
-const R = 640; // globe radius
+const R = 470; // globe radius
 const CX = W / 2;
-const CY = H + R * 0.25; // centre below the fold, so only the cap shows
+const CY = H + 40; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
   const [lon, setLon] = useState(5);
@@ -37,10 +37,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, 35];
+  const rotate: [number, number] = [-lon, 5];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, -35];
+  const centre: [number, number] = [lon, -5];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
@@ -55,7 +55,7 @@ const GeoFootprint = () => {
       const ll = interp(t) as [number, number];
       if (!visible(ll)) { pts.push(""); continue; }
       const [x, y] = projection(ll) as [number, number];
-      const h = 1 + Math.sin(Math.PI * t) * dist * 0.12;
+      const h = 1 + Math.sin(Math.PI * t) * dist * 0.18;
       pts.push(`${CX + (x - CX) * h},${CY + (y - CY) * h}`);
     }
     // split into visible runs
