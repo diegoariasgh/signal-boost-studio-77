@@ -9,34 +9,34 @@ import {
 const highlights = [
   {
     n: "01",
-    title: "Footprint & on-the-ground network",
+    title: "Investment execution",
     summary:
-      "Active presence across UAE, KSA, Morocco, Egypt, Kenya, Nigeria, Tunisia, and South Africa, with working relationships in Europe and select partners in the US.",
+      "18 investments led at Plug and Play and three inaugural Fund II deals at Outlierz Ventures.",
     body:
-      "Soft-landings and partnership development run through local operators, regulators, and accelerators in each market, not from a distance.",
+      "End-to-end investment work from Pre-Seed to Series A: sourcing, market and financial diligence, term sheet negotiation, and investment committee materials. At Outlierz Ventures, this included the fund’s first energy investment and first investments in Senegal and Tunisia.",
   },
   {
     n: "02",
-    title: "Institutional credibility",
+    title: "Fund strategy & formation",
     summary:
-      "Work alongside global VC platforms, accelerators, and development finance institutions.",
+      "LP materials, financial models, fund structuring, and catalytic investment processes.",
     body:
-      "Engagements with Plug and Play, Open Startup (OST), NYU Stern, and programs backed by institutions like UM6P, OCP, the National Bank of Egypt, USAID, Digital Africa, the African Development Bank, and the EU, spanning venture studios, VC fund operations, and early-stage founders in fintech, biotech, IoT/AI, and energy & resource management.",
+      "Supported fund partners on fundraising strategy, investor onboarding, and anchor LP negotiations. Current advisory work spans new fund and accelerator strategies, alongside a catalytic vehicle for deep-tech startups, covering SAFE terms, due diligence, investment committee processes, and impact and ESG frameworks.",
   },
   {
     n: "03",
-    title: "Transaction experience",
+    title: "Building across markets",
     summary:
-      "20+ early-stage deals led across African markets, from sourcing and diligence to IC materials and investor syndication.",
+      "Morocco and Egypt office launches, institutional partnerships, and international company-structuring research.",
     body:
-      "Hands-on investment work across Morocco, Egypt, Nigeria, Kenya, Côte d'Ivoire, Cameroon, Senegal, Tunisia, and South Africa, connecting founder strategy, commercial milestones, and capital conversations across local and international investor networks.",
+      "Launched Plug and Play offices in Ben Guerir and Cairo, building partnerships with OCP, the National Bank of Egypt, USAID, ITIDA, and Egypt Post. For Digital Africa, led six months of comparative research across 16 study entries, including the proposed EU Inc., translating tax, company setup, and operating requirements into practical tools for founders.",
   },
 ];
 
 const stats = [
-  { value: "20+", label: "Deals led" },
-  { value: "9", label: "African markets" },
-  { value: "4", label: "Sectors of depth" },
+  { value: "20+", label: "Investments led" },
+  { value: "16", label: "Jurisdictions researched" },
+  { value: "8+", label: "Years investing & operating" },
 ];
 
 const About = () => {
@@ -58,9 +58,12 @@ const About = () => {
             {/* Left: tight narrative + founder accordion + stats */}
             <div className="lg:col-span-6 flex flex-col h-full border-t border-b border-border py-8">
               <p className="lead">
-                We sit at the intersection of early-stage investing, fund
-                operations, and go-to-market, translating regional context
-                across Africa, the GCC, and Europe into decisions that move.
+                We help funds shape investment strategies, institutions turn
+                research into insights and practical tools, and founders
+                navigate capital and market entry. Our experience spans
+                investment execution, launching offices, building institutional
+                partnerships, and structuring catalytic capital vehicles across
+                Africa, the GCC, and Europe.
               </p>
 
               <Accordion
