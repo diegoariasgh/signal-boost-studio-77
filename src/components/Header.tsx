@@ -13,7 +13,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
   { id: "about", label: "About" },
-  { id: "footprint", label: "Footprint" },
   { id: "services", label: "Services" },
   { id: "work", label: "Work" },
   { id: "testimonials", label: "Testimonials" },
