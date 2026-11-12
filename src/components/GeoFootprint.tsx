@@ -5,10 +5,10 @@ import countries110 from "world-atlas/countries-110m.json";
 import { places, flows, type Place } from "@/data/geoFootprint";
 
 const W = 1400;
-const H = 600;
+const H = 660;
 const R = 420; // globe radius
 const CX = W / 2;
-const CY = 90 + R; // centre below the fold, so only the cap shows
+const CY = 150 + R; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
   const lon = -8;
@@ -59,7 +59,7 @@ const GeoFootprint = () => {
       </div>
 
       <div className="relative mt-6">
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Globe showing markets where signalworks has worked">
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)" }} className="w-full h-auto block" role="img" aria-label="Globe showing markets where signalworks has worked">
           <defs>
             <linearGradient id="arcGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
               <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.2" />
