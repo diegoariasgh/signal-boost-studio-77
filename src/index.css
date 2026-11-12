@@ -252,19 +252,3 @@ All colors MUST be HSL.
   }
 }
 
-@layer components {
-  .footprint-flow {
-    stroke-dasharray: 4 6;
-    animation: footprint-dash 1.6s linear infinite;
-  }
-  .footprint-pulse {
-    animation: footprint-pulse 2.8s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  @keyframes footprint-dash { to { stroke-dashoffset: -24; } }
-  @keyframes footprint-pulse { 0%,100% { opacity: .5; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.1); } }
-  @media (prefers-reduced-motion: reduce) {
-    .footprint-flow, .footprint-pulse { animation: none; }
-  }
-}
