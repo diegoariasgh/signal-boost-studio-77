@@ -20,7 +20,7 @@ const GeoFootprint = () => {
       .rotate([-5, 0])
       .center([0, 12])
       .scale(175)
-      .translate([W / 2, H * 0.58]);
+      .translate([W / 2, H * 0.5]);
     const path = geoPath(projection);
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,7 +53,7 @@ const GeoFootprint = () => {
                 <stop offset="0%" stopColor="hsl(var(--navy-lighter))" />
                 <stop offset="100%" stopColor="hsl(var(--electric-blue) / 0.35)" />
               </linearGradient>
-              <filter id="landShadow" x="-10%" y="-10%" width="120%" height="140%">
+              <filter id="landShadow" x="-20%" y="-40%" width="140%" height="190%">
                 <feDropShadow dx="0" dy="14" stdDeviation="12" floodColor="hsl(var(--electric-blue))" floodOpacity="0.18" />
               </filter>
               <radialGradient id="glow">
