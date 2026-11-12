@@ -1,31 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { geoOrthographic, geoPath, geoGraticule10, geoInterpolate, geoDistance } from "d3-geo";
 import { feature, mesh } from "topojson-client";
 import countries110 from "world-atlas/countries-110m.json";
 import { places, flows, type Place } from "@/data/geoFootprint";
 
-const W = 1000;
-const H = 560;
-const R = 470; // globe radius
+const W = 1400;
+const H = 660;
+const R = 420; // globe radius
 const CX = W / 2;
-const CY = H + 40; // centre below the fold, so only the cap shows
+const CY = 150 + R; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
-  const [lon, setLon] = useState(5);
+  const lon = -8;
   const [active, setActive] = useState<Place | null>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      // gentle sway between the Americas and the GCC
-      setLon(5 + Math.sin((now - start) / 9000) * 30);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const topo = countries110 as any;
@@ -37,10 +24,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, 5];
+  const rotate: [number, number] = [-lon, -2];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, -5];
+  const centre: [number, number] = [lon, 2];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
@@ -55,7 +42,7 @@ const GeoFootprint = () => {
       const ll = interp(t) as [number, number];
       if (!visible(ll)) { pts.push(""); continue; }
       const [x, y] = projection(ll) as [number, number];
-      const h = 1 + Math.sin(Math.PI * t) * dist * 0.18;
+      const h = 1 + Math.sin(Math.PI * t) * dist * 0.13;
       pts.push(`${CX + (x - CX) * h},${CY + (y - CY) * h}`);
     }
     // split into visible runs
@@ -63,7 +50,7 @@ const GeoFootprint = () => {
   };
 
   return (
-    <section id="footprint" className="min-h-screen bg-navy text-slate-light pt-24 flex flex-col overflow-hidden relative">
+    <section id="footprint" className="min-h-screen bg-navy text-slate-light pt-24 flex flex-col justify-center overflow-hidden relative">
       <div className="container mx-auto px-6 relative z-10">
         <p className="eyebrow-light eyebrow-light-dash mb-6">Footprint</p>
         <h2 className="display-lg">
@@ -71,9 +58,14 @@ const GeoFootprint = () => {
         </h2>
       </div>
 
-      <div className="relative flex-1 flex items-end">
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Globe showing markets where signalworks has worked">
+      <div className="relative mt-6">
+        <svg viewBox={`0 0 ${W} ${H}`} style={{ maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)" }} className="w-full h-auto block" role="img" aria-label="Globe showing markets where signalworks has worked">
           <defs>
+            <linearGradient id="arcGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
+              <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.2" />
+              <stop offset="50%" stopColor="hsl(var(--electric-blue-light))" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.2" />
+            </linearGradient>
             <radialGradient id="atmo" cx="50%" cy="50%" r="50%">
               <stop offset="88%" stopColor="hsl(var(--electric-blue))" stopOpacity="0" />
               <stop offset="94%" stopColor="hsl(var(--electric-blue-light))" stopOpacity="0.55" />
@@ -91,19 +83,26 @@ const GeoFootprint = () => {
             </radialGradient>
           </defs>
 
+          <g transform={`translate(${CX},0) scale(1.6,1) translate(${-CX},0)`}>
           <circle cx={CX} cy={CY} r={R * 1.09} fill="url(#atmo)" />
           <circle cx={CX} cy={CY} r={R} fill="url(#ocean)" />
           <path d={path(geoGraticule10()) ?? ""} fill="none" stroke="hsl(var(--electric-blue-light) / 0.08)" strokeWidth={0.6} />
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <path d={path(land as any) ?? ""} fill="hsl(var(--electric-blue) / 0.18)" stroke="hsl(var(--electric-blue-light) / 0.7)" strokeWidth={0.7} />
+          <path d={path(land as any) ?? ""} fill="hsl(var(--electric-blue) / 0.18)" stroke="hsl(var(--electric-blue-light) / 0.7)" strokeWidth={0.7} vectorEffect="non-scaling-stroke" />
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <path d={path(borders as any) ?? ""} fill="none" stroke="hsl(var(--electric-blue-light) / 0.25)" strokeWidth={0.4} />
+          <path d={path(borders as any) ?? ""} fill="none" stroke="hsl(var(--electric-blue-light) / 0.25)" strokeWidth={0.4} vectorEffect="non-scaling-stroke" />
 
           {flows.map((f) => {
             const a = byId[f.from], b = byId[f.to];
             if (!a || !b) return null;
             return liftedArc(a.coords, b.coords).map((d, i) => (
-              <path key={f.label + i} d={d} fill="none" stroke="hsl(var(--electric-blue-light))" strokeOpacity={0.6} strokeWidth={1} className="footprint-flow" />
+              <g key={f.label + i}>
+                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={4} strokeOpacity={0.15} strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={1.2} strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                <circle r={2.4} fill="hsl(var(--slate-light))" className="motion-reduce:hidden">
+                  <animateMotion dur={`${4 + (i + f.label.length) % 4}s`} repeatCount="indefinite" path={d} />
+                </circle>
+              </g>
             ));
           })}
 
@@ -111,7 +110,7 @@ const GeoFootprint = () => {
             const [x, y] = projection(p.coords) as [number, number];
             const big = (p.deals?.length ?? 0) >= 2 || !!p.office;
             return (
-              <g key={p.id} transform={`translate(${x},${y})`} className="cursor-pointer"
+              <g key={p.id} transform={`translate(${x},${y}) scale(0.625,1)`} className="cursor-pointer"
                 onMouseEnter={() => setActive(p)} onMouseLeave={() => setActive(null)} onClick={() => setActive(p)}>
                 <circle r={big ? 16 : 10} fill="url(#glow)" className="footprint-pulse" />
                 <circle r={big ? 2.6 : 1.8} fill="hsl(var(--slate-light))" />
@@ -119,6 +118,7 @@ const GeoFootprint = () => {
               </g>
             );
           })}
+          </g>
         </svg>
 
         {active && (
