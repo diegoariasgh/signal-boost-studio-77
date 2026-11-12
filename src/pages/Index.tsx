@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import GeoFootprint from "@/components/GeoFootprint";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
@@ -38,6 +39,7 @@ const Index = () => {
       <Header />
       <Hero />
       <About />
+      <GeoFootprint />
       <Services />
       <FeaturedProjects />
       <Testimonials />
