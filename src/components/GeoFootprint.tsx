@@ -17,10 +17,10 @@ const GeoFootprint = () => {
     land.features = land.features ?? [];
     const projection = geoConicEquidistant()
       .parallels([10, 70])
-      .rotate([-15, 0])
-      .center([0, 25])
-      .scale(250)
-      .translate([W / 2, H * 0.42]);
+      .rotate([-5, 0])
+      .center([0, 30])
+      .scale(150)
+      .translate([W / 2, H * 0.45]);
     const path = geoPath(projection);
     const clipped = {
       type: "FeatureCollection",
