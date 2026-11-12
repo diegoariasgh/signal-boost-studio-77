@@ -1,31 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { geoOrthographic, geoPath, geoGraticule10, geoInterpolate, geoDistance } from "d3-geo";
 import { feature, mesh } from "topojson-client";
 import countries110 from "world-atlas/countries-110m.json";
 import { places, flows, type Place } from "@/data/geoFootprint";
 
-const W = 1000;
-const H = 560;
-const R = 470; // globe radius
+const W = 1400;
+const H = 600;
+const R = 820; // globe radius
 const CX = W / 2;
-const CY = H + 40; // centre below the fold, so only the cap shows
+const CY = H + 380; // centre below the fold, so only the cap shows
 
 const GeoFootprint = () => {
-  const [lon, setLon] = useState(5);
+  const lon = -22;
   const [active, setActive] = useState<Place | null>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      // gentle sway between the Americas and the GCC
-      setLon(5 + Math.sin((now - start) / 9000) * 30);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const topo = countries110 as any;
@@ -37,10 +24,10 @@ const GeoFootprint = () => {
     };
   }, [topo]);
 
-  const rotate: [number, number] = [-lon, 5];
+  const rotate: [number, number] = [-lon, -18];
   const projection = geoOrthographic().scale(R).translate([CX, CY]).rotate(rotate).clipAngle(90);
   const path = geoPath(projection);
-  const centre: [number, number] = [lon, -5];
+  const centre: [number, number] = [lon, 18];
   const visible = (c: [number, number]) => geoDistance(c, centre) < Math.PI / 2 - 0.05;
 
   const byId = Object.fromEntries(places.map((p) => [p.id, p]));
@@ -55,7 +42,7 @@ const GeoFootprint = () => {
       const ll = interp(t) as [number, number];
       if (!visible(ll)) { pts.push(""); continue; }
       const [x, y] = projection(ll) as [number, number];
-      const h = 1 + Math.sin(Math.PI * t) * dist * 0.18;
+      const h = 1 + Math.sin(Math.PI * t) * dist * 0.22;
       pts.push(`${CX + (x - CX) * h},${CY + (y - CY) * h}`);
     }
     // split into visible runs
@@ -74,6 +61,11 @@ const GeoFootprint = () => {
       <div className="relative flex-1 flex items-end">
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="Globe showing markets where signalworks has worked">
           <defs>
+            <linearGradient id="arcGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
+              <stop offset="0%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.2" />
+              <stop offset="50%" stopColor="hsl(var(--electric-blue-light))" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="hsl(var(--electric-blue))" stopOpacity="0.2" />
+            </linearGradient>
             <radialGradient id="atmo" cx="50%" cy="50%" r="50%">
               <stop offset="88%" stopColor="hsl(var(--electric-blue))" stopOpacity="0" />
               <stop offset="94%" stopColor="hsl(var(--electric-blue-light))" stopOpacity="0.55" />
@@ -103,8 +95,13 @@ const GeoFootprint = () => {
             const a = byId[f.from], b = byId[f.to];
             if (!a || !b) return null;
             return liftedArc(a.coords, b.coords).map((d, i) => (
-              <path key={f.label + i} d={d} fill="none" stroke="hsl(var(--electric-blue-light))" strokeOpacity={0.6} strokeWidth={1} className="footprint-flow" />
-            ));
+              <g key={f.label + i}>
+                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={4} strokeOpacity={0.15} strokeLinecap="round" />
+                <path d={d} fill="none" stroke="url(#arcGrad)" strokeWidth={1.2} strokeLinecap="round" />
+                <circle r={2.4} fill="hsl(var(--slate-light))" className="motion-reduce:hidden">
+                  <animateMotion dur={`${4 + (i + f.label.length) % 4}s`} repeatCount="indefinite" path={d} />
+                </circle>
+              </g>
           })}
 
           {hubs.filter((p) => visible(p.coords)).map((p) => {
